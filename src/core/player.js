@@ -605,7 +605,7 @@ window.player = {
       lastRepeatedMachines: DC.D0
     },
     effarig: {
-      relicShards: 0,
+      relicShards: DC.D0,
       unlockBits: 0,
       run: false,
       quoteBits: 0,
