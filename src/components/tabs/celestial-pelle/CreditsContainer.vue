@@ -230,7 +230,7 @@ perfectly the same. */
 
 .c-speed-button {
   position: fixed;
-  left: 4rem;
+  left: 6rem;
   font-size: 2rem;
   opacity: 0.5;
   pointer-events: auto;
