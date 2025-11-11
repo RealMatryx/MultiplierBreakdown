@@ -341,7 +341,7 @@ export const Endgame = {
     player.celestials.laitela.maxDarkMatter = DC.D0;
     player.celestials.laitela.run = false;
     player.celestials.laitela.quoteBits = 0;
-    player.celestials.laitela.dimensions = Array.range(0, 4).map(() =>
+    player.celestials.laitela.dimensions = Array.range(0, 8).map(() =>
       ({
         amount: DC.D0,
         intervalUpgrades: 0,
