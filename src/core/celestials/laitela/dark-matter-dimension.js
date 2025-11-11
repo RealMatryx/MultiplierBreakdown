@@ -280,7 +280,7 @@ export const DarkMatterDimensions = {
     if (DarkMatterDimension(6).isUnlocked) return 6;
     if (DarkMatterDimension(5).isUnlocked) return 5;
     return 4;
-  }
+  },
 
   reset() {
     for (const dimension of DarkMatterDimensions.all) {
