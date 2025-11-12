@@ -270,6 +270,7 @@ function maxBuyDimBoosts() {
 
 
   if (EternityChallenge(5).isRunning) {
+    const ad = AntimatterDimension(tier).totalAmount;
     let estimateTotalAmount = Decimal.floor(Decimal.cbrt(ad)).add(1);
     const freeBoost = NormalChallenge(10).isRunning ? new Decimal(2) : new Decimal(4);
     const divisor1 = NormalChallenge(10).isRunning ? new Decimal(20) : new Decimal(15);
@@ -278,7 +279,7 @@ function maxBuyDimBoosts() {
     const cubicSum = DC.D20.add(estimateTotalAmount.sub(freeBoost.add(1)).mul(divisor1.sub(divisor2)));
     const listedCost = estimateTotalAmount.lt(freeBoost) ? new Decimal(0) : (Decimal.pow(estimateTotalAmount.sub(1), 3).add(estimateTotalAmount).add(cubicSum).sub(1).sub(Effects.sum(InfinityUpgrade.resetBoost)).sub(extraEffect)).times(InfinityUpgrade.resetBoost.chargedEffect.effectOrDefault(1));
     if (listedCost.gt(0)) {
-      while (listedCost.lt(ad)) {
+      if (listedCost.lt(ad)) {
         estimateTotalAmount = estimateTotalAmount.add(1);
       }
       if (listedCost.gte(ad)) {
