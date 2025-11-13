@@ -108,13 +108,13 @@ export const Laitela = {
   },
   reset() {
     this.annihilate(true);
-    this.celestial.darkMatterMult = 1;
+    this.celestial.darkMatterMult = DC.D1;
     Currency.darkMatter.max = DC.D1;
     Currency.darkMatter.reset();
     Currency.singularities.reset();
     this.celestial.fastestCompletion = 3600;
     this.celestial.difficultyTier = 0;
-    this.celestial.singularityCapIncreases = 0;
+    this.celestial.singularityCapIncreases = DC.D0;
   },
   quotes: Quotes.laitela,
   symbol: "ᛝ"
