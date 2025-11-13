@@ -109,7 +109,7 @@ export const SingularityMilestones = {
   lastNotified: player.celestials.laitela.lastCheckedMilestones,
 
   get sorted() {
-    return this.all.sort((a, b) => a.remainingSingularities.sub(b.remainingSingularities));
+    return this.all.sort((a, b) => Decimal.compare(a.remainingSingularities, b.remainingSingularities));
   },
 
   sortedForCompletions(moveNewToTop) {
@@ -184,7 +184,7 @@ export const SingularityMilestones = {
     // Compose the functions together; possibly reverse the final order and bring new milestones to the top
     const isNew = m => ((m.previousGoal.gt(player.celestials.laitela.lastCheckedMilestones) && moveNewToTop) ? 20 : 0);
     const compFn = m => Decimal.add(options.sortOrder ? sortFn(m) : sortFn(m).neg(), isNew(m) + (m.isMaxed ? completedVal : 0));
-    return this.sorted.sort((a, b) => compFn(b).sub(compFn(a)));
+    return this.sorted.sort((a, b) => Decimal.compare(compFn(a), compFn(b)));
   },
 
   get nextMilestoneGroup() {
