@@ -105,7 +105,7 @@ export class DarkMatterDimensionState extends DimensionState {
   }
 
   get intervalAfterAscension() {
-    const purchases = this.costScaleInterval.getMaxBought(this.data.intervalUpgrades, Currency.darkMatter.value, DC.D1);
+    const purchases = this.costScaleInterval.decimalGetMaxBought(this.data.intervalUpgrades, Currency.darkMatter.value, DC.D1);
     return Decimal.clampMin(this.intervalPurchaseCap, this.rawInterval.mul(Decimal.pow(INTERVAL_PER_UPGRADE, purchases))
       .mul(SingularityMilestone.ascensionIntervalScaling.effectOrDefault(1200)));
   }
@@ -212,7 +212,7 @@ export class DarkMatterDimensionState extends DimensionState {
 
   buyManyInterval(x) {
     // eslint-disable-next-line max-len
-    const calc = this.costScaleInterval.getMaxBought(this.data.intervalUpgrades, Currency.darkMatter.value, DC.D1);
+    const calc = this.costScaleInterval.decimalGetMaxBought(this.data.intervalUpgrades, Currency.darkMatter.value, DC.D1);
     const quant = calc?.quantity;
     if (calc === null) return;
     if (Decimal.lte(x, quant.clampMax(this.maxIntervalPurchases))) {
@@ -227,7 +227,7 @@ export class DarkMatterDimensionState extends DimensionState {
   }
 
   buyManyPowerDM(x) {
-    const calc = this.costScaleDM.getMaxBought(this.data.powerDMUpgrades, Currency.darkMatter.value, DC.D1);
+    const calc = this.costScaleDM.decimalGetMaxBought(this.data.powerDMUpgrades, Currency.darkMatter.value, DC.D1);
     if (calc === null) return;
     if (Decimal.lte(x, calc.quantity)) {
       Currency.darkMatter.purchase(this.costScaleDM.decimalCalculateCost(this.data.powerDMUpgrades.add(x).sub(1)));
@@ -239,7 +239,7 @@ export class DarkMatterDimensionState extends DimensionState {
   }
 
   buyManyPowerDE(x) {
-    const calc = this.costScaleDE.getMaxBought(this.data.powerDEUpgrades, Currency.darkMatter.value, DC.D1);
+    const calc = this.costScaleDE.decimalGetMaxBought(this.data.powerDEUpgrades, Currency.darkMatter.value, DC.D1);
     if (calc === null) return;
     if (Decimal.lte(x, calc.quantity)) {
       Currency.darkMatter.purchase(this.costScaleDE.decimalCalculateCost(this.data.powerDEUpgrades.add(x).sub(1)));
