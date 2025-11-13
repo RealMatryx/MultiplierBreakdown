@@ -54,7 +54,7 @@ class SingularityMilestoneState extends GameMechanicState {
   }
 
   get nextGoal() {
-    if (this.isUnique) return this.start;
+    if (this.isUnique) return new Decimal(this.start);
     return Decimal.pow(this.repeat, this.unnerfCompletions(this.completions.plus(1)).sub(1)).times(this.start);
   }
 
