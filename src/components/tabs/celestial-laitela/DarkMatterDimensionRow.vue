@@ -124,7 +124,7 @@ export default {
       this.intervalAfterAscension.copyFrom(dim.intervalAfterAscension);
       this.darkEnergyPerSecond.copyFrom(dim.productionPerSecond);
       this.portionDE.copyFrom(this.darkEnergyPerSecond.div(Currency.darkEnergy.productionPerSecond));
-      this.productionPerSecond = this.dimensionProduction(this.tier);
+      this.productionPerSecond.copyFrom(this.dimensionProduction(this.tier));
       this.percentPerSecond = Decimal.divide(this.productionPerSecond, this.amount).clampMax(1).toNumber();
       if (!this.isIntervalCapped) this.hoverOverAscension = false;
     },
