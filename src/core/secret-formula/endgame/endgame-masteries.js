@@ -303,8 +303,8 @@ export const endgameMasteries = [
     reqType: EM_REQUIREMENT_TYPE.AT_LEAST_ONE,
     description: "Improve Singularity Gain per bulk increase based on Singularities owned",
     //Remember to add effect divisor 100 until 75 then power scaling to hardcap 100
-    effect: () => Math.floor(1 + (Math.log10(Math.clamp(Currency.singularities.value / 1e50, 1, 1e125)) / 5) +
-      (Math.log10(Math.clamp(Currency.singularities.value / 1e175, 1, 1e250)) / 10)),
+    effect: () => Decimal.floor((new Decimal(Decimal.log10(Decimal.clamp(Currency.singularities.value.div(1e50), 1, 1e125))).div(5)).add(
+      new Decimal(Decimal.log10(Decimal.clamp(Currency.singularities.value.div(1e175), 1, 1e250))).div(10)).add(1)),
     formatEffect: value => `+${format(value, 2)}`
   },
   {
