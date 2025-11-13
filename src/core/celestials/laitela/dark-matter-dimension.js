@@ -159,7 +159,7 @@ export class DarkMatterDimensionState extends DimensionState {
     return new ExponentialCostScaling({
       baseCost: this.adjustedStartingCost.mul(SingularityMilestone.darkDimensionCostReduction.effectOrDefault(1))
         .times(POWER_DE_START_COST),
-      baseIncrease: this.powerDECostIncrease,
+      baseIncrease: this.powerDECostIncrease.toNumber(),
       costScale: new Decimal(10),
       scalingCostThreshold: Decimal.NUMBER_MAX_VALUE.div(SingularityMilestone.darkDimensionCostReduction.effectOrDefault(1))
     });
@@ -169,7 +169,7 @@ export class DarkMatterDimensionState extends DimensionState {
     return new ExponentialCostScaling({
       baseCost: this.adjustedStartingCost.mul(SingularityMilestone.darkDimensionCostReduction.effectOrDefault(1))
         .times(POWER_DM_START_COST),
-      baseIncrease: this.powerDMCostIncrease,
+      baseIncrease: this.powerDMCostIncrease.toNumber(),
       costScale: new Decimal(10),
       scalingCostThreshold: Decimal.NUMBER_MAX_VALUE.div(SingularityMilestone.darkDimensionCostReduction.effectOrDefault(1))
     });
@@ -179,7 +179,7 @@ export class DarkMatterDimensionState extends DimensionState {
     return new ExponentialCostScaling({
       baseCost: this.adjustedStartingCost.mul(SingularityMilestone.darkDimensionCostReduction.effectOrDefault(1))
         .times(INTERVAL_START_COST),
-      baseIncrease: this.intervalCostIncrease,
+      baseIncrease: this.intervalCostIncrease.toNumber(),
       costScale: new Decimal(10),
       scalingCostThreshold: Decimal.NUMBER_MAX_VALUE.div(SingularityMilestone.darkDimensionCostReduction.effectOrDefault(1))
     });
