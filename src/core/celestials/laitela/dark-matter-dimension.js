@@ -123,6 +123,7 @@ export class DarkMatterDimensionState extends DimensionState {
   }
 
   get intervalCost() {
+    if (this.rawIntervalCost.gt(1e300) return this.rawIntervalCost;
     return this.rawIntervalCost.floor();
   }
 
@@ -136,6 +137,7 @@ export class DarkMatterDimensionState extends DimensionState {
   }
 
   get powerDMCost() {
+    if (this.rawPowerDMCost.gt(1e300) return this.rawPowerDMCost;
     return this.rawPowerDMCost.floor();
   }
 
@@ -149,6 +151,7 @@ export class DarkMatterDimensionState extends DimensionState {
   }
 
   get powerDECost() {
+    if (this.rawPowerDECost.gt(1e300) return this.rawPowerDECost;
     return this.rawPowerDECost.floor();
   }
 
