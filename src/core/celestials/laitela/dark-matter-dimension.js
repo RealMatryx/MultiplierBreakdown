@@ -272,11 +272,14 @@ export const DarkMatterDimensions = {
         const ticks = Decimal.floor(new Decimal(dim.timeSinceLastUpdate).div(dim.interval));
         const productionDM = dim.amount.times(ticks).times(dim.powerDM);
         if (tier === 1) {
-          Currency.darkMatter.add(Decimal.min(productionDM, Laitela.darkMatterCap));
+          Currency.darkMatter.add(productionDM);
         } else {
           DarkMatterDimension(tier - 1).amount = DarkMatterDimension(tier - 1).amount.plus(productionDM);
         }
         Currency.darkEnergy.add(ticks.mul(dim.powerDE));
+        if (Currency.darkMatter.max.gte(Laitela.darkMatterCap) {
+          Currency.darkMatter = Laitela.darkMatterCap;
+        }
         dim.timeSinceLastUpdate -= dim.interval.times(ticks).toNumber();
       }
     }
