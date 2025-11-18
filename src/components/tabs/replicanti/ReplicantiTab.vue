@@ -33,6 +33,8 @@ export default {
       capMultText: "",
       distantRG: 0,
       remoteRG: 0,
+      contingentRG: 0,
+      isContingent: false,
       effarigInfinityBonusRG: 0,
       isUncapped: false,
       nextEffarigRGThreshold: 0,
@@ -160,6 +162,8 @@ export default {
       }
       this.distantRG = ReplicantiUpgrade.galaxies.distantRGStart;
       this.remoteRG = ReplicantiUpgrade.galaxies.remoteRGStart;
+      this.contingentRG = ReplicantiUpgrade.galaxies.contingentRGStart;
+      this.isContingent = Replicanti.galaxies.bought >= this.contingentRG;
       this.effarigInfinityBonusRG = Effarig.bonusRG;
       this.nextEffarigRGThreshold = Decimal.NUMBER_MAX_VALUE.pow(
         Effarig.bonusRG + 2
@@ -250,6 +254,15 @@ export default {
         more rapidly above {{ formatInt(distantRG) }} Replicanti Galaxies
         and even more so above {{ formatInt(remoteRG) }} Replicanti Galaxies.
       </div>
+      <br>
+      <div
+        v-if="isContingent"
+        class="contingency-text"
+      >
+        Your Replicanti Galaxies have become Contingent. This is because they are taking up too much space in the Universe.
+        <br>
+        This effect started at {{ formatInt(contingentRG) }} Replicanti Galaxies, and will continue until the End of Time.
+      </div>
       <br><br>
       <ReplicantiGainText />
       <br>
@@ -268,5 +281,11 @@ export default {
 .modified-cap {
   margin: -0.8rem 0 0.8rem;
   font-weight: bold;
+}
+
+.contingency-text {
+  color: var(--color-pelle--base);
+  text-shadow: 0 0 0.2rem var(--color-pelle--base);
+  cursor: default;
 }
 </style>
