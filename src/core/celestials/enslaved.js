@@ -181,7 +181,7 @@ export const Enslaved = {
     return !EnslavedProgress.hintsUnlocked.hasProgress && Enslaved.has(ENSLAVED_UNLOCKS.RUN) && !Enslaved.isCompleted;
   },
   get isUnlocked() {
-    return EffarigUnlock.eternity.isUnlocked;
+    return EffarigUnlock.eternity.isUnlocked || EndgameMilestone.celestialEarlyUnlock.isReached;
   },
   get realityBoostRatio() {
     return Math.max(1, Math.floor(player.celestials.enslaved.storedReal /
