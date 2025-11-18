@@ -274,8 +274,12 @@ export const Tesseracts = {
     return player.celestials.enslaved.tesseracts;
   },
 
-  get extra() {
+  get rawExtra() {
     return (this.bought * (SingularityMilestone.tesseractMultFromSingularities.effectOrDefault(1) - 1)) + Effects.sum(EndgameMastery(61));
+  },
+
+  get extra() {
+    return ((this.rawExtra - 50) * (1 / (1 + ((this.rawExtra - 50) / 50)))) + Math.min(this.rawExtra, 50);
   },
 
   get totalMult() {
@@ -306,7 +310,9 @@ export const Tesseracts = {
   },
 
   capIncrease(count = this.bought) {
-    const totalCount = (count + (count * (SingularityMilestone.tesseractMultFromSingularities.effectOrDefault(1) - 1)) + Effects.sum(EndgameMastery(61))) * Effects.product(BreakEternityUpgrade.tesseractMultiplier);
+    const extra = this.extra;
+    const mult = this.totalMult;
+    const totalCount = (count + extra) * totalMult;
     const base = totalCount < 1 ? 0 : 250e3 * Math.pow(2, totalCount);
     return base * (AlchemyResource.boundless.effectValue + 1);
   },
