@@ -279,7 +279,7 @@ export const Tesseracts = {
   },
 
   get extra() {
-    return ((this.rawExtra - 50) * (1 / (1 + ((this.rawExtra - 50) / 50)))) + Math.min(this.rawExtra, 50);
+    return Math.max((this.rawExtra - 50) * (1 / (1 + ((this.rawExtra - 50) / 50))), 0) + Math.min(this.rawExtra, 50);
   },
 
   get totalMult() {
