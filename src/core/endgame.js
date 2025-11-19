@@ -70,6 +70,10 @@ export const Endgame = {
       if (prevRunIndices.length > 100) player.speedrun.previousRuns[prevRunIndices.min()] = undefined;
     }
 
+    if (player.endgames === 0) {
+      TabNotification.imaginaryMachineUnlock.tryTrigger();
+    }
+
     // Modify beaten-game quantities before doing a carryover reset
     giveEndgameRewards();
     updateEndgameRecords();
