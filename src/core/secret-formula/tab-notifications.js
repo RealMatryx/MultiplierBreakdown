@@ -220,4 +220,72 @@ export const tabNotifications = {
     // Always externally triggered
     condition: () => true,
   },
+  endgameUnlock: {
+    id: 17,
+    tabsToHighLight: [
+      {
+        parent: "endgame",
+        tab: "endgame"
+      },
+      {
+        parent: "endgame",
+        tab: "break-eternity"
+      },
+      {
+        parent: "endgame",
+        tab: "pelle-destruction"
+      },
+      {
+        parent: "endgame",
+        tab: "expansion-packs"
+      },
+      {
+        parent: "endgame",
+        tab: "masteries"
+      },
+      {
+        parent: "endgame",
+        tab: "milestones"
+      },
+      {
+        parent: "dimensions",
+        tab: "celestial"
+      }
+    ],
+    condition: () => PlayerProgress.endgameUnlocked(),
+    events: [GAME_EVENT.GAME_TICK_AFTER]
+  },
+  breakEternity: {
+    id: 18,
+    tabsToHighLight: [
+      {
+        parent: "endgame",
+        tab: "break-eternity"
+      }
+    ],
+    condition: () => PlayerProgress.endgameUnlocked() && Currency.antimatter.gte(DC.E9E15),
+    events: [GAME_EVENT.GAME_TICK_AFTER]
+  },
+  packsUnlock: {
+    id: 19,
+    tabsToHighLight: [
+      {
+        parent: "endgame",
+        tab: "expansion-packs"
+      }
+    ],
+    condition: () => PlayerProgress.endgameUnlocked() && GalaxyGenerator.generatedGalaxies >= Math.pow(2, 64),
+    events: [GAME_EVENT.GAME_TICK_AFTER]
+  },
+  endgameUpgrades: {
+    id: 20,
+    tabsToHighLight: [
+      {
+        parent: "endgame",
+        tab: "upgrades"
+      }
+    ],
+    condition: () => EndgameUpgrades.isUnlocked,
+    events: [GAME_EVENT.GAME_TICK_AFTER]
+  },
 };
