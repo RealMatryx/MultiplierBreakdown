@@ -175,7 +175,7 @@ export const endgameUpgrades = [
     name: "Antimatter Amassment",
     id: 15,
     cost: 1e111,
-    requirement: () => `Reach ${format(Decimal.pow(10, 1e33)} Antimatter`,
+    requirement: () => `Reach ${format(Decimal.pow(10, 1e33))} Antimatter`,
     checkRequirement: () => Currency.antimatter.exponent >= 1e33,
     checkEvent: GAME_EVENT.GAME_TICK_AFTER,
     description: () => `Gain a power to Antimatter Gain based on Imaginary Machines`,
