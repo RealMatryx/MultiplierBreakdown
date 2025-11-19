@@ -47,43 +47,45 @@ export default {
 </script>
 
 <template>
-  <button
-    v-if="isAvailable"
-    :class="classObject"
-    @click="upgrade.purchase()"
-  >
-    <HintText
-      type="breakEternityUpgrades"
-      class="l-hint-text--reality-upgrade c-hint-text--reality-upgrade"
+  <div class="l-spoon-btn-group">
+    <button
+      v-if="isAvailable"
+      :class="classObject"
+      @click="upgrade.purchase()"
     >
-      {{ upgrade.config.name }}
-    </HintText>
-    <DescriptionDisplay :config="upgrade.config" />
-    <EffectDisplay
-      br
-      :config="upgrade.config"
-    />
-    <CostDisplay
-      br
-      :config="upgrade.config"
-      name="Antimatter"
-    />
-  </button>
-  <button
-    v-else
-    :class="classObject"
-  >
-    <DescriptionDisplay :config="upgrade.config" />
-    <EffectDisplay
-      br
-      :config="upgrade.config"
-    />
-    <CostDisplay
-      br
-      :config="upgrade.config"
-      name="Antimatter"
-    />
-  </button>
+      <HintText
+        type="breakEternityUpgrades"
+        class="l-hint-text--reality-upgrade c-hint-text--reality-upgrade"
+      >
+        {{ upgrade.config.name }}
+      </HintText>
+      <DescriptionDisplay :config="upgrade.config" />
+      <EffectDisplay
+        br
+        :config="upgrade.config"
+      />
+      <CostDisplay
+        br
+        :config="upgrade.config"
+        name="Antimatter"
+      />
+    </button>
+    <button
+      v-else
+      :class="classObject"
+    >
+      <DescriptionDisplay :config="upgrade.config" />
+      <EffectDisplay
+        br
+        :config="upgrade.config"
+      />
+      <CostDisplay
+        br
+        :config="upgrade.config"
+        name="Antimatter"
+      />
+    </button>
+  </div>
 </template>
 
 <style scoped>
