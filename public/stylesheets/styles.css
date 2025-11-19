@@ -2535,6 +2535,17 @@ br {
   text-shadow: none;
 }
 
+.l-hint-text--endgame-upgrade {
+  top: -1.7rem;
+  font-size: 1.25rem;
+}
+
+.c-hint-text--endgame-upgrade {
+  font-weight: bold;
+  color: var(--color-text);
+  text-shadow: none;
+}
+
 .l-hint-text--achievement {
   top: -2rem;
   z-index: 1;
@@ -9523,6 +9534,144 @@ kbd {
 
 .c-perk-tab__perk-points {
   color: var(--color-reality);
+}
+
+.l-endgame-upgrade-grid {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  margin-top: 1.2rem;
+}
+
+.l-endgame-upgrade-grid__row {
+  display: flex;
+  flex-direction: row;
+}
+
+.l-endgame-upgrade-btn {
+  display: flex;
+  flex-direction: column;
+  width: 20.5rem;
+  height: 10rem;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  margin: 1.2rem;
+  padding: 0 0.5rem;
+}
+
+.c-endgame-upgrade-btn {
+  text-align: center;
+  font-family: Typewriter, serif;
+  font-size: 1rem;
+  color: var(--color-endgame);
+  background-color: var(--color-background);
+  border: var(--var-border-width, 0.2rem) solid var(--color-endgame);
+  border-radius: var(--var-border-radius, 0.5rem);
+  transition-duration: 0.15s;
+  cursor: pointer;
+}
+
+.s-base--dark .c-endgame-upgrade-btn {
+  color: var(--color-endgame);
+}
+
+.c-endgame-upgrade-btn__requirement {
+  font-weight: bold;
+}
+
+.c-endgame-upgrade-btn:hover {
+  color: black;
+  background-color: var(--color-endgame);
+}
+
+.c-endgame-upgrade-btn--unavailable {
+  color: var(--color-endgame);
+  background-color: var(--color-glyph-undo-disabled);
+  cursor: default;
+}
+
+.c-endgame-upgrade-btn--unavailable:hover {
+  color: var(--color-endgame);
+  background-color: var(--color-glyph-undo-disabled);
+}
+
+.c-endgame-upgrade-btn--bought {
+  color: var(--color-endgame);
+  background-color: var(--color-endgame);
+  border-color: #6d6a09;
+  cursor: default;
+}
+
+.c-endgame-upgrade-btn--bought:hover {
+  color: var(--color-endgame);
+  background-color: var(--color-endgame);
+}
+
+.c-endgame-upgrade-btn--possible {
+  /* Text color gets inherited from other pseudo-classes; so we use !important here in order to ensure good contrast
+    specifically on reality and imaginary upgrades, the only upgrades which use this and the related --locked below */
+  color: black !important;
+  background:
+    repeating-linear-gradient(
+      -45deg,
+      #A2A229,
+      #A2A229 3rem,
+      #919122 3rem,
+      #919122 6rem
+    );
+  cursor: default;
+}
+
+.c-endgame-upgrade-btn--possible:hover {
+  /* This is actually a solid color, but it flickers on hover if we don't make it a linear-gradient */
+  background: linear-gradient(0deg, #919122, #919122);
+}
+
+.c-endgame-upgrade-btn--locked {
+  color: white !important;
+  background: #952020;
+  background-image:
+    linear-gradient(45deg, #802222 25%, transparent 25%),
+    linear-gradient(135deg, #802222 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #802222 75%),
+    linear-gradient(135deg, transparent 75%, #802222 75%);
+  background-position: 0 0, 2rem 0, 2rem -2rem, 0 2rem;
+  background-size: 4rem 4rem;
+  cursor: default;
+}
+
+.c-endgame-upgrade-btn--locked:hover {
+  background-color: #802222;
+}
+
+.t-dark .c-endgame-upgrade-btn--unavailable {
+  color: var(--color-endgame);
+  background-color: #37474f;
+}
+
+.t-s6.c-endgame-upgrade-btn:hover,
+.t-s10.c-endgame-upgrade-btn:hover {
+  background-color: var(--color-endgame);
+}
+
+.t-s6.c-endgame-upgrade-btn--unavailable:hover,
+.t-s10.c-endgame-upgrade-btn--unavailable:hover {
+  color: var(--color-endgame);
+  background-color: #656565;
+}
+
+.t-s6.c-endgame-upgrade-btn--bought,
+.t-s10.c-endgame-upgrade-btn--bought {
+  background-color: var(--color-endgame);
+  border-color: #6d6a09;
+}
+
+.t-s6.c-endgame-upgrade-btn--bought:hover,
+.t-s10.c-endgame-upgrade-btn--bought:hover {
+  color: var(--color-endgame);
+  background-color: var(--color-endgame);
 }
 
 /* #region reality-tab */
