@@ -120,7 +120,7 @@ export const EndgameUpgrades = {
   all: EndgameUpgradeState.index.compact(),
   get allBought() {
     return (player.endgame.upgradeBits >> 6) + 1 === 1 << (GameDatabase.endgame.upgrades.length - 5);
-  }
+  },
   get isUnlocked() {
     return EndgameMastery.endgameUpgrades.isBought;
   }
