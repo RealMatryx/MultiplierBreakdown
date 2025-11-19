@@ -56,7 +56,7 @@ export default {
       type="realityUpgrades"
       class="l-hint-text--reality-upgrade c-hint-text--reality-upgrade"
     >
-      {{ config.name }}
+      {{ upgrade.config.name }}
     </HintText>
     <DescriptionDisplay :config="upgrade.config" />
     <EffectDisplay
