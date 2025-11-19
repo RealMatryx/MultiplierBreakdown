@@ -6,6 +6,10 @@ class EndgameUpgradeState extends BitPurchasableMechanicState {
     this.registerEvents(config.checkEvent, () => this.tryUnlock());
   }
 
+  get isUnlocked() {
+    return EndgameMastery.endgameUpgrades.isBought;
+  }
+
   get name() {
     return this.config.name;
   }
