@@ -33,7 +33,6 @@ export class PermanentEndgameMasteryState extends EndgameMasteriesState {
       if (!quiet) {
         Tab.endgame.upgrades.show();
       }
-      //TabNotification.endgameUpgradesAfterUnlock.tryTrigger();
     }
 
     player.endgameMasteries.permanentMasteries.push(this.id);
