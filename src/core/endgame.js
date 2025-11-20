@@ -189,20 +189,22 @@ export const Endgame = {
         5: 1,
       };
     }
-    player.reality.imaginaryUpgReqs = remains;
-    player.reality.imaginaryUpgradeBits = darkremains;
-    player.reality.imaginaryRebuyables = {
-      1: 0,
-      2: 0,
-      3: 0,
-      4: 0,
-      5: 0,
-      6: 0,
-      7: 0,
-      8: 0,
-      9: 0,
-      10: 0,
-    };
+    if (!EndgameUpgrade(9).isBought) {
+      player.reality.imaginaryUpgReqs = remains;
+      player.reality.imaginaryUpgradeBits = darkremains;
+      player.reality.imaginaryRebuyables = {
+        1: 0,
+        2: 0,
+        3: 0,
+        4: 0,
+        5: 0,
+        6: 0,
+        7: 0,
+        8: 0,
+        9: 0,
+        10: 0,
+      };
+    }
     player.reality.reqLock = {
       reality: 0,
       imaginary: 0,
