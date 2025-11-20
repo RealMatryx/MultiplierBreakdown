@@ -81,7 +81,7 @@ export const endgameUpgrades = [
     id: 7,
     cost: new Decimal(1e52),
     requirement: () => `Play for ${formatPostBreak("1e666")} Years`,
-    checkRequirement: () => Time.totalTimePlayed.totalYears.gt(1e666),
+    checkRequirement: () => Time.totalTimePlayed.totalYears.gt(Decimal.pow(10, 666)),
     checkEvent: GAME_EVENT.GAME_TICK_AFTER,
     description: "Outside of Celestial Realities, Game Speed is equal to maximum Game Speed this Endgame"
   },
@@ -177,11 +177,12 @@ export const endgameUpgrades = [
     name: "Antimatter Amassment",
     id: 15,
     cost: new Decimal(1e111),
-    requirement: () => `Reach ${format(Decimal.pow(10, 1e33))} Antimatter`,
-    checkRequirement: () => Currency.antimatter.exponent >= 1e33,
+    requirement: () => `Reach ${format(Decimal.pow(10, 1e33))} Antimatter outside Pelle`,
+    hasFailed: () => Pelle.isDoomed,
+    checkRequirement: () => Currency.antimatter.exponent >= 1e33 && !Pelle.isDoomed,
     checkEvent: GAME_EVENT.GAME_TICK_AFTER,
     description: () => `Gain a power to Antimatter Gain based on Imaginary Machines`,
-    effect: () => 1 + (Math.pow(Math.log10(Math.log10(Currency.imaginaryMachines + 1) + 1), 2) / 100),
+    effect: () => 1 + (Math.pow(Math.log10(Math.log10(player.reality.imaginaryMachines + 1) + 1), 2) / 100),
     formatEffect: value => formatPow(value, 2, 3)
   },
   {
