@@ -94,8 +94,11 @@ export default {
     update() {
       const now = new Date().getTime();
       if (this.pour) {
-        const diff = (now - this.time) / 1000;
-        Teresa.pourRM(diff);
+        if (EndgameUpgrade(10).isLockingMechanics) EndgameUpgrade(10).tryShowWarningModal();
+        else {
+          const diff = (now - this.time) / 1000;
+          Teresa.pourRM(diff);
+        }
       } else {
         Teresa.timePoured = new Decimal(0);
       }
