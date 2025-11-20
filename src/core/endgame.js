@@ -567,6 +567,7 @@ export const Endgame = {
     player.records.bestReality.laitelaSet = [];
     player.records.thisEndgame.time = DC.D0;
     player.records.thisEndgame.realTime = 0;
+    player.records.thisEndgame.peakGameSpeed = DC.D1;
     Glyphs.refreshActive();
     if (EndgameMastery(112).isBought) {
       Achievement(146).unlock();
