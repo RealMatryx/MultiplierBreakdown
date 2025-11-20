@@ -147,7 +147,7 @@ class InfinityIPMultUpgrade extends GameMechanicState {
   }
 
   get costIncreaseThreshold() {
-    this.config.costIncreaseThreshold();
+    return this.config.costIncreaseThreshold();
   }
 
   get purchasesAtIncrease() {
