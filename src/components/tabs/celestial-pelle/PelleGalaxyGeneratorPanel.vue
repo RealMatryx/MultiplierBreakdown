@@ -127,7 +127,7 @@ export default {
               This effect is currently raising your Galaxy Generator Instability Magnitude by
               <span class="c-galaxies-amount">{{ formatPow(harshGalGenInstability, 2, 3) }}</span>,
               making it effectively equal to
-              <span class="c-galaxies-amount">{{ formatPow(effectiveInstability, 2, 3) }}</span>.
+              <span class="c-galaxies-amount">{{ format(effectiveInstability, 2, 1) }}</span>.
               <br>
               Therefore, whereas your Galaxy production would normally be divided by the number above,
               it is instead being divided by
