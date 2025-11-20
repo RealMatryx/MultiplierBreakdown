@@ -68,11 +68,12 @@ export const Laitela = {
     return (this.celestial.darkMatterMult.add(this.darkMatterMultGain)).div(this.celestial.darkMatterMult);
   },
   get darkMatterCap() {
-    if (ImaginaryUpgrade(29).isBought) return DC.E100000;
-    if (ImaginaryUpgrade(28).isBought) return DC.E20000;
-    if (ImaginaryUpgrade(27).isBought) return DC.E4000;
-    if (ImaginaryUpgrade(26).isBought) return DC.E1000;
-    return Decimal.NUMBER_MAX_VALUE;
+    const baseCap = Decimal.NUMBER_MAX_VALUE;
+    if (ImaginaryUpgrade(26).isBought) baseCap = DC.E1000;
+    if (ImaginaryUpgrade(27).isBought) baseCap = DC.E4000;
+    if (ImaginaryUpgrade(28).isBought) baseCap = DC.E20000;
+    if (ImaginaryUpgrade(29).isBought) baseCap = DC.E100000;
+    return baseCap.times(EndgameUpgrade(4).effectOrDefault(1));
   },
   get annihilationUnlocked() {
     return ImaginaryUpgrade(19).isBought;
