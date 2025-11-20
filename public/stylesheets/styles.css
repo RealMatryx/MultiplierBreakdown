@@ -9598,14 +9598,14 @@ kbd {
 }
 
 .c-endgame-upgrade-btn--bought {
-  color: var(--color-endgame);
+  color: var(--color-celestials);
   background-color: var(--color-endgame);
   border-color: #6d6a09;
   cursor: default;
 }
 
 .c-endgame-upgrade-btn--bought:hover {
-  color: var(--color-endgame);
+  color: var(--color-celestials);
   background-color: var(--color-endgame);
 }
 
