@@ -93,6 +93,7 @@ export const Pelle = {
     disChargeAll();
     clearCelestialRuns();
     CelestialDimensions.resetAmount();
+    player.records.thisEndgame.peakGameSpeed = DC.D1;
     player.requirementChecks.endgame.noGlyphsDoomed = true;
 
     // Force-enable the group toggle for AD autobuyers to be active; whether or not they can actually tick
