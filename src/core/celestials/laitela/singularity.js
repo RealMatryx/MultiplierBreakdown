@@ -206,9 +206,9 @@ export const SingularityMilestones = {
 const SingularityMilestoneThresholds = (function() {
   return SingularityMilestones.all
     .map(m => Array.range(0, Math.min(50, m.limit))
-      .filter(r => !m.increaseThreshold || r <= m.increaseThreshold ||
-        (r > m.increaseThreshold && ((r - m.increaseThreshold) % 3) === 2))
-      .map(r => m.start * Math.pow(m.repeat, r)))
+      .filter(r => !m.increaseThreshold || r.lte(m.increaseThreshold) ||
+        (r.gt(m.increaseThreshold) && ((r.sub(m.increaseThreshold)).toNumber() % 3) === 2))
+      .map(r => m.start.times(Decimal.pow(m.repeat, r))))
     .flat(Infinity)
     .filter(n => n < 1e100)
     .sort((a, b) => a - b);
