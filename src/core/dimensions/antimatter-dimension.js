@@ -661,6 +661,7 @@ export const AntimatterDimensions = {
 
     mult = mult.pow(getAdjustedGlyphEffect("effarigforgotten")).powEffectOf(InfinityUpgrade.buy10Mult.chargedEffect);
     mult = mult.pow(ImaginaryUpgrade(14).effectOrDefault(1));
+    mult = mult.pow(SingularityMilestone.perPurchaseDimMult.effectOrDefault(1));
 
     return mult;
   },
