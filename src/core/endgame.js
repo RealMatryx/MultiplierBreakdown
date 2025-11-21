@@ -226,9 +226,9 @@ export const Endgame = {
     player.reality.glyphs.sac.reality = 0;
     player.blackHole = Array.range(0, 2).map(id => ({
       id,
-      intervalUpgrades: EndgameUpgrade(6).isBought ? 25 : 0,
+      intervalUpgrades: EndgameUpgrade(6).isBought ? 40 : 0,
       powerUpgrades: 0,
-      durationUpgrades: EndgameUpgrade(6).isBought ? 25 : 0,
+      durationUpgrades: EndgameUpgrade(6).isBought ? 40 : 0,
       phase: 0,
       active: false,
       unlocked: false,
