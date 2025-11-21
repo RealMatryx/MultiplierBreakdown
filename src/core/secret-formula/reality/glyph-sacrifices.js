@@ -10,7 +10,7 @@ export const glyphSacrifice = {
     },
     description: amount => {
       const sacCap = GlyphSacrificeHandler.maxSacrificeForEffects;
-      const nextDistantGalaxy = Math.pow(10, Math.pow((amount + 1) / 750, 1 / 1.2) * 100) - 1;
+      const nextDistantGalaxy = Decimal.pow(10, Math.pow((amount + 1) / 750, 1 / 1.2) * 100).sub(1);
       const nextGalaxyText = amount < 750
         ? ` (next at ${format(nextDistantGalaxy, 2, 2)})`
         : "";
@@ -51,7 +51,7 @@ export const glyphSacrifice = {
     },
     description: amount => {
       const sacCap = GlyphSacrificeHandler.maxSacrificeForEffects;
-      const nextDistantGalaxy = Math.pow(10, Math.pow((amount + 1) / 1500, 1 / 1.2) * 100) - 1;
+      const nextDistantGalaxy = Decimal.pow(10, Math.pow((amount + 1) / 1500, 1 / 1.2) * 100).sub(1);
       const nextGalaxyText = amount < 1500
         ? ` (next at ${format(nextDistantGalaxy, 2, 2)})`
         : "";
