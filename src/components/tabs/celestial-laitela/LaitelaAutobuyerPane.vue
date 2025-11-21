@@ -65,8 +65,8 @@ export default {
       this.singularity = auto.singularity.isActive;
       this.annihilation = auto.annihilation.isActive;
 
-      this.maxAutobuy = SingularityMilestone.darkDimensionAutobuyers.effectValue + SingularityMilestone.darkDimAuto5to8;
-      this.maxAutoAscend = SingularityMilestone.ascensionAutobuyers.effectValue + SingularityMilestone.darkDimAscension5to8;
+      this.maxAutobuy = SingularityMilestone.darkDimensionAutobuyers.effectValue + SingularityMilestone.darkDimAuto5to8.effectValue;
+      this.maxAutoAscend = SingularityMilestone.ascensionAutobuyers.effectValue + SingularityMilestone.darkDimAscension5to8.effectValue;
       this.autoSingularityFactor = SingularityMilestone.autoCondense.effectValue;
     },
   }
