@@ -27,7 +27,7 @@ export default {
       bestAM: new Decimal(0),
       bestAMSet: [],
       lastMachines: new Decimal(0),
-      runReward: 0,
+      runReward: new Decimal(0),
       perkPoints: 0,
       hasReality: false,
       hasEPGen: false,
@@ -115,7 +115,7 @@ export default {
       this.bestAM.copyFrom(player.celestials.teresa.bestRunAM);
       this.bestAMSet = Glyphs.copyForRecords(player.celestials.teresa.bestAMSet);
       this.lastMachines.copyFrom(player.celestials.teresa.lastRepeatedMachines);
-      this.runReward = Teresa.runRewardMultiplier;
+      this.runReward.copyFrom(Teresa.runRewardMultiplier);
       this.perkPoints = Currency.perkPoints.value;
       this.rm.copyFrom(Currency.realityMachines);
       this.isRunning = Teresa.isRunning;
