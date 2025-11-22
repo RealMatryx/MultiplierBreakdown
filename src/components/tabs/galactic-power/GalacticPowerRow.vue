@@ -8,14 +8,27 @@ export default {
     DescriptionDisplay,
     EffectDisplay
   },
+  props: {
+    getPower: {
+      type: Function,
+      required: true
+    }
+  },
   data() {
     return {
       isUnlocked: false
     };
   },
   computed: {
+    power() {
+      return this.getPower();
+    },
     config() {
-      return GalacticPowers.config;
+      return this.power.config;
+    },
+    reward() {
+      const reward = this.config.effect;
+      return typeof reward === "function" ? reward() : reward;
     },
     title() {
       return `Galactic Power ${this.config.id}`;
@@ -23,7 +36,7 @@ export default {
   },
   methods: {
     update() {
-      this.isUnlocked = this.config.isUnlocked;
+      this.isUnlocked = this.power.isUnlocked;
     }
   }
 };
@@ -32,11 +45,11 @@ export default {
 <template>
   <div v-show="isUnlocked">
     <DescriptionDisplay
-      :config="config.reward"
+      :config="reward"
       title="title"
     />
     <EffectDisplay
-      :config="config.reward"
+      :config="reward"
     />
   </div>
 </template>
