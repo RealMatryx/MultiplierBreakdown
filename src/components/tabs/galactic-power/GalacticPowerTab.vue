@@ -21,7 +21,7 @@ export default {
     },
     nextAtDisplay() {
       const first = this.nextPow?.id === 1;
-      const next = GalacticPower.nextPowUnlockGP;
+      const next = GalacticPower.nextPowerUnlockGP;
 
       if (first) return `The first Galactic Power unlocks at ${format(next)} Galactic Power.`;
       return next === undefined
@@ -32,7 +32,7 @@ export default {
   methods: {
     update() {
       this.galacticPower.copyFrom(Currency.galacticPower.value.floor());
-      this.nextPow = GalacticPower.nextPow;
+      this.nextPow = GalacticPower.nextPower;
     },
     getPower(row, column) {
       return () => this.powers[(row - 1) + column - 1];
