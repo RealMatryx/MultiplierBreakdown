@@ -48,7 +48,7 @@ export default {
     {{ title }} {{ description }}.
     <br>
     <EffectDisplay
-      :config="reward"
+      :config="config"
     />
   </div>
 </template>
