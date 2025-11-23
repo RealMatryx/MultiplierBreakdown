@@ -44,7 +44,7 @@ export default {
 </script>
 
 <template>
-  <div>
+  <div v-show="isUnlocked">
     {{ title }} {{ description }}.
     <br>
     <EffectDisplay
