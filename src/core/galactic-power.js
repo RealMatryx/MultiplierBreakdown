@@ -7,6 +7,10 @@ export class GalacticPowerState {
     return this.config.id;
   }
 
+  get reward() {
+    return this.config.effect();
+  }
+
   get unlockGP() {
     return this.config.galacticPower;
   }
