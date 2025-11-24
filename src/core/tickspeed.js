@@ -35,8 +35,7 @@ export function getTickSpeedMultiplier() {
     EndgameMastery(52),
     InfinityChallenge(5).reward,
     PelleUpgrade.galaxyPower,
-    PelleRifts.decay.milestones[1],
-    GalacticPowers.galaxyStrength.reward
+    PelleRifts.decay.milestones[1]
   );
   if (galaxies < 3) {
     // Magic numbers are to retain balancing from before while displaying
@@ -64,6 +63,7 @@ export function getTickSpeedMultiplier() {
   galaxies *= 1 + ImaginaryUpgrade(9).effectOrDefault(0);
   if (Pelle.isDoomed) galaxies *= 0.5;
   if (Pelle.isDoomed && EndgameMilestone.remnantGalaxy.isReached) galaxies *= Math.pow(1 + Math.log10(Currency.remnants.value + 1), 0.5);
+  if (GalacticPowers.galaxyStrength.isUnlocked) galaxies *= GalacticPowers.galaxyStrength.reward;
 
   galaxies *= Pelle.specialGlyphEffect.power;
   const perGalaxy = DC.D0_965;
