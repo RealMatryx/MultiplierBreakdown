@@ -30,7 +30,7 @@ export default {
     },
     galacticPowerAmountStyle() {
       return {
-        "font-size": 2.5rem,
+        "font-size": "2.5rem",
         "font-weight": bold,
         animation: "a-galactic-power-amount-cycle 12s infinite",
         color: white,
