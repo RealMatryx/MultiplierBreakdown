@@ -745,7 +745,7 @@ function updatePrestigeRates() {
 function passivePrestigeGen(realDiff) {
   let endgamedGain = 0;
   if (EndgameUpgrade(8).isBought) {
-    endgamedGain += realDiff.div(Decimal.clampMin(1000, EndgameUpgrade(8).effectValue));
+    endgamedGain += realDiff / Decimal.clampMin(1000, EndgameUpgrade(8).effectValue).toNumber();
     if (endgamedGain >= 1) {
       Currency.endgames.add(Math.floor(endgamedGain));
       endgamedGain -= (endgamedGain - Math.floor(endgamedGain));
