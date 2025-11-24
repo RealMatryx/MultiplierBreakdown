@@ -36,9 +36,10 @@ export const GalacticPower = {
 };
 
 export function getGalacticPowerGainPerSecond() {
-  const galaxyFactor = Math.max(player.galaxies / 100000, 1);
+  const allGalaxies = Replicanti.galaxies.total + player.galaxies + player.dilation.totalTachyonGalaxies;
+  const galaxyFactor = Math.max(allGalaxies / 100000, 1);
   const celMatterFactor = Math.max(Math.pow(Decimal.log10(player.endgame.celestialMatter) / 10, 2), 1);
   const imaginaryFactor = Math.max(Math.pow(Decimal.log10(player.reality.imaginaryMachines), 1.5), 1);
-  const galaxyExponent = 1 + Math.pow(player.galaxies / 10000000, 3);
-  return Decimal.pow(galaxyFactor * celMatterFactor * imaginaryFactor, galaxyExponent);
+  const galaxyExponent = Math.min(1 + Math.pow(allGalaxies / 2000000, 2), 100);
+  return Pelle.isDoomed ? new Decimal(0) : Decimal.pow(galaxyFactor * celMatterFactor * imaginaryFactor / 1000, galaxyExponent);
 }
