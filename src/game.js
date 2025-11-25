@@ -599,6 +599,7 @@ export function gameLoop(passedDiff, options = {}) {
   if (!Pelle.isDoomed) {
     passivePrestigeGen();
   }
+  globalPassivePrestigeGen();
 
 
   applyAutoprestige(realDiff);
@@ -742,7 +743,7 @@ function updatePrestigeRates() {
   }
 }
 
-function passivePrestigeGen(realDiff) {
+function globalPassivePrestigeHen(realDiff) {
   let endgamedGain = 0;
   if (EndgameUpgrade(8).isBought) {
     endgamedGain = Time.unscaledDeltaTime.totalMilliseconds.div(Decimal.clampMin(1000, EndgameUpgrade(8).effectValue)).toNumber();
@@ -750,6 +751,9 @@ function passivePrestigeGen(realDiff) {
     Currency.endgames.add(Math.floor(player.endgame.partEndgamed));
     player.endgame.partEndgamed = (player.endgame.partEndgamed - Math.floor(player.endgame.partEndgamed));
   }
+}
+
+function passivePrestigeGen(realDiff) {
   let eternitiedGain = DC.D0;
   if (RealityUpgrade(14).isBought) {
     eternitiedGain = DC.D1.timesEffectsOf(
