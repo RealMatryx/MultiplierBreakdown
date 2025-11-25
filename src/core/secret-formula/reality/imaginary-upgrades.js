@@ -338,7 +338,7 @@ export const imaginaryUpgrades = [
     hasFailed: () => false,
     checkRequirement: () => Currency.singularities.value.gte(1e100),
     checkEvent: GAME_EVENT.GAME_TICK_AFTER,
-    description: `Unlock the 5th Dark Matter Dimension, raise Dark Matter cap to ${formatPostBreak("1e1000")}`,
+    description: () => `Unlock the 5th Dark Matter Dimension, raise Dark Matter cap to ${formatPostBreak("1e1000")}`,
   },
   {
     name: "Exigent Extinction",
@@ -349,7 +349,7 @@ export const imaginaryUpgrades = [
     checkRequirement: () => Currency.antimatter.value.exponent >= 9e15 && Pelle.isDoomed &&
       player.requirementChecks.endgame.noGlyphsDoomed === true,
     checkEvent: GAME_EVENT.GAME_TICK_AFTER,
-    description: `Unlock the 6th Dark Matter Dimension, raise Dark Matter cap to ${formatPostBreak("1e4000")}`,
+    description: () => `Unlock the 6th Dark Matter Dimension, raise Dark Matter cap to ${formatPostBreak("1e4000")}`,
   },
   {
     name: "Alchemical Annihilation",
@@ -370,7 +370,7 @@ export const imaginaryUpgrades = [
       player.celestials.ra.alchemy[4].amount === 0 &&
       player.celestials.ra.alchemy[5].amount === 0,
     checkEvent: GAME_EVENT.GAME_TICK_AFTER,
-    description: `Unlock the 7th Dark Matter Dimension, raise Dark Matter cap to ${formatPostBreak("1e20000")}`,
+    description: () => `Unlock the 7th Dark Matter Dimension, raise Dark Matter cap to ${formatPostBreak("1e20000")}`,
   },
   {
     name: "Galactic Genocide",
@@ -381,7 +381,7 @@ export const imaginaryUpgrades = [
     checkRequirement: () => Replicanti.galaxies.total + player.galaxies + 
       player.dilation.totalTachyonGalaxies + GalaxyGenerator.galaxies >= 1e75,
     checkEvent: GAME_EVENT.GAME_TICK_AFTER,
-    description: `Unlock the 8th Dark Matter Dimension, raise Dark Matter cap to ${formatPostBreak("1e100000")}`,
+    description: () => `Unlock the 8th Dark Matter Dimension, raise Dark Matter cap to ${formatPostBreak("1e100000")}`,
   },
   {
     name: "Inception Initiation",
