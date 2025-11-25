@@ -743,7 +743,7 @@ function updatePrestigeRates() {
   }
 }
 
-function globalPassivePrestigeHen(realDiff) {
+function globalPassivePrestigeGen(realDiff) {
   let endgamedGain = 0;
   if (EndgameUpgrade(8).isBought) {
     endgamedGain = Time.unscaledDeltaTime.totalMilliseconds.div(Decimal.clampMin(1000, EndgameUpgrade(8).effectValue)).toNumber();
