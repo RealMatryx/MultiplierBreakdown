@@ -347,7 +347,7 @@ export const singularityMilestones = {
     repeat: new Decimal(0),
     limit: 1,
     description: "Unlock Galactic Power",
-    effect: completions => completions,
+    effect: completions => completions.toNumber(),
     effectFormat: x => (x === 1 ? "Unlocked" : "Locked"),
     upgradeDirection: LAITELA_UPGRADE_DIRECTION.BOOSTS_MAIN,
   },
