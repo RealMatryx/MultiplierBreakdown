@@ -1,3 +1,13 @@
+<script>
+import ResetEndgameButton from "./ResetEndgameButton";
+export default {
+  name: "EndgameTab",
+  components: {
+    ResetEndgameButton
+  }
+};
+</script>
+
 <template>
   <div class="endgame-text">
     <br>
@@ -22,6 +32,9 @@
     <div>
       Why don't you go ahead and get started?
     </div>
+  </div>
+  <div>
+    <ResetEndgameButton/>
   </div>
 </template>
 
