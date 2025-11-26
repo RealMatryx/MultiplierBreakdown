@@ -25,6 +25,8 @@ export default {
       galGenInstability: 0,
       harshGalGenInstability: 0,
       effectiveInstability: 0,
+      instabilityStart: 0,
+      harshInstabilityStart: 0,
       generationReduction: 0,
       trueGenerationReduction: 0,
       isInstabilityShown: false,
@@ -71,10 +73,12 @@ export default {
       this.galGenInstability = GalaxyGenerator.galGenInstability;
       this.harshGalGenInstability = GalaxyGenerator.harshGalGenInstability;
       this.effectiveInstability = Math.pow(this.galGenInstability, this.harshGalGenInstability);
-      this.generationReduction = Math.max(1, Math.pow(this.galGenInstability, Math.log10(Math.max(Math.pow(this.galaxies / 1e10, 0.75), 1))));
-      this.trueGenerationReduction = Math.max(1, Math.pow(Math.pow(this.galGenInstability, this.harshGalGenInstability), Math.log10(Math.max(Math.pow(this.galaxies / 1e10, 0.75), 1))));
-      this.isInstabilityShown = PlayerProgress.endgameUnlocked() || this.galaxies >= 1e10;
-      this.isSecondInstabilityShown = this.galaxies >= 1e60;
+      this.instabilityStart = GalaxyGenerator.instabilityStart;
+      this.harshInstabilityStart = GalaxyGenerator.harshInstabilityStart;
+      this.generationReduction = Math.max(1, Math.pow(this.galGenInstability, Math.log10(Math.max(Math.pow(this.galaxies / this.instabilityStart, 0.75), 1))));
+      this.trueGenerationReduction = Math.max(1, Math.pow(Math.pow(this.galGenInstability, this.harshGalGenInstability), Math.log10(Math.max(Math.pow(this.galaxies / this.instabilityStart, 0.75), 1))));
+      this.isInstabilityShown = PlayerProgress.endgameUnlocked() || this.galaxies >= this.instabilityStart;
+      this.isSecondInstabilityShown = this.galaxies >= this.harshInstabilityStart;
     },
     increaseCap() {
       if (GalaxyGenerator.isCapped) GalaxyGenerator.startSacrifice();
@@ -115,14 +119,14 @@ export default {
           <div v-if="isInstabilityShown">
             Your Galaxy Generator Instability Magnitude is
             <span class="c-galaxies-amount">{{ format(galGenInstability, 2, 1) }}</span>,
-            which is dividing Galaxies above {{ format(1e10, 2, 1) }} by
+            which is dividing Galaxies above {{ format(instabilityStart, 2, 1) }} by
             <span class="c-galaxies-amount">{{ format(generationReduction, 2, 1) }}</span>.
           </div>
           <br>
           <div v-if="isSecondInstabilityShown">
             <span class="c-danger-text">
               Your Galaxy Generator has produced too many Galaxies, and is starting to break down.
-              This started at {{ format(1e60, 2, 1) }} Galaxies.
+              This started at {{ format(harshInstabilityStart, 2, 1) }} Galaxies.
               <br>
               This effect is currently raising your Galaxy Generator Instability Magnitude by
               <span class="c-galaxies-amount">{{ formatPow(harshGalGenInstability, 2, 3) }}</span>,
