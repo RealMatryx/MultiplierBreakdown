@@ -1257,6 +1257,51 @@ button:focus {
   background-color: var(--color-bad);
 }
 
+.l-reset-endgame-button {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.c-reset-endgame-button {
+  font-family: Typewriter;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--color-bad);
+  background: var(--color-background);
+  border-color: var(--color-bad);
+  border-style: solid;
+  border-width: var(--var-border-width, 0.2rem);
+  border-radius: var(--var-border-radius, 0.4rem);
+  transition-duration: 0.2s;
+  cursor: pointer;
+}
+
+.c-reset-endgame-button:hover,
+.c-reset-endgame-button.force-hover,
+.t-s6 .c-reset-endgame-button:hover,
+.t-s6 .c-reset-endgame-button.force-hover,
+.t-s10 .c-reset-endgame-button:hover,
+.t-s10 .c-reset-endgame-button.force-hover {
+  color: black;
+  background: var(--color-bad);
+}
+
+.c-reset-endgame-button-doom {
+  color: var(--color-pelle--base);
+  border-color: var(--color-pelle--base);
+}
+
+.c-reset-endgame-button-doom:hover,
+.c-reset-endgame-button-doom.force-hover,
+.t-s6 .c-reset-endgame-button-doom:hover,
+.t-s6 .c-reset-endgame-button-doom.force-hover,
+.t-s10 .c-reset-endgame-button-doom:hover,
+.t-s10 .c-reset-endgame-button-doom.force-hover {
+  color: black;
+  background: var(--color-pelle--base);
+}
+
 [draggable] {
   -webkit-user-select: none;
   user-select: none;
