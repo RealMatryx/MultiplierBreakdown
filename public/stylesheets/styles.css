@@ -9765,10 +9765,10 @@ kbd {
 
 .l-endgame-button-group {
   display: flex;
-  flex-direction: row;
   width: 100%;
   height: 6rem;
   padding: 0.5rem;
+  align-items: center;
 }
 
 
