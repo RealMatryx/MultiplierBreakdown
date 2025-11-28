@@ -12,6 +12,10 @@ class ExpansionPackState extends SetPurchasableMechanicState {
   get unlockAM() {
     return this.config.cost;
   }
+
+  get isUnlocked() {
+    return this.isBought || Currency.antimatter.gte(this.unlockAM);
+  }
 }
 
 export const ExpansionPack = mapGameDataToObject(
@@ -24,7 +28,7 @@ export const ExpansionPacks = {
     return player.endgame.expansionPacks.areUnlocked;
   },
   get nextPack() {
-    return GalacticPowers.all.find(x => !x.isUnlocked);
+    return ExpansionPack.all.find(x => !x.isUnlocked);
   },
   get nextPackUnlockAM() {
     return this.nextPower?.unlockAM;
