@@ -2,6 +2,7 @@ export const expansionPacks = {
   teresaPack: {
     name: "Teresa's Expansion Pack",
     id: "teresaPack",
+    symbol: "Ϟ",
     description: () =>
       `Uncap Teresa's Canister. Teresa's Canister now affects the Reality Machine cap as well as Reality Machine gain.
       Unlock Charged Perk Upgrades in the Teresa Tab.`,
@@ -11,6 +12,7 @@ export const expansionPacks = {
   effarigPack: {
     name: "Effarig's Expansion Pack",
     id: "effarigPack",
+    symbol: "Ϙ",
     description: () =>
       `Multiply Relic Shard gain by the logarithm of your Antimatter amount. The Effarig Level ${formatInt(10)} reward in Ra
       is improved so that Effarig Glyphs are always generated with ${formatInt(7)} effects. Increase Glyph Alchemy caps to one-third
@@ -22,6 +24,7 @@ export const expansionPacks = {
   enslavedPack: {
     name: "The Nameless Ones' Expansion Pack",
     id: "enslavedPack",
+    symbol: "\uf0c1",
     description: () =>
       `Charging your Black Hole always only takes ${formatPercents(0.99)} of your total Game Speed. Unlock optimizers for
       for adjusting the amount of your stored time you desire to discharge as well as the interval at which you want to discharge
@@ -32,6 +35,7 @@ export const expansionPacks = {
   vPack: {
     name: "V's Expansion Pack",
     id: "vPack",
+    symbol: "⌬",
     description: () =>
       `Automatically unlock one V-Achievement every ${TimeSpan.fromSeconds(new Decimal(60))}, which can be reduced by spending
       Celestial Points.`,
@@ -41,6 +45,7 @@ export const expansionPacks = {
   raPack: {
     name: "Ra's Expansion Pack",
     id: "raPack",
+    symbol: "<i class='fas fa-sun'></i>",
     description: () =>
       `Ra is kept on Endgame. Raise the level cap of all Celestials to the double-logarithm of your record Antimatter amount.
       Unlock an additional effect for each Celestial which scales based on their level. Multiply Memory and Memory Chunk gain
@@ -51,6 +56,7 @@ export const expansionPacks = {
   laitelaPack: {
     name: "Lai'tela's Expansion Pack",
     id: "laitelaPack",
+    symbol: "ᛝ",
     description: () =>
       `Unlock an autobuyer that will increase/decrease the bulk Singularity level based on an inputted time for each. While in
       Lai'tela's Reality, Game Speed returns to normal twice as fast. Square the Annihilation to ${formatInt(8)}th DMD multiplier
@@ -68,6 +74,7 @@ export const expansionPacks = {
   pellePack: {
     name: "Pelle's Expansion Pack",
     id: "pellePack",
+    symbol: "♅",
     description: () =>
       `Reduce the Galaxy Generator Instability Magnitude by ${formatInt(1)}, and raise the first three types of Dimensions to
       a power based on your record Galaxy amount.`,
