@@ -9787,6 +9787,7 @@ kbd {
   background: var(--color-teresa--base);
   border: var(--var-border-width, 0.2rem) solid var(--color-teresa--base);
   border-radius: var(--var-border-radius, 0.5rem);
+  cursor: pointer;
 }
 
 .o-expansion-pack--teresa--bought {
@@ -9808,6 +9809,7 @@ kbd {
   background: var(--color-effarig--base);
   border: var(--var-border-width, 0.2rem) solid var(--color-effarig--base);
   border-radius: var(--var-border-radius, 0.5rem);
+  cursor: pointer;
 }
 
 .o-expansion-pack--effarig--bought {
@@ -9829,6 +9831,7 @@ kbd {
   background: var(--color-enslaved--base);
   border: var(--var-border-width, 0.2rem) solid var(--color-enslaved--base);
   border-radius: var(--var-border-radius, 0.5rem);
+  cursor: pointer;
 }
 
 .o-expansion-pack--enslaved--bought {
@@ -9850,6 +9853,7 @@ kbd {
   background: var(--color-v--base);
   border: var(--var-border-width, 0.2rem) solid var(--color-v--base);
   border-radius: var(--var-border-radius, 0.5rem);
+  cursor: pointer;
 }
 
 .o-expansion-pack--v--bought {
@@ -9871,6 +9875,7 @@ kbd {
   background: var(--color-ra--base);
   border: var(--var-border-width, 0.2rem) solid var(--color-ra--base);
   border-radius: var(--var-border-radius, 0.5rem);
+  cursor: pointer;
 }
 
 .o-expansion-pack--ra--bought {
@@ -9892,6 +9897,7 @@ kbd {
   background: var(--color-laitela--base);
   border: var(--var-border-width, 0.2rem) solid var(--color-laitela--base);
   border-radius: var(--var-border-radius, 0.5rem);
+  cursor: pointer;
 }
 
 .o-expansion-pack--laitela--bought {
@@ -9913,6 +9919,7 @@ kbd {
   background: var(--color-pelle--base);
   border: var(--var-border-width, 0.2rem) solid var(--color-pelle--base);
   border-radius: var(--var-border-radius, 0.5rem);
+  cursor: pointer;
 }
 
 .o-expansion-pack--pelle--bought {
