@@ -152,6 +152,7 @@ export default {
 .c-primary-btn--expansion-packs-unlock--available:hover {
   color: var(--color-pelle--secondary);
   background: linear-gradient(var(--color-endgame), var(--color-pelle--base));
+  cursor: pointer;
 }
 
 .c-primary-btn--expansion-packs-unlock--bought {
