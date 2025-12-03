@@ -49,7 +49,7 @@ export const perkShop = {
     formatEffect: value => formatX(value, 2),
     formatCost: value => format(value, 2),
     costCap: () => (Ra.unlocks.perkShopIncrease.canBeApplied ? 1638400 : 1600),
-    cap: () => (Ra.unlocks.perkShopIncrease.canBeApplied ? 16384 : 16),
+    cap: () => (Ra.unlocks.perkShopIncrease.canBeApplied ? 16384 : 16)
   }),
   autoSpeed: rebuyable({
     id: 3,
@@ -81,5 +81,17 @@ export const perkShop = {
     formatCost: value => formatInt(value),
     costCap: () => Number.MAX_VALUE,
     cap: () => Number.MAX_VALUE
+  }),
+  // My bored ass having to do this shit smh also ditto to the above but for Teresa Expansion Pack
+  addCharges: rebuyable({
+    id: 6,
+    initialCost: 1e10,
+    increment: 1e10,
+    description: () => `Unlock a new Charged Perk Upgrade`,
+    effect: bought => bought,
+    formatEffect: value => formatInt(value),
+    formatCost: value => format(value, 2),
+    costCap: () => 1e60,
+    cap: () => 5
   }),
 };
