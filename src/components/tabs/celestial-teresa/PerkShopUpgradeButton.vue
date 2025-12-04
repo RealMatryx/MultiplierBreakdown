@@ -20,6 +20,7 @@ export default {
     return {
       isAvailableForPurchase: false,
       isCapped: false,
+      otherCurr: false,
     };
   },
   computed: {
@@ -38,6 +39,7 @@ export default {
     update() {
       this.isAvailableForPurchase = this.upgrade.isAvailableForPurchase;
       this.isCapped = this.upgrade.isCapped;
+      this.otherCurr = (this.upgrade === PerkShopUpgrade.addCharges);
     }
   }
 };
@@ -59,7 +61,7 @@ export default {
       <CostDisplay
         v-if="!isCapped"
         :config="upgrade.config"
-        name="Perk Point"
+        name="otherCurr ? 'Celestial Point' : 'Perk Point'"
       />
     </button>
   </div>
