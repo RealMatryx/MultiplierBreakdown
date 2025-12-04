@@ -309,7 +309,7 @@ export const Endgame = {
       player.celestials.teresa.bestAMSet = [];
       player.celestials.teresa.lastRepeatedMachines = DC.D0;
     }
-    player.celestials.teresa.perkShop = Array.repeat(0, 6);
+    player.celestials.teresa.perkShop = Array.repeat(0, 7);
     player.celestials.teresa.perkShop[6] = maxPerkCharges;
     player.celestials.effarig.relicShards = EndgameUpgrade(6).isBought ? DC.E12 : DC.D0;
     player.celestials.effarig.unlockBits = 0;
