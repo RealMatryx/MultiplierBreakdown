@@ -24,6 +24,7 @@ export default {
       isCapped: false,
       otherCurr: false,
       chargeView: false,
+      chargeUnlocked: false,
     };
   },
   computed: {
@@ -52,6 +53,7 @@ export default {
       this.isCapped = this.upgrade.isCapped;
       this.otherCurr = (this.upgrade === PerkShopUpgrade.addCharges);
       this.chargeView = Teresa.chargeModeOn;
+      this.chargeUnlocked = ExpansionPack.teresaPack.isBought;
     }
   }
 };
@@ -77,6 +79,7 @@ export default {
       />
     </button>
     <PrimaryButton
+      v-if="chargeUnlocked"
       class="o-teresa-shop-button--capped"
       @click="chargeView = !chargeView"
     >
