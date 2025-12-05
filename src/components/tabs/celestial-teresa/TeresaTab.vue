@@ -105,7 +105,7 @@ export default {
       };
     },
     chargeDisplay() {
-      return `Toggle Charge Mode: ${this.chargeView ? "ON" : "OFF"}`;
+      return `Charge Upgrades: ${this.chargeView ? "ON" : "OFF"}`;
     },
   },
   watch: {
