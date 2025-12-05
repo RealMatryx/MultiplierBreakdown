@@ -85,7 +85,7 @@ class PerkShopUpgradeState extends RebuyableMechanicState {
   }
 
   get displayEffect() {
-    return !this.isCharged || this.showEffectAfterCharge || ui.view.shiftDown;
+    return !this.isCharged || this.showEffectAfterCharge;
   }
 
   get currency() {
@@ -136,7 +136,7 @@ class PerkShopUpgradeState extends RebuyableMechanicState {
   }
 
   get viewCharge() {
-    return Teresa.chargeModeOn || this.isCharged;
+    return Teresa.chargeModeOn || this.isCharged || ui.view.shiftDown;
   }
 
   get ableToCharge() {
