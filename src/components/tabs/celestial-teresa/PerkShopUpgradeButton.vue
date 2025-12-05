@@ -60,24 +60,26 @@ export default {
 </script>
 
 <template>
-  <div class="l-spoon-btn-group">
-    <button
-      :class="classObject"
-      @click="upgrade.purchase()"
-    >
-      <DescriptionDisplay
-        :config="upgrade.config"
-        :length="70"
-      />
-      <br>
-      <EffectDisplay :config="upgrade.config" />
-      <br>
-      <CostDisplay
-        v-if="!isCapped"
-        :config="upgrade.config"
-        :name="otherCurr ? 'Celestial Point' : 'Perk Point'"
-      />
-    </button>
+  <div>
+    <div class="l-spoon-btn-group">
+      <button
+        :class="classObject"
+        @click="upgrade.purchase()"
+      >
+        <DescriptionDisplay
+          :config="upgrade.config"
+          :length="70"
+        />
+        <br>
+        <EffectDisplay :config="upgrade.config" />
+        <br>
+        <CostDisplay
+          v-if="!isCapped"
+          :config="upgrade.config"
+          :name="otherCurr ? 'Celestial Point' : 'Perk Point'"
+        />
+      </button>
+    </div>
     <PrimaryButton
       v-if="chargeUnlocked"
       class="o-teresa-shop-button--capped"
