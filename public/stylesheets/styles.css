@@ -9758,10 +9758,12 @@ kbd {
 
 .l-endgame-button-column {
   display: flex;
+  flex-direction: column;
   width: 44rem;
   height: 6rem;
   padding: 0.5rem;
-  flex-direction: column;
+  position: relative;
+  justify-content: center;
   align-items: center;
 }
 
