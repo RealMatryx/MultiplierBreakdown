@@ -2,12 +2,10 @@
 import CostDisplay from "@/components/CostDisplay";
 import DescriptionDisplay from "@/components/DescriptionDisplay";
 import EffectDisplay from "@/components/EffectDisplay";
-import PrimaryButton from "@/components/PrimaryButton";
 
 export default {
   name: "PerkShopUpgradeButton",
   components: {
-    PrimaryButton,
     DescriptionDisplay,
     EffectDisplay,
     CostDisplay
@@ -23,8 +21,6 @@ export default {
       isAvailableForPurchase: false,
       isCapped: false,
       otherCurr: false,
-      chargeView: false,
-      chargeUnlocked: false,
     };
   },
   computed: {
@@ -38,55 +34,36 @@ export default {
           (this.upgrade === PerkShopUpgrade.musicGlyph || this.upgrade === PerkShopUpgrade.fillMusicGlyph)
       };
     },
-    chargeDisplay() {
-      return this.chargeView ? "ON" : "OFF";
-    },
-  },
-  watch: {
-    chargeView(newValue) {
-      Teresa.chargeModeOn = newValue;
-    }
   },
   methods: {
     update() {
       this.isAvailableForPurchase = this.upgrade.isAvailableForPurchase;
       this.isCapped = this.upgrade.isCapped;
       this.otherCurr = (this.upgrade === PerkShopUpgrade.addCharges);
-      this.chargeView = Teresa.chargeModeOn;
-      this.chargeUnlocked = ExpansionPack.teresaPack.isBought;
     }
   }
 };
 </script>
 
 <template>
-  <div>
-    <div class="l-spoon-btn-group">
-      <button
-        :class="classObject"
-        @click="upgrade.purchase()"
-      >
-        <DescriptionDisplay
-          :config="upgrade.config"
-          :length="70"
-        />
-        <br>
-        <EffectDisplay :config="upgrade.config" />
-        <br>
-        <CostDisplay
-          v-if="!isCapped"
-          :config="upgrade.config"
-          :name="otherCurr ? 'Celestial Point' : 'Perk Point'"
-        />
-      </button>
-    </div>
-    <PrimaryButton
-      v-if="chargeUnlocked"
-      class="o-primary-btn--subtab-option"
-      @click="chargeView = !chargeView"
+  <div class="l-spoon-btn-group">
+    <button
+      :class="classObject"
+      @click="upgrade.purchase()"
     >
-      Toggle Charge Mode: {{ chargeDisplay }}
-    </PrimaryButton>
+      <DescriptionDisplay
+        :config="upgrade.config"
+        :length="70"
+      />
+      <br>
+      <EffectDisplay :config="upgrade.config" />
+      <br>
+      <CostDisplay
+        v-if="!isCapped"
+        :config="upgrade.config"
+        :name="otherCurr ? 'Celestial Point' : 'Perk Point'"
+      />
+    </button>
   </div>
 </template>
 
