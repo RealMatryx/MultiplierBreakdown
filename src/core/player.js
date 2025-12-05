@@ -605,7 +605,8 @@ window.player = {
       perkShop: Array.repeat(0, 7),
       lastRepeatedMachines: DC.D0,
       charged: new Set(),
-      disCharge: false
+      disCharge: false,
+      chargeMode: false
     },
     effarig: {
       relicShards: DC.D0,
