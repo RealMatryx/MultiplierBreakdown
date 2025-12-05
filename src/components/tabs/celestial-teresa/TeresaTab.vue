@@ -113,7 +113,7 @@ export default {
       player.celestials.teresa.disCharge = newValue;
     },
     chargeView(newValue) {
-      Teresa.chargeModeOn = newValue;
+      player.celestials.teresa.chargeMode = newValue;
     }
   },
   methods: {
