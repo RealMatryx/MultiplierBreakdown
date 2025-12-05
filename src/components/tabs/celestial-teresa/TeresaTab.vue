@@ -41,6 +41,8 @@ export default {
       totalCharges: 0,
       chargesUsed: 0,
       disCharge: false,
+      chargeView: false,
+      chargeUnlocked: false,
     };
   },
   computed: {
@@ -102,10 +104,16 @@ export default {
         "o-primary-btn--charged-respec-active": this.disCharge
       };
     },
+    chargeDisplay() {
+      return this.chargeView ? "ON" : "OFF";
+    },
   },
   watch: {
     disCharge(newValue) {
       player.celestials.teresa.disCharge = newValue;
+    },
+    chargeView(newValue) {
+      Teresa.chargeModeOn = newValue;
     }
   },
   methods: {
@@ -143,6 +151,8 @@ export default {
       this.totalCharges = Teresa.totalCharges;
       this.chargesUsed = Teresa.totalCharges - Teresa.chargesLeft;
       this.disCharge = player.celestials.teresa.disCharge;
+      this.chargeView = Teresa.chargeModeOn;
+      this.chargeUnlocked = ExpansionPack.teresaPack.isBought;
     },
     startRun() {
       if (this.isDoomed) return;
@@ -304,6 +314,13 @@ export default {
           :key="upgrade.id"
           :upgrade="upgrade"
         />
+        <PrimaryButton
+          v-if="chargeUnlocked"
+          class="o-primary-btn--subtab-option"
+          @click="chargeView = !chargeView"
+        >
+          Toggle Charge Mode: {{ chargeDisplay }}
+        </PrimaryButton>
         You can now modify the appearance of your Glyphs to look like Music Glyphs.
       </div>
       <div
