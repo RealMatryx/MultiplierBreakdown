@@ -9887,24 +9887,24 @@ kbd {
 }
 
 .o-expansion-pack--laitela {
-  color: var(--color-laitela--base);
+  color: var(--color-laitela--accent);
   background: black;
-  border: var(--var-border-width, 0.2rem) solid var(--color-laitela--base);
+  border: var(--var-border-width, 0.2rem) solid var(--color-laitela--accent);
   border-radius: var(--var-border-radius, 0.5rem);
 }
 
 .o-expansion-pack--laitela:hover {
   color: black;
-  background: var(--color-laitela--base);
-  border: var(--var-border-width, 0.2rem) solid var(--color-laitela--base);
+  background: var(--color-laitela--accent);
+  border: var(--var-border-width, 0.2rem) solid var(--color-laitela--accent);
   border-radius: var(--var-border-radius, 0.5rem);
   cursor: pointer;
 }
 
 .o-expansion-pack--laitela--bought {
   color: black;
-  background: var(--color-laitela--base);
-  border: var(--var-border-width, 0.2rem) solid var(--color-laitela--base);
+  background: var(--color-laitela--accent);
+  border: var(--var-border-width, 0.2rem) solid var(--color-laitela--accent);
   border-radius: var(--var-border-radius, 0.5rem);
 }
 
