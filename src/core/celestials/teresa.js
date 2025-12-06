@@ -78,6 +78,7 @@ class PerkShopUpgradeState extends RebuyableMechanicState {
     this.costCap = config.costCap;
     this.showEffectAfterCharge = config.showEffectAfterCharge;
     this.chargedEffect = config.chargedEffect;
+    this.preChargedEffect = config.preChargedEffect;
     this.effect = config.effect;
   }
 
