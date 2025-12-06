@@ -11,9 +11,9 @@ function rebuyable(config) {
     costCap,
     description,
     chargedEffect,
-    effect: () => player.celestials.teresa.perkShop[config.id]
+    effect: () => (player.celestials.teresa.perkShop[config.id].isCharged
       ? config.chargedEffect(player.celestials.teresa.perkShop[config.id])
-      : config.effect(player.celestials.teresa.perkShop[config.id]),
+      : config.effect(player.celestials.teresa.perkShop[config.id])),
     formatEffect,
     formatCost,
     rebuyable: true,
