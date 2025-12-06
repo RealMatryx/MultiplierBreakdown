@@ -373,7 +373,7 @@ export const Ra = {
     this.updateAlchemyFlow(realityRealTime);
   },
   get alchemyResourceCap() {
-    return 25000;
+    return ExpansionPack.effarigPack.isBought ? Math.max(25000, player.records.bestEndgame.glyphLevel / 3) : 25000;
   },
   get momentumValue() {
     const hoursFromUnlock = TimeSpan.fromMilliseconds(new Decimal(player.celestials.ra.momentumTime)).totalHours.toNumber();
