@@ -6,7 +6,7 @@ export const MachineHandler = {
   get hardcapRM() {
     let effectMultipliers = DC.D1;
     if (ExpansionPack.teresaPack.isBought) effectMultipliers = effectMultipliers.timesEffectsOf(PerkShopUpgrade.rmMult);
-    if (ExpansionPack.teresaPack.isBought) effectMultipliers = effectMultipliers.timesEffectsOf(Teresa.rmMultiplier);
+    if (ExpansionPack.teresaPack.isBought) effectMultipliers = effectMultipliers.times(Teresa.rmMultiplier);
     const smallBoost = DC.D1.timesEffectsOf(EndgameMastery(153));
     const largeBoost = DC.D1.timesEffectsOf(SingularityMilestone.rmCap);
     return Decimal.pow(this.baseRMCap.times(effectMultipliers).times(
