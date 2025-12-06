@@ -81,7 +81,7 @@ export default {
         :config="effectConfig"
       />
       <CostDisplay
-        v-if="!isCapped"
+        v-if="!isCapped && !viewingCharge"
         br
         :config="upgrade.config"
         :name="otherCurr ? 'Celestial Point' : 'Perk Point'"
