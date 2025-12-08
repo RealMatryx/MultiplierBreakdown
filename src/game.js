@@ -633,6 +633,24 @@ export function gameLoop(passedDiff, options = {}) {
     player.celestials.ra.alchemy[20].bestPreDoom = player.celestials.ra.alchemy[20].amount;
   }
 
+  if (ExpansionPack.effarigPack.isBought) {
+    const effarigTick = Time.unscaledDeltaTime.totalMilliseconds.div(player.records.bestEndgame.realTime / 10).toNumber();
+    player.celestials.effarig.effarigTime += effarigTick;
+    if (player.celestials.effarig.effarigTime >= 1) {
+      player.celestials.effarig.effarigTime -= 1;
+      player.celestials.effarig.effarigLayer += 1;
+    }
+    if (player.celestials.effarig.effarigLayer >= 1) {
+      EffarigUnlock.infinity.unlock();
+    }
+    if (player.celestials.effarig.effarigLayer >= 2) {
+      EffarigUnlock.eternity.unlock();
+    }
+    if (player.celestials.effarig.effarigLayer >= 3) {
+      EffarigUnlock.reality.unlock();
+    }
+  }
+
   const uncountabilityGain = AlchemyResource.uncountability.effectValue * Time.unscaledDeltaTime.totalSeconds.toNumber();
   Currency.realities.add(uncountabilityGain);
   Currency.perkPoints.add(uncountabilityGain);
