@@ -397,6 +397,7 @@ export const Endgame = {
       player.celestials.ra.alchemy = Array.repeat(0, 21)
         .map(() => ({
           amount: 0,
+          bestPreDoom: 0,
           reaction: false
         }));
       player.celestials.ra.highestRefinementValue.power = 0;
@@ -405,6 +406,9 @@ export const Endgame = {
       player.celestials.ra.highestRefinementValue.replication = 0;
       player.celestials.ra.highestRefinementValue.dilation = 0;
       player.celestials.ra.highestRefinementValue.effarig = 0;
+    }
+    if (ExpansionPack.effarigPack.isBought) {
+      for (const res of AlchemyResources.all) res.amount = res.bestPreDoom;
     }
     if (!ExpansionPacks.areUnlocked) {
       player.celestials.ra.quoteBits = 0;
