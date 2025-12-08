@@ -609,6 +609,10 @@ export function gameLoop(passedDiff, options = {}) {
     Teresa.pourRM(realDiff);
   }
 
+  if (!Pelle.isDoomed) {
+    for (const res of AlchemyResources.all) res.bestPreDoom = res.amount;
+  }
+
   const uncountabilityGain = AlchemyResource.uncountability.effectValue * Time.unscaledDeltaTime.totalSeconds.toNumber();
   Currency.realities.add(uncountabilityGain);
   Currency.perkPoints.add(uncountabilityGain);
