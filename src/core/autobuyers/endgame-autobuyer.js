@@ -69,6 +69,10 @@ get increaseWithMult() {
     this.data.xHighestDP = value;
   }
 
+  get hasAdditionalModes() {
+    return EndgameMilestone.autobuyerEndgame.isReached;
+  }
+
   get highestPrevPrestigeCP() {
     return player.records.permanent.maxCP;
   }
