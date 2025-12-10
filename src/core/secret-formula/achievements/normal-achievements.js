@@ -498,8 +498,8 @@ export const normalAchievements = [
     checkRequirement: () => Currency.antimatter.gte(DC.D9_9999E9999),
     checkEvent: GAME_EVENT.GAME_TICK_AFTER,
     reward: "Antimatter Dimensions gain a multiplier based on current antimatter.",
-    effect: () => Decimal.pow(2, Decimal.log10(Decimal.max(Currency.antimatter.value.pow(0.00002).plus(1).div(
-      Decimal.pow(10, 1e30)), 1))).times(Decimal.min(Currency.antimatter.value.pow(0.00002).plus(1), Decimal.pow(10, 1e30))),
+    effect: () => Currency.antimatter.value.pow(0.00002).plus(1).clampMax(Decimal.pow(10, 1e30)).pow(
+      Decimal.pow(2, Math.log10(Decimal.log10(Currency.antimatter.value.pow(0.00002).plus(1)) / 1e30))),
     formatEffect: value => `${formatX(value, 2, 2)}`
   },
   {
@@ -588,8 +588,8 @@ export const normalAchievements = [
     checkRequirement: () => Currency.antimatter.exponent >= 35000,
     checkEvent: GAME_EVENT.GAME_TICK_AFTER,
     reward: "Antimatter Dimensions are stronger the more unspent antimatter you have.",
-    effect: () => Decimal.pow(2, Decimal.log10(Decimal.max(Currency.antimatter.value.pow(0.00002).plus(1).div(
-      Decimal.pow(10, 1e30)), 1))).times(Decimal.min(Currency.antimatter.value.pow(0.00002).plus(1), Decimal.pow(10, 1e30))),
+    effect: () => Currency.antimatter.value.pow(0.00002).plus(1).clampMax(Decimal.pow(10, 1e30)).pow(
+      Decimal.pow(2, Math.log10(Decimal.log10(Currency.antimatter.value.pow(0.00002).plus(1)) / 1e30))),
     formatEffect: value => `${formatX(value, 2, 2)}`
   },
   {
