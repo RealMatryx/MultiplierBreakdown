@@ -185,13 +185,13 @@ export const endgameUpgrades = [
   {
     name: "Antimatter Amassment",
     id: 15,
-    cost: new Decimal(1e111),
+    cost: new Decimal(1e150),
     requirement: () => `Reach ${format(Decimal.pow(10, 1e33))} Antimatter outside Pelle`,
     hasFailed: () => Pelle.isDoomed,
     checkRequirement: () => Currency.antimatter.exponent >= 1e33 && !Pelle.isDoomed,
     checkEvent: GAME_EVENT.GAME_TICK_AFTER,
     description: () => `Gain a power to the Antimatter Exponent based on Imaginary Machines`,
-    effect: () => 1 + (Math.pow(Math.log10(Math.log10(player.reality.imaginaryMachines + 1) + 1), 2) / 100),
+    effect: () => 1 + (Math.pow(Math.log10(Math.log10(player.reality.imaginaryMachines + 1) + 1), 2) / 200),
     formatEffect: value => formatPow(value, 2, 3)
   },
   {
@@ -250,7 +250,7 @@ export const endgameUpgrades = [
   {
     name: "Infinite Improvements",
     id: 21,
-    cost: Decimal.pow(10, 80),
+    cost: Decimal.pow(10, 120),
     requirement: "Have Increased Infinity Purchased",
     hasFailed: () => !BreakEternityUpgrade.doubleIPUncap.isBought,
     checkRequirement: () => BreakEternityUpgrade.doubleIPUncap.isBought,
@@ -260,7 +260,7 @@ export const endgameUpgrades = [
   {
     name: "Tachyon Transcendence",
     id: 22,
-    cost: Decimal.pow(10, 140),
+    cost: Decimal.pow(10, 170),
     requirement: "Have Galactic Growth Purchased",
     hasFailed: () => !BreakEternityUpgrade.tgThresholdUncap.isBought,
     checkRequirement: () => BreakEternityUpgrade.tgThresholdUncap.isBought,
@@ -272,7 +272,7 @@ export const endgameUpgrades = [
   {
     name: "Quaternary Quantification",
     id: 23,
-    cost: Decimal.pow(10, 220),
+    cost: Decimal.pow(10, 240),
     requirement: "Have Tesseract Traversement Purchased",
     hasFailed: () => !BreakEternityUpgrade.tesseractMultiplier.isBought,
     checkRequirement: () => BreakEternityUpgrade.tesseractMultiplier.isBought,
@@ -284,7 +284,7 @@ export const endgameUpgrades = [
   {
     name: "Sacrificial Supercharger",
     id: 24,
-    cost: Decimal.pow(10, 320),
+    cost: Decimal.pow(10, 330),
     requirement: () => `Have Sacrifice Supplimentation Purchased`,
     hasFailed: () => !BreakEternityUpgrade.glyphSacrificeUncap.isBought,
     checkRequirement: () => BreakEternityUpgrade.glyphSacrificeUncap.isBought,
