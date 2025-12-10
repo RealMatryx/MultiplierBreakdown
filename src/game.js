@@ -972,14 +972,9 @@ function updateImaginaryMachines(diff) {
 function updateTachyonGalaxies() {
   const tachyonGalaxyMult = Effects.max(1, DilationUpgrade.doubleGalaxies);
   const tachyonGalaxyThreshold = 1000;
-  const contingentStart = 1000000;
   const thresholdMult = getTachyonGalaxyMult();
-  let baseGalaxies = Math.max(player.dilation.baseTachyonGalaxies,
+  player.dilation.baseTachyonGalaxies = Math.max(player.dilation.baseTachyonGalaxies,
     1 + Math.floor(Decimal.log(Currency.dilatedTime.value.dividedBy(1000), thresholdMult)));
-  if (baseGalaxies > contingentStart) {
-    baseGalaxies = Math.min(baseGalaxies, contingentStart) + ((baseGalaxies - contingentStart) / 10);
-  }
-  player.dilation.baseTachyonGalaxies = baseGalaxies;
   player.dilation.nextThreshold = DC.E3.times(new Decimal(thresholdMult)
     .pow(player.dilation.baseTachyonGalaxies));
   player.dilation.totalTachyonGalaxies =
