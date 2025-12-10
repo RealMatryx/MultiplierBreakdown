@@ -89,6 +89,16 @@ window.formatMachines = function formatMachines(realPart, imagPart) {
   return parts.join(" + ");
 };
 
+window.formatHybridSmall = function formatHybridSmall(value, places, placesUnder1000) {
+  if (new Decimal(value).gt(1e6)) return format(value, places, placesUnder1000);
+  return formatInt(value);
+};
+
+window.formatHybridLarge = function formatHybridLarge(value, places, placesUnder1000) {
+  if (new Decimal(value).gt(1e12)) return format(value, places, placesUnder1000);
+  return formatInt(value);
+};
+
 window.timeDisplay = function timeDisplay(ms) {
   return TimeSpan.fromMilliseconds(ms).toString();
 };
