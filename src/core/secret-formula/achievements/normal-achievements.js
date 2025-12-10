@@ -1491,7 +1491,7 @@ export const normalAchievements = [
     id: 198,
     name: "...But Not Forgotten",
     description: "Reach 1.8e308 Imaginary Machines.",
-    checkRequirement: () => Currency.imaginaryMachines.value >= Number.MAX_VALUE,
+    checkRequirement: () => Currency.imaginaryMachines.value.gte(Decimal.NUMBER_MAX_VALUE),
     checkEvent: GAME_EVENT.GAME_TICK_AFTER
   },
 ];
