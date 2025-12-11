@@ -99,9 +99,14 @@ window.formatHybridLarge = function formatHybridLarge(value, places, placesUnder
   return `${formatInt(value)}`;
 };
 
+window.formatHybridFloat = function formatHybridFloat(value, digits) {
+  if (new Decimal(value).gt(1e12)) return `${format(value, digits, digits)}`;
+  return `${formatFloat(value, digits)}`;
+};
+
 window.formatDimboostParts = function formatDimboostParts(value, places, placesUnder1000) {
   return formatHybridLarge(value, 3, 0);
-}
+};
 
 window.timeDisplay = function timeDisplay(ms) {
   return TimeSpan.fromMilliseconds(ms).toString();
