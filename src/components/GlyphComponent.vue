@@ -471,7 +471,7 @@ export default {
       switch (options.glyphInfoType) {
         case typeEnum.LEVEL:
           this.updateDisplayLevel();
-          return formatInt(this.displayLevel === 0 ? this.glyph.level : this.displayLevel);
+          return formatHybridLarge(this.displayLevel === 0 ? this.glyph.level : this.displayLevel, 3);
         case typeEnum.RARITY:
           return formatRarity(strengthToRarity(Pelle.isDoomed ? Pelle.glyphStrength : this.glyph.strength));
         case typeEnum.SAC_VALUE:
