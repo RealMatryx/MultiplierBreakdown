@@ -72,6 +72,12 @@ Vue.mixin({
     formatPostBreak(value, places, placesUnder1000) {
       return formatPostBreak(value, places, placesUnder1000);
     },
+    formatHybridSmall(value, places, placesUnder1000) {
+      return formatHybridSmall(value, places, placesUnder1000);
+    },
+    formatHybridLarge(value, places, placesUnder1000) {
+      return formatHybridLarge(value, places, placesUnder1000);
+    },
     pluralize,
     quantify,
     quantifyInt
