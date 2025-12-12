@@ -240,7 +240,7 @@ export default {
       <div
         class="o-v-milestone"
         :class="{'o-v-milestone--unlocked':
-          upgrade.isCapped || upgrade.isAvailableForPurchase}"
+          isCapped || isAvailableForPurchase}"
       >
         <button
           @click="purchase"
