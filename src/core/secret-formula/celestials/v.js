@@ -5,6 +5,25 @@ function emphasizeEnd(fraction) {
   return Math.pow(fraction, 10);
 }
 
+function rebuyableCost(initialCost, increment, id) {
+  return initialCost * Math.pow(increment, player.celestials.v.upgrades[id]);
+}
+
+function rebuyable(config) {
+  const { id, cap, costCap, description, formatEffect, formatCost } = config;
+  return {
+    id,
+    cost: () => rebuyableCost(config.initialCost, config.increment, config.id),
+    cap,
+    costCap,
+    description,
+    effect: () => config.effect(player.celestials.v.upgrades[config.id]),
+    formatEffect,
+    formatCost,
+    rebuyable: true
+  };
+}
+
 export const V_REDUCTION_MODE = {
   SUBTRACTION: 1,
   DIVISION: 2
@@ -249,4 +268,18 @@ export const v = {
       requirement: () => V.spaceTheorems >= 36
     }
   }
+};
+
+export const vUpgrades = {
+  auto: rebuyable({
+    id: 0,
+    initialCost: 1e80,
+    increment: 1e5,
+    description: () => `Reduce the time to automatically complete V-Achievements`,
+    effect: bought => 60 / Math.pow(2, bought),
+    formatEffect: value => TimeSpan.fromMilliseconds(new Decimal(value)).toStringShort(),
+    formatCost: value => format(value, 2),
+    costCap: 1e135,
+    cap: () => 60 / Math.pow(2, 11)
+  }),
 };
