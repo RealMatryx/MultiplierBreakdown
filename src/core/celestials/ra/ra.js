@@ -298,7 +298,8 @@ export const Ra = {
     return this.pets.all.map(pet => (pet.isUnlocked ? pet.level : 0)).sum();
   },
   get levelCap() {
-    return 25;
+    if (!ExpansionPack.raPack.isBought) return 25;
+    return Math.floor(Math.max(25, Math.log10(player.records.bestAntimatterExponentOutsideDoom)));
   },
   get maxTotalPetLevel() {
     return this.levelCap * this.pets.all.length;
