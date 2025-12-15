@@ -7640,11 +7640,16 @@ kbd {
   border-color: #b89c2e;
 }
 
-.o-v-upgrade {
+.l-v-upgrades-grid {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+}
+
+.o-v-upgrade {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
   width: 25rem;
   height: 10rem;
   font-family: Typewriter;
