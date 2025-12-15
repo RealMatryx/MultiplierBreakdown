@@ -111,7 +111,7 @@ export const imaginaryUpgrades = [
   {
     name: "Suspicion of Interference",
     id: 11,
-    cost: 5e7,
+    cost: new Decimal(5e7),
     requirement: () => `${format(1e90)} total Relic Shards
       (You have ${format(player.celestials.effarig.relicShards, 2)})`,
     hasFailed: () => false,
@@ -125,7 +125,7 @@ export const imaginaryUpgrades = [
   {
     name: "Consequences of Illusions",
     id: 12,
-    cost: 5e7,
+    cost: new Decimal(5e7),
     requirement: () => `Make a level ${formatInt(9000)} Glyph with a single Glyph level factor weight at
     ${formatInt(100)}`,
     hasFailed: () => false,
@@ -140,7 +140,7 @@ export const imaginaryUpgrades = [
   {
     name: "Transience of Information",
     id: 13,
-    cost: 5e7,
+    cost: new Decimal(5e7),
     requirement: () => `Reach ${format(Number.MAX_VALUE, 2)} projected Reality Machines within
       The Nameless Ones' Reality`,
     hasFailed: () => !Enslaved.isRunning,
@@ -156,7 +156,7 @@ export const imaginaryUpgrades = [
   {
     name: "Recollection of Intrusion",
     id: 14,
-    cost: 3.5e8,
+    cost: new Decimal(3.5e8),
     formatCost: x => format(x, 1),
     requirement: () => `Reach a tickspeed of ${format("1e75000000000")} / sec within Eternity Challenge 5`,
     hasFailed: () => false,
@@ -169,7 +169,7 @@ export const imaginaryUpgrades = [
   {
     name: "Fabrication of Ideals",
     id: 15,
-    cost: 1e9,
+    cost: new Decimal(1e9),
     requirement: () => `Reach ${format("1e1500000000000")} antimatter without
       ever having any 1st Infinity Dimensions`,
     hasFailed: () => player.requirementChecks.reality.maxID1.gt(0),
@@ -188,7 +188,7 @@ export const imaginaryUpgrades = [
   {
     name: "Massless Momentum",
     id: 16,
-    cost: 3.5e9,
+    cost: new Decimal(3.5e9),
     formatCost: x => format(x, 1),
     requirement: () => `Destabilize Lai'tela's Reality in under ${formatInt(30)} seconds twice`,
     hasFailed: () => false,
@@ -199,7 +199,7 @@ export const imaginaryUpgrades = [
   {
     name: "Chiral Oscillation",
     id: 17,
-    cost: 6e9,
+    cost: new Decimal(6e9),
     requirement: () => `Automatically condense at least ${formatInt(20)} Singularities at once`,
     hasFailed: () => false,
     checkRequirement: () => Singularity.singularitiesGained.gte(20) &&
@@ -210,7 +210,7 @@ export const imaginaryUpgrades = [
   {
     name: "Dimensional Symmetry",
     id: 18,
-    cost: 1.5e10,
+    cost: new Decimal(1.5e10),
     formatCost: x => format(x, 1),
     requirement: () => `Have ${formatInt(80000)} total Galaxies`,
     hasFailed: () => false,
@@ -222,7 +222,7 @@ export const imaginaryUpgrades = [
   {
     name: "Deterministic Radiation",
     id: 19,
-    cost: 2.8e10,
+    cost: new Decimal(2.8e10),
     formatCost: x => format(x, 1),
     requirement: () => `Reach ${formatInt(3.85e6)} Tickspeed Continuum without ever having more than
       ${formatInt(8)} Time Studies in this Reality`,
@@ -237,7 +237,7 @@ export const imaginaryUpgrades = [
   {
     name: "Vacuum Acceleration",
     id: 20,
-    cost: 3e12,
+    cost: new Decimal(3e12),
     requirement: () => `Have a Continuum increase of at least ${formatPercents(1)}`,
     hasFailed: () => false,
     checkRequirement: () => Laitela.matterExtraPurchaseFactor >= 2,
@@ -250,7 +250,7 @@ export const imaginaryUpgrades = [
   {
     name: "Existential Elimination",
     id: 21,
-    cost: 1e13,
+    cost: new Decimal(1e13),
     requirement: () => `Reach ${format("1e7400000000000")} antimatter with Continuum disabled for the entire Reality`,
     hasFailed: () => !player.requirementChecks.reality.noContinuum,
     checkRequirement: () => player.requirementChecks.reality.noContinuum &&
@@ -266,7 +266,7 @@ export const imaginaryUpgrades = [
   {
     name: "Total Termination",
     id: 22,
-    cost: 1.5e14,
+    cost: new Decimal(1.5e14),
     formatCost: x => format(x, 1),
     requirement: () => `Reach ${format("1e150000000000")} antimatter in Effarig's Reality with
       at least ${formatInt(4)} Cursed Glyphs equipped`,
@@ -282,7 +282,7 @@ export const imaginaryUpgrades = [
   {
     name: "Planar Purification",
     id: 23,
-    cost: 6e14,
+    cost: new Decimal(6e14),
     requirement: () => `Reach Glyph level ${formatInt(20000)} in Ra's Reality with
       at most ${formatInt(0)} Glyphs equipped`,
     hasFailed: () => !Ra.isRunning || player.requirementChecks.reality.maxGlyphs > 0,
@@ -297,7 +297,7 @@ export const imaginaryUpgrades = [
   {
     name: "Absolute Annulment",
     id: 24,
-    cost: 6e14,
+    cost: new Decimal(6e14),
     // We unfortunately don't have the UI space to be more descriptive on this button without causing text overflow,
     // so hopefully the additional modals (from the upgrade lock) will mostly communicate the idea that this is under
     // the same conditions as hard V's Post-destination
@@ -317,7 +317,7 @@ export const imaginaryUpgrades = [
   {
     name: "Omnipresent Obliteration",
     id: 25,
-    cost: 1.6e15,
+    cost: new Decimal(1.6e15),
     formatCost: x => format(x, 1),
     requirement: () => `Reach Reality in Lai'tela's Reality with all Dimensions disabled and
       at least ${formatInt(4)} empty Glyph slots`,
@@ -333,7 +333,7 @@ export const imaginaryUpgrades = [
   {
     name: "Singularity Stockpile",
     id: 26,
-    cost: 1e50,
+    cost: new Decimal(1e50),
     requirement: () => `Reach ${format(DC.E100, 2)} Singularities`,
     hasFailed: () => false,
     checkRequirement: () => Currency.singularities.value.gte(1e100),
@@ -343,7 +343,7 @@ export const imaginaryUpgrades = [
   {
     name: "Exigent Extinction",
     id: 27,
-    cost: 1e100,
+    cost: new Decimal(1e100),
     requirement: () => `Reach ${format(DC.E9E15)} Antimatter in Pelle without ever equipping Glyphs`,
     hasFailed: () => !Pelle.isDoomed || player.requirementChecks.endgame.noGlyphsDoomed === false,
     checkRequirement: () => Currency.antimatter.value.exponent >= 9e15 && Pelle.isDoomed &&
@@ -354,7 +354,7 @@ export const imaginaryUpgrades = [
   {
     name: "Alchemical Annihilation",
     id: 28,
-    cost: 1e150,
+    cost: new Decimal(1e150),
     requirement: () => `Unlock Pelle without having any Alchemy Resources`,
     hasFailed: () => player.celestials.ra.alchemy[0].amount > 0 ||
       player.celestials.ra.alchemy[1].amount > 0 ||
@@ -375,7 +375,7 @@ export const imaginaryUpgrades = [
   {
     name: "Galactic Genocide",
     id: 29,
-    cost: 1e200,
+    cost: new Decimal(1e200),
     requirement: () => `Have a total of ${format(1e75, 2, 2)} Galaxies`,
     hasFailed: () => false,
     checkRequirement: () => Replicanti.galaxies.total + player.galaxies + 
@@ -386,7 +386,7 @@ export const imaginaryUpgrades = [
   {
     name: "Inception Initiation",
     id: 30,
-    cost: Number.MAX_VALUE,
+    cost: Decimal.NUMBER_MAX_VALUE,
     requirement: () => `Disable all Nerfs and Strikes in Pelle`,
     hasFailed: () => !PelleStrikeUpgrade.pelleStrike1.isAvailableForPurchase,
     checkRequirement: () => PelleStrikeUpgrade.all.filter(u => u.isBought).length >= 5,
