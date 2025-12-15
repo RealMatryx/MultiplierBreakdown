@@ -39,8 +39,8 @@ export const expansionPacks = {
     id: "vPack",
     symbol: "⌬",
     description: () =>
-      `Automatically unlock one V-Achievement every ${TimeSpan.fromSeconds(new Decimal(60))}, which can be reduced by spending
-      Celestial Points. This includes Hard V-Achievements. Double all gained Space Theorems.`,
+      `Start with V's Reality unlocked. Automatically unlock one V-Achievement every ${TimeSpan.fromSeconds(new Decimal(60))},
+      which can be reduced by spending Celestial Points. This includes Hard V-Achievements. Double all gained Space Theorems.`,
     cost: Decimal.pow(10, 1e90),
     formatCost: value => formatPostBreak(value, 2, 0)
   },
