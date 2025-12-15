@@ -55,7 +55,7 @@ export default {
       />
       <EffectDisplay
         br
-        :config="effectConfig"
+        :config="upgrade.config"
       />
       <CostDisplay
         v-if="!isCapped"
