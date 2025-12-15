@@ -4,12 +4,14 @@ import GlyphSetPreview from "@/components/GlyphSetPreview";
 import PrimaryButton from "@/components/PrimaryButton";
 import { V_REDUCTION_MODE } from "@/core/secret-formula";
 import VUnlockRequirement from "./VUnlockRequirement";
+import VUpgradeButton from "./VUpgradeButton";
 
 export default {
   name: "VTab",
   components: {
     CelestialQuoteHistory,
     VUnlockRequirement,
+    VUpgradeButton,
     PrimaryButton,
     GlyphSetPreview
   },
