@@ -446,7 +446,7 @@ export const ra = {
       effect: () => Decimal.pow(10, Tesseracts.effectiveCount),
       pet: "enslaved",
       level: 50,
-      displayIcon: `<span class="fas fa-power-off"></span>`,
+      displayIcon: `<span class="fas fa-forward"></span>`,
       disabledByPelle: false
     },
     gameSpeedTachyonMult: {
