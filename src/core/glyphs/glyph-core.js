@@ -74,7 +74,7 @@ export const Glyphs = {
       PelleGlyphs += Effects.sum(EndgameMastery(121));
       return PelleGlyphs;
     }
-    return 3 + Effects.sum(RealityUpgrade(9), RealityUpgrade(24), BreakEternityUpgrade.glyphSlotImprovement);
+    return 3 + Effects.sum(RealityUpgrade(9), RealityUpgrade(24), BreakEternityUpgrade.glyphSlotImprovement, Ra.unlocks.glyphSlot);
   },
   get protectedSlots() {
     return 10 * player.reality.glyphs.protectedRows;
