@@ -784,7 +784,7 @@ export function gameLoop(passedDiff, options = {}) {
   }
 
   if (!Pelle.isDoomed) {
-    player.records.bestAntimatterExponentOutsideDoom = Decimal.log10(player.records.totalAntimatter);
+    player.records.bestAntimatterExponentOutsideDoom = Math.max(Decimal.log10(player.records.totalAntimatter), player.records.bestAntimatterExponentOutsideDoom);
   }
 
   if (Enslaved.canTickHintTimer) {
