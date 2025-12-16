@@ -667,9 +667,9 @@ export const normalTimeStudies = [
     requirement: [() => Ra.unlocks.unlockHardV.effectOrDefault(0) >= 2, 223, 224, 232],
     reqType: TS_REQUIREMENT_TYPE.ALL,
     requiresST: [223, 224, 232],
-    description: () => `Distant Galaxy scaling threshold starts another ${formatInt(Math.pow(3000, Ra.unlocks.triadBuff))} Antimatter
-      Galaxies later`,
-    effect: () => Math.pow(3000, Ra.unlocks.triadBuff),
+    description: () => `Distant Galaxy scaling threshold starts another
+      ${formatInt(Math.pow(3000, Ra.unlocks.triadBuff.effectOrDefault(1)))} Antimatter Galaxies later`,
+    effect: () => Math.pow(3000, Ra.unlocks.triadBuff.effectOrDefault(1)),
     unlocked: () => Ra.unlocks.unlockHardV.effectOrDefault(0) >= 2
   },
   {
@@ -679,9 +679,9 @@ export const normalTimeStudies = [
     requirement: [() => Ra.unlocks.unlockHardV.effectOrDefault(0) >= 3, 225, 226, 233],
     reqType: TS_REQUIREMENT_TYPE.ALL,
     requiresST: [225, 226, 233],
-    description: () => `Gain ${formatPercents(0.5 * Ra.unlocks.triadBuff)} more extra Replicanti Galaxies from Time Studies 225 and 226,
-      and from Effarig's Infinity`,
-    effect: () => 1 + 0.5 * Ra.unlocks.triadBuff,
+    description: () => `Gain ${formatPercents(0.5 * Ra.unlocks.triadBuff.effectOrDefault(1))} more extra Replicanti
+      Galaxies from Time Studies 225 and 226, and from Effarig's Infinity`,
+    effect: () => 1 + 0.5 * Ra.unlocks.triadBuff.effectOrDefault(1),
     unlocked: () => Ra.unlocks.unlockHardV.effectOrDefault(0) >= 3
   },
   {
@@ -691,7 +691,7 @@ export const normalTimeStudies = [
     requirement: [() => Ra.unlocks.unlockHardV.effectOrDefault(0) >= 4, 227, 228, 234],
     reqType: TS_REQUIREMENT_TYPE.ALL,
     requiresST: [227, 228, 234],
-    description: () => (Ra.unlocks.triadBuff.effectValue > 1
+    description: () => (Ra.unlocks.triadBuff.canBeApplied
       ? `Dimensional Sacrifice multiplier is raised to the power of ${format(2 * Ra.unlocks.triadBuff.effectOrDefault(1), 2, 2)}`
       : `Dimensional Sacrifice multiplier is squared`),
     effect: () => 2 * Ra.unlocks.triadBuff.effectOrDefault(1),
