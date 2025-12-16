@@ -123,6 +123,9 @@ export default {
         background: this.pet.color
       };
     },
+    id(row, column) {
+      return (row - 1) * 7 + column - 1;
+    },
   },
 };
 </script>
@@ -274,12 +277,16 @@ export default {
         v-else
         class="l-ra-pet-postcompletion-spacer"
       />
-      <div class="l-ra-pet-milestones">
+      <div
+        v-for="row in 2"
+        :key="row"
+        class="l-ra-pet-milestones"
+      >
         <!-- This choice of key forces a UI update every level up -->
         <RaUpgradeIcon
-          v-for="(unlock, i) in unlocks"
-          :key="25 * level + i"
-          :unlock="unlock"
+          v-for="column in 7"
+          :key="id(row, column)"
+          :unlock="unlocks[id(row, column)]"
         />
       </div>
     </div>
