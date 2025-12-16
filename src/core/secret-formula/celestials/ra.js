@@ -322,6 +322,7 @@ export const ra = {
     chargeBoost: {
       id: 31,
       reward: "Charged Infinity Upgrades act as if your Teresa Level was twice as high",
+      effect: 2,
       pet: "teresa",
       level: 65,
       displayIcon: `<span class="fas fa-bolt"></span>`,
