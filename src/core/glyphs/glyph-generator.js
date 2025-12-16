@@ -237,7 +237,7 @@ export const GlyphGenerator = {
   randomStrength(rng) {
     // Technically getting this upgrade really changes glyph gen but at this point almost all
     // the RNG is gone anyway.
-    if (Ra.unlocks.maxGlyphRarityAndShardSacrificeBoost.canBeApplied) return rarityToStrength(100);
+    if (Ra.unlocks.maxGlyphRarityAndShardSacrificeBoost.canBeApplied) return rarityToStrength(100 + Ra.unlocks.rarityBuff.effectOrDefault(0));
     let result = GlyphGenerator.gaussianBellCurve(rng) * GlyphGenerator.strengthMultiplier;
     const relicShardFactor = Ra.unlocks.extraGlyphChoicesAndRelicShardRarityAlwaysMax.canBeApplied || EndgameMastery(53).isBought ? 1 : rng.uniform();
     const increasedRarity = relicShardFactor * Effarig.maxRarityBoost +
@@ -246,7 +246,7 @@ export const GlyphGenerator = {
     result += increasedRarity / 40;
     // Raise the result to the next-highest 0.1% rarity.
     result = Math.ceil(result * 400) / 400;
-    return Math.min(result, rarityToStrength(100));
+    return Math.min(result, rarityToStrength(100 + Ra.unlocks.rarityBuff.effectOrDefault(0)));
   },
 
   // eslint-disable-next-line max-params
