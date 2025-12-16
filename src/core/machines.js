@@ -52,7 +52,8 @@ export const MachineHandler = {
     return (Decimal.pow(Decimal.clampMin(new Decimal(this.uncappedRM.log10()).sub(1000), 0), 2).times(
       Decimal.pow(Decimal.clampMin(new Decimal(this.uncappedRM.log10()).sub(100000), 1), 0.2)).times(
       Decimal.pow(Decimal.clampMin(new Decimal(this.uncappedRM.log10()).div(1000000000), 1),
-      new Decimal(Decimal.log10(this.uncappedRM.log10())).div(7.5)))).pow(Effects.product(EndgameMastery(144)));
+      new Decimal(Decimal.log10(this.uncappedRM.log10())).div(7.5)))).pow(
+      Effects.product(EndgameMastery(144), Ra.unlocks.imaginaryMachines));
   },
 
   get currentIMCap() {
