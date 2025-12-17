@@ -17,8 +17,6 @@ export default {
       baseGalaxies: 0,
       totalGalaxies: 0,
       tachyonGalaxyGain: 1,
-      contingentTG: 0,
-      isContingent: false,
       hasPelleDilationUpgrades: false,
       galaxyTimeEstimate: "",
       maxDT: new Decimal(),
@@ -117,8 +115,6 @@ export default {
         this.tachyonGalaxyGain = 1;
       }
       this.tachyonGalaxyGain *= DilationUpgrade.galaxyMultiplier.effectValue;
-      this.contingentTG = 1000000;
-      this.isContingent = this.baseGalaxies >= this.contingentTG;
       this.maxDT.copyFrom(player.records.thisReality.maxDT);
 
       const estimateText = getDilationTimeEstimate(this.maxDT);
@@ -176,14 +172,6 @@ export default {
     <span v-if="isEndgameUnlocked">
       Past {{ format(scaleStart, 2, 1) }} Dilated Time, all rebuyable Dilation Upgrades will scale faster.
     </span>
-    <span
-      v-if="isContingent"
-      class="contingency-text"
-    >
-      Your Tachyon Galaxies have become Contingent. This is because they are taking up too much space in the Universe.
-      <br>
-      This effect started at {{ formatInt(contingentTG) }} Tachyon Galaxies, and will continue until the End of Time.
-    </span>
     <div class="l-dilation-upgrades-grid">
       <div
         v-for="(upgradeRow, row) in allRebuyables"
@@ -238,12 +226,5 @@ export default {
 
 .l-dilation-upgrades-grid__cell {
   margin: 1.2rem 1.5rem;
-}
-
-.contingency-text {
-  color: var(--color-pelle--base);
-  font-size: 1.5rem;
-  text-shadow: 0 0 0.2rem var(--color-pelle--base);
-  cursor: default;
 }
 </style>
