@@ -86,7 +86,9 @@ Vue.mixin({
     },
     pluralize,
     quantify,
-    quantifyInt
+    quantifyInt,
+    quantifyHybridSmall,
+    quantifyHybridLarge
   }
 });
 
