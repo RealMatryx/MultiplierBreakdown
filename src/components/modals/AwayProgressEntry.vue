@@ -69,7 +69,7 @@ export default {
     },
     formatBlackHoleActivations() {
       const activations = this.after - this.before;
-      return quantifyInt("time", activations);
+      return quantifyHybridSmall("time", activations);
     },
     isVeryLarge() {
       return this.isBlackHole
