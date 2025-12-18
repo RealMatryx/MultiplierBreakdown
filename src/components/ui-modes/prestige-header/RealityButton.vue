@@ -165,7 +165,7 @@ export default {
           class="infotooltiptext"
         >
           <div>Other resources gained:</div>
-          <div>{{ quantifyInt("Perk Point", ppGained) }}</div>
+          <div>{{ quantifyHybridLarge("Perk Point", ppGained) }}</div>
           <div v-if="shardsGained.neq(0)">
             {{ shardsGainedText }} ({{ format(currentShardsRate, 2) }}/min)
             <br>
