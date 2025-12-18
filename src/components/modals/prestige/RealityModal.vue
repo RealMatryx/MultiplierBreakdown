@@ -57,8 +57,8 @@ export default {
     },
     gained() {
       const gainedResources = [];
-      gainedResources.push(`${quantifyInt("Reality", this.simRealities)}`);
-      gainedResources.push(`${quantifyInt("Perk Point", this.simRealities)}`);
+      gainedResources.push(`${quantifyHybridLarge("Reality", this.simRealities)}`);
+      gainedResources.push(`${quantifyHybridLarge("Perk Point", this.simRealities)}`);
       gainedResources.push(`${quantify("Reality Machine", this.realityMachines, 2)}`);
       if (this.effarigUnlocked) {
         gainedResources.push(`${quantify("Relic Shard", this.shardsGained, 2)}`);
@@ -69,7 +69,7 @@ export default {
       // Bit annoying to read due to needing >, <, and =, with = needing a different format.
       return `You will get a level ${formatHybridLarge(this.level, 3)} Glyph on Reality, which is
         ${this.level === this.bestLevel ? "equal to" : `
-        ${quantifyInt("level", this.levelDifference)}
+        ${quantifyHybridLarge("level", this.levelDifference)}
         ${this.level > this.bestLevel ? "higher" : "lower"} than`} your best.`;
     },
     confirmationToDisable() {
@@ -179,7 +179,7 @@ export default {
       <br>
       After choosing this Glyph the game will simulate the rest of your Realities,
       <br>
-      automatically choosing another {{ quantifyInt("Glyph", simRealities - 1) }}
+      automatically choosing another {{ quantifyHybridSmall("Glyph", simRealities - 1) }}
       based on your Glyph filter settings.
     </div>
     <div v-if="willAutoPurge">
