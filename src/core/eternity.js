@@ -394,7 +394,7 @@ class EPMultiplierState extends GameMechanicState {
       const cost = Decimal.pow(multPerUpgrade[i], count).times(500);
       if (cost.lt(costThresholds[i])) return cost;
     }
-    const purchaseScale = EndgameMastery(152).isBought ? count : count.pow(1.2).sub(Math.pow(1332, 1.2));
+    const purchaseScale = EndgameMastery(152).isBought ? count : Math.pow(count, 1.2) - Math.pow(1332, 1.2);
     return DC.E3.pow(purchaseScale).times(500);
   }
 }
