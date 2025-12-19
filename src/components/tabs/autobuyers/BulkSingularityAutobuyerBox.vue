@@ -61,7 +61,7 @@ export default {
       </label>
       <AutobuyerInput
         :autobuyer="autobuyer"
-        type="int"
+        type="float"
         property="lowerBound"
       />
     </template>
@@ -78,7 +78,7 @@ export default {
       </label>
       <AutobuyerInput
         :autobuyer="autobuyer"
-        type="int"
+        type="float"
         property="upperBound"
       />
     </template>
