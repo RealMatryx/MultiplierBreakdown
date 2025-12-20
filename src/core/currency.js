@@ -463,6 +463,14 @@ Currency.imaginaryMachines = new class extends DecimalCurrency {
   }
 }();
 
+Currency.unnerfedDarkMatter = new class extends DecimalCurrency {
+  get value() { return player.celestials.laitela.unnerfedDarkMatter; }
+  set value(value) {
+    const newValue = new Decimal(value);
+    player.celestials.laitela.unnerfedDarkMatter = newValue;
+  }
+}();
+
 Currency.darkMatter = new class extends DecimalCurrency {
   get value() { return player.celestials.laitela.darkMatter; }
   set value(value) {
