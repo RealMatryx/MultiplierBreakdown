@@ -132,6 +132,11 @@ export const Laitela = {
       buy(cheapestUpgrade, DC.D1);
     }
   },
+  hadronize() {
+    this.celestial.fastestCompletion = 3600;
+    this.celestial.difficultyTier = 0;
+    this.hadronizes += 1;
+  },
   reset() {
     this.annihilate(true);
     this.celestial.darkMatterMult = DC.D1;
