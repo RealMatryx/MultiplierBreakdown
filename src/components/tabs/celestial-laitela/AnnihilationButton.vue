@@ -113,6 +113,7 @@ export default {
       multiplier of <b>{{ formatX(darkMatterMultGain.add(1), 2, 2) }}</b> to all Dark Matter Dimensions.
     </span>
     <br>
+    <br>
     <button
       v-if="modeUnlocked"
       class="l-laitela-annihilation-button c-laitela-annihilation-button"
