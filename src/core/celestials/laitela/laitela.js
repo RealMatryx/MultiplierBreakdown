@@ -50,6 +50,7 @@ export const Laitela = {
       SingularityMilestone.continuumMult.effectOrDefault(new Decimal(0)).add(1))).toNumber();
   },
   get realityReward() {
+    const fullLaitelaCompletion = Decimal.clampMin(Decimal.pow(100, 8).times(Decimal.pow(new Decimal(360).div(300), 2)), 1);
     return Decimal.clampMin(Decimal.pow(100, this.difficultyTier).times(
       Decimal.pow(new Decimal(360).div(player.celestials.laitela.fastestCompletion), 2)), 1);
   },
@@ -75,7 +76,8 @@ export const Laitela = {
     if (ImaginaryUpgrade(27).isBought) baseCap = DC.E4000;
     if (ImaginaryUpgrade(28).isBought) baseCap = DC.E20000;
     if (ImaginaryUpgrade(29).isBought) baseCap = DC.E100000;
-    return baseCap.times(EndgameUpgrade(4).effectOrDefault(1));
+    const realityReward = ExpansionPack.laitelaPack.isBought ? this.realityReward : 1;
+    return baseCap.times(EndgameUpgrade(4).effectOrDefault(1)).times(realityReward);
   },
   get annihilationUnlocked() {
     return ImaginaryUpgrade(19).isBought;
