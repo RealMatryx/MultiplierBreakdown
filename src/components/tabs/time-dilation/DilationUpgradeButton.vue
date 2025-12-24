@@ -90,11 +90,11 @@ export default {
         this.isAffordable = upgrade.isAffordable;
         this.isCapped = upgrade.isCapped;
         const autobuyer = Autobuyer.dilationUpgrade(upgrade.id);
-        const autobuyer2 = Autobuyer.pelleDilationUpgrade(upgrade.id);
         this.boughtAmount = upgrade.boughtAmount;
         if (!autobuyer) {
-          this.isPelleAutoUnlocked = autobuyer2.isUnlocked;
-          this.isPelleAutobuyerOn = autobuyer2.isActive;
+          const autobuyerPelle = Autobuyer.pelleDilationUpgrade(upgrade.id);
+          this.isPelleAutoUnlocked = autobuyerPelle.isUnlocked;
+          this.isPelleAutobuyerOn = autobuyerPelle.isActive;
           return;
         }
         this.isAutoUnlocked = autobuyer.isUnlocked;
