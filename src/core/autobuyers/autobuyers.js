@@ -13,6 +13,7 @@ import { GalaxyAutobuyerState } from "./galaxy-autobuyer";
 import { ImaginaryUpgradeAutobuyerState } from "./imaginary-upgrade-autobuyer";
 import { InfinityDimensionAutobuyerState } from "./infinity-dimension-autobuyer";
 import { EPMultAutobuyerState, IPMultAutobuyerState } from "./prestige-currency-multiplier-autobuyer";
+import { PelleDilationUpgradeAutobuyerState } from "./pelle-dilation-upgrade-autobuyer";
 import { RealityAutobuyerState } from "./reality-autobuyer";
 import { RealityUpgradeAutobuyerState } from "./reality-upgrade-autobuyer";
 import { ReplicantiGalaxyAutobuyerState } from "./replicanti-galaxy-autobuyer";
@@ -41,6 +42,7 @@ export const Autobuyer = {
   infinityDimension: InfinityDimensionAutobuyerState.createAccessor(),
   ipMult: new IPMultAutobuyerState(),
   epMult: new EPMultAutobuyerState(),
+  pelleDilationUpgrade: PelleDilationUpgradeAutobuyerState.createAccessor(),
   reality: new RealityAutobuyerState(),
   realityUpgrade: RealityUpgradeAutobuyerState.createAccessor(),
   replicantiGalaxy: new ReplicantiGalaxyAutobuyerState(),
@@ -90,6 +92,7 @@ export const Autobuyers = (function() {
   const arrays = [
     Autobuyer.replicantiUpgrade.zeroIndexed,
     Autobuyer.dilationUpgrade.zeroIndexed,
+    Autobuyer.pelleDilationUpgrade.zeroIndexed,
     Autobuyer.blackHolePower.zeroIndexed,
     Autobuyer.realityUpgrade.zeroIndexed,
     Autobuyer.imaginaryUpgrade.zeroIndexed,
@@ -101,6 +104,7 @@ export const Autobuyers = (function() {
     Autobuyer.timeDimension,
     Autobuyer.replicantiUpgrade,
     Autobuyer.dilationUpgrade,
+    Autobuyer.pelleDilationUpgrade,
     Autobuyer.blackHolePower,
     Autobuyer.realityUpgrade,
     Autobuyer.imaginaryUpgrade,
