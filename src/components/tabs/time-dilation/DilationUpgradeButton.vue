@@ -36,6 +36,8 @@ export default {
       isAffordable: false,
       isAutoUnlocked: false,
       isAutobuyerOn: false,
+      isPelleAutoUnlocked: false,
+      isPelleAutobuyerOn: false,
       boughtAmount: 0,
       currentDT: new Decimal(0),
       currentDTGain: new Decimal(0),
@@ -72,6 +74,9 @@ export default {
   watch: {
     isAutobuyerOn(newValue) {
       Autobuyer.dilationUpgrade(this.upgrade.id).isActive = newValue;
+    },
+    isPelleAutobuyerOn(newValue) {
+      Autobuyer.pelleDilationUpgrade(this.upgrade.id).isActive = newValue;
     }
   },
   methods: {
@@ -88,8 +93,8 @@ export default {
         const autobuyer2 = Autobuyer.pelleDilationUpgrade(upgrade.id);
         this.boughtAmount = upgrade.boughtAmount;
         if (!autobuyer) {
-          this.isAutoUnlocked = autobuyer2.isUnlocked;
-          this.isAutobuyerOn = autobuyer2.isActive;
+          this.isPelleAutoUnlocked = autobuyer2.isUnlocked;
+          this.isPelleAutobuyerOn = autobuyer2.isActive;
           return;
         }
         this.isAutoUnlocked = autobuyer.isUnlocked;
@@ -146,6 +151,12 @@ export default {
     <PrimaryToggleButton
       v-if="isRebuyable && isAutoUnlocked"
       v-model="isAutobuyerOn"
+      label="Auto:"
+      class="l--spoon-btn-group__little-spoon o-primary-btn--dilation-upgrade-toggle"
+    />
+    <PrimaryToggleButton
+      v-if="isRebuyable && isPelleAutoUnlocked"
+      v-model="isPelleAutobuyerOn"
       label="Auto:"
       class="l--spoon-btn-group__little-spoon o-primary-btn--dilation-upgrade-toggle"
     />
