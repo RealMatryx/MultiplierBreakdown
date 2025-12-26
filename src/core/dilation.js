@@ -68,7 +68,7 @@ export function buyDilationUpgrade(id, bulk = 1) {
     if (player.dilation.upgrades.has(id)) return false;
     if (!Currency.dilatedTime.purchase(upgrade.cost)) return false;
     player.dilation.upgrades.add(id);
-    if (id === 4) player.dilation.totalTachyonGalaxies *= 2;
+    if (id === 4) player.dilation.totalTachyonGalaxies = player.dilation.totalTachyonGalaxies.times(2);
   } else {
     const upgAmount = player.dilation.rebuyables[id];
     if (Currency.dilatedTime.lt(upgrade.cost) || upgAmount >= upgrade.purchaseCap) return false;
@@ -85,8 +85,8 @@ export function buyDilationUpgrade(id, bulk = 1) {
     if (id === 2) {
       if (!Perk.bypassTGReset.isBought || Pelle.isDoomed) Currency.dilatedTime.reset();
       player.dilation.nextThreshold = DC.E3;
-      player.dilation.baseTachyonGalaxies = 0;
-      player.dilation.totalTachyonGalaxies = 0;
+      player.dilation.baseTachyonGalaxies = DC.D0;
+      player.dilation.totalTachyonGalaxies = DC.D0;
     }
 
     if (id === 3 && !Pelle.isDisabled("tpMults")) {
@@ -253,7 +253,7 @@ class DilationUpgradeState extends SetPurchasableMechanicState {
   }
 
   onPurchased() {
-    if (this.id === 4) player.dilation.totalTachyonGalaxies *= 2;
+    if (this.id === 4) player.dilation.totalTachyonGalaxies = player.dilation.totalTachyonGalaxies.times(2);
     if (this.id === 10) SpeedrunMilestones(15).tryComplete();
   }
 }
