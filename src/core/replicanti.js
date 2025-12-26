@@ -480,7 +480,7 @@ export const ReplicantiUpgrade = {
     }
 
     get extra() {
-      return Effects.max(0, TimeStudy(131)) + PelleRifts.decay.milestones[2].effectOrDefault(0);
+      return TimeStudy(131).effectOrDefault(0).add(PelleRifts.decay.milestones[2].effectOrDefault(0));
     }
 
     autobuyerTick() {
@@ -576,7 +576,7 @@ export const Replicanti = {
       return player.replicanti.galaxies;
     },
     get extra() {
-      return Decimal.floor(new Decimal((Effects.sum(
+      return Decimal.floor(new Decimal((new Decimal.timesEffectsOf(
         TimeStudy(225),
         TimeStudy(226)
       ) + Effarig.bonusRG) * TimeStudy(303).effectOrDefault(1) * this.multiplication).add(this.bought.times(this.multiplication - 1)));
