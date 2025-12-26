@@ -86,7 +86,7 @@ export default {
         value => {
           let description = `Max Replicanti Galaxies: `;
           const extra = upgrade.extra;
-          if (extra > 0) {
+          if (extra.gt(0)) {
             const total = value + extra;
             description += `<br>${formatHybridLarge(value, 3)} + ${formatHybridLarge(extra, 3)} = ${formatHybridLarge(total, 3)}`;
           } else {
