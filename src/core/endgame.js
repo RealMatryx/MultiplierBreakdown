@@ -522,8 +522,8 @@ export const Endgame = {
     player.celestials.pelle.rifts.paradox.reducedTo = 1;
     player.celestials.pelle.progressBits = 0;
     player.celestials.pelle.galaxyGenerator.unlocked = false;
-    player.celestials.pelle.galaxyGenerator.spentGalaxies = 0;
-    player.celestials.pelle.galaxyGenerator.generatedGalaxies = 0;
+    player.celestials.pelle.galaxyGenerator.spentGalaxies = DC.D0;
+    player.celestials.pelle.galaxyGenerator.generatedGalaxies = DC.D0;
     player.celestials.pelle.galaxyGenerator.phase = 0;
     player.celestials.pelle.galaxyGenerator.sacrificeActive = false;
     player.celestials.pelle.collapsed.upgrades = false;
@@ -543,8 +543,8 @@ export const Endgame = {
     };
     Currency.tachyonParticles.reset();
     player.dilation.nextThreshold = DC.E3;
-    player.dilation.baseTachyonGalaxies = 0;
-    player.dilation.totalTachyonGalaxies = 0;
+    player.dilation.baseTachyonGalaxies = DC.D0;
+    player.dilation.totalTachyonGalaxies = DC.D0;
     Currency.dilatedTime.reset();
     player.dilation.lastEP = DC.DM1;
     player.shownRuns.Reality = true;
@@ -610,7 +610,7 @@ export const Endgame = {
     player.partInfinityPoint = 0;
     player.partInfinitied = 0;
     player.dimensionBoosts = DC.D0;
-    player.galaxies = 0;
+    player.galaxies = DC.D0;
     if (player.eternities.lte(1)) {
       player.break = false;
     }
