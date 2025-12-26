@@ -498,7 +498,7 @@ export const ReplicantiUpgrade = {
 
       const cur = Currency.infinityPoints.value.times(TimeStudy(233).effectOrDefault(1)).max(1).log10();
 
-      if (logBase.gt(cur)) return;
+      if (logBase > cur) return;
       let a = new Decimal(logCostScaling / 2);
       let b = new Decimal(logBaseIncrease - logCostScaling / 2);
       let c = new Decimal(logBase - cur);
