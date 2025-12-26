@@ -534,12 +534,12 @@ export const ReplicantiUpgrade = {
         return decimalCubicSolution(a, b, c, d, false).floor().add(1);
       }
 
-      const numDistant = contingentReplicatedGalaxyStart.sub(distantReplicatedGalaxyStart);
-      const numRemote = contingentReplicatedGalaxyStart.sub(remoteReplicatedGalaxyStart);
-      const logCostAtContingent = new Decimal(logBase).add(count.times(logBaseIncrease)).add(
-        (contingentReplicatedGalaxyStart * (contingentReplicatedGalaxyStart - 1) / 2).times(logCostScaling)).add(
-        new Decimal(logDistantScaling).times(numDistant).times(numDistant.add(2 * extraIncrements).sub(1)).div(2)).add(
-        new Decimal(logRemoteScaling).times(numRemote).times(numRemote.add(1)).times(numRemote.times(2).add(1)).div(6)).toNumber();
+      const numDistant = contingentReplicatedGalaxyStart - distantReplicatedGalaxyStart;
+      const numRemote = contingentReplicatedGalaxyStart - remoteReplicatedGalaxyStart;
+      const logCostAtContingent = new Decimal(logBase).add(contingentReplicatedGalaxyStart * logBaseIncrease).add(
+        (contingentReplicatedGalaxyStart * (contingentReplicatedGalaxyStart - 1) / 2) * logCostScaling).add(
+        new Decimal(logDistantScaling).times(numDistant).times(numDistant + 2 * extraIncrements - 1).div(2)).add(
+        new Decimal(logRemoteScaling).times(numRemote).times(numRemote + 1).times(numRemote * 2 + 1).div(6)).toNumber();
       let simpleEstimate = Decimal.log(new Decimal(cur / logCostAtContingent), contingentScalingFactor) + contingentReplicatedGalaxyStart;
       let estimatedCost = Decimal.log10(this.baseCostAfterCount(simpleEstimate));
       let x = 0;
