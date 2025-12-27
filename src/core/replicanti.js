@@ -551,14 +551,14 @@ export const ReplicantiUpgrade = {
       }
       let x = 0;
       // eslint-disable-next-line consistent-return
-      if (cur.gte(estimatedCost) && cur.lt(new Decimal(Decimal.log10(this.baseCostAfterCount(simpleEstimate.add(1)).dividedByEffectsOf(TimeStudy(233), PelleRifts.vacuum.milestones[1]))))) return simpleEstimate;
+      if (cur.gte(estimatedCost) && cur.lt(new Decimal(Decimal.log10(this.baseCostAfterCount(simpleEstimate.add(1)).dividedByEffectsOf(TimeStudy(233), PelleRifts.vacuum.milestones[1]))))) return simpleEstimate.add(1);
       if (cur.lt(estimatedCost)) {
         while (x < 50 && cur.lt(estimatedCost)) {
           simpleEstimate = simpleEstimate.sub(1);
           estimatedCost = new Decimal(Decimal.log10(this.baseCostAfterCount(simpleEstimate).dividedByEffectsOf(TimeStudy(233), PelleRifts.vacuum.milestones[1])));
           x++;
         }
-        return simpleEstimate;
+        return simpleEstimate.add(1);
       }
       if (cur.gte(new Decimal(Decimal.log10(this.baseCostAfterCount(simpleEstimate.add(1)).dividedByEffectsOf(TimeStudy(233), PelleRifts.vacuum.milestones[1]))))) {
         while (x < 50 && cur.gte(new Decimal(Decimal.log10(this.baseCostAfterCount(simpleEstimate.add(1)).dividedByEffectsOf(TimeStudy(233), PelleRifts.vacuum.milestones[1]))))) {
@@ -566,7 +566,7 @@ export const ReplicantiUpgrade = {
           estimatedCost = new Decimal(Decimal.log10(this.baseCostAfterCount(simpleEstimate).dividedByEffectsOf(TimeStudy(233), PelleRifts.vacuum.milestones[1])));
           x++;
         }
-        return simpleEstimate;
+        return simpleEstimate.add(1);
       }
       throw new Error("Failed to calculate a finite value for Max Replicanti Galaxy Purchases.");
     }
