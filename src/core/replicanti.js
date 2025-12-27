@@ -546,6 +546,8 @@ export const ReplicantiUpgrade = {
       let n = 0;
       while (n < 20 && (cur.gte(new Decimal(Decimal.log10(this.baseCostAfterCount(simpleEstimate.add(1))))) || cur.lt(estimatedCost))) {
         simpleEstimate = simpleEstimate.add(new Decimal(Decimal.log(cur.div(estimatedCost), contingentScalingFactor)));
+        estimatedCost = new Decimal(Decimal.log10(this.baseCostAfterCount(simpleEstimate)));
+        n++;
       }
       let x = 0;
       // eslint-disable-next-line consistent-return
