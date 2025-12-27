@@ -543,16 +543,9 @@ export const ReplicantiUpgrade = {
         logRemoteScaling.times(numRemote).times(numRemote.add(1)).times(numRemote.times(2).add(1)).div(6));
       let simpleEstimate = new Decimal(Decimal.log(cur.div(logCostAtContingent), contingentScalingFactor)).add(contingentReplicatedGalaxyStart);
       let estimatedCost = new Decimal(Decimal.log10(this.baseCostAfterCount(simpleEstimate)));
-      len n = 0;
-      if (cur.gte(new Decimal(Decimal.log10(this.baseCostAfterCount(simpleEstimate.add(1)))))) {
-        while (n < 20 && cur.gte(new Decimal(Decimal.log10(this.baseCostAfterCount(simpleEstimate.add(1)))))) {
-          simpleEstimate = simpleEstimate.add(new Decimal(Decimal.log(cur.div(estimatedCost), contingentScalingFactor)));
-        }
-      }
-      if (cur.lt(estimatedCost)) {
-        while (n < 20 && cur.lt(estimatedCost)) {
-          simpleEstimate = simpleEstimate.sub(new Decimal(Decimal.log(estimatedCost.div(cur), contingentScalingFactor)));
-        }
+      let n = 0;
+      while (n < 20 && (cur.gte(new Decimal(Decimal.log10(this.baseCostAfterCount(simpleEstimate.add(1))))) || cur.lt(estimatedCost))) {
+        simpleEstimate = simpleEstimate.add(new Decimal(Decimal.log(cur.div(estimatedCost), contingentScalingFactor)));
       }
       let x = 0;
       // eslint-disable-next-line consistent-return
