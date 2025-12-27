@@ -806,6 +806,9 @@ export function gameLoop(passedDiff, options = {}) {
   player.records.bestAntimatterExponentOutsideDoom = Math.max(Decimal.log10(
     player.records.totalAntimatterOutsideDoom), player.records.bestAntimatterExponentOutsideDoom);
 
+  player.records.bestEndgame.galaxies = Decimal.max(player.records.bestEndgame.galaxies, Replicanti.galaxies.total.add(
+    player.galaxies).add(player.dilation.totalTachyonGalaxies).add(GalaxyGenerator.galaxies));
+
   if (Enslaved.canTickHintTimer) {
     player.celestials.enslaved.hintUnlockProgress += Enslaved.isRunning ? realDiff : (realDiff * 0.4);
     if (player.celestials.enslaved.hintUnlockProgress > (TimeSpan.fromHours(new Decimal(5)).totalMilliseconds.toNumber())) {
