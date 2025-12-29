@@ -129,14 +129,14 @@ export class EternityChallengeState extends GameMechanicState {
   }
 
   get initialGoal() {
-    if (Pelle.isDoomed && this.config.pelleGoal) {
+    if (Pelle.isDoomed && this.config.pelleGoal && this.config.hasPelleGoal()) {
       return this.config.pelleGoal;
     }
     return this.config.goal;
   }
 
   get goalIncrease() {
-    if (Pelle.isDoomed && this.config.pelleGoalIncrease) {
+    if (Pelle.isDoomed && this.config.pelleGoalIncrease && this.config.hasPelleGoal()) {
       return this.config.pelleGoalIncrease;
     }
     return this.config.goalIncrease;
