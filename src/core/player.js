@@ -241,6 +241,9 @@ window.player = {
       })),
       isActive: true,
     },
+    musicGlyphPurge: {
+      isActive: false,
+    },
     singularity: { isActive: false },
     ipMultBuyer: { isActive: false, },
     epMultBuyer: { isActive: false, },
