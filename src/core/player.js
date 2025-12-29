@@ -277,7 +277,7 @@ window.player = {
   chall9TickspeedCostBumps: 0,
   chall8TotalSacrifice: DC.D1,
   ic2Count: 0,
-  partInfinityPoint: 0,
+  partInfinityPoint: DC.D0,
   partInfinitied: 0,
   break: false,
   break2: false,
