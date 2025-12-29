@@ -275,7 +275,7 @@ export const Pelle = {
     return {
       isUnlocked,
       description,
-      infinity: (isActive("infinity") && player.challenge.eternity.current <= 8)
+      infinity: (isActive("infinity") && (player.challenge.eternity.current <= 8 || PelleDestructionUpgrade.pelleGlyphEffects.isBought))
         ? Currency.infinityPoints.value.plus(1).pow(0.2)
         : DC.D1,
       time: isActive("time")
@@ -299,7 +299,7 @@ export const Pelle = {
   getSpecialGlyphEffectDescription(type) {
     switch (type) {
       case "infinity":
-        return `Infinity Point gain ${player.challenge.eternity.current <= 8
+        return `Infinity Point gain ${(player.challenge.eternity.current <= 8 || PelleDestructionUpgrade.pelleGlyphEffects.isBought)
           ? formatX(Currency.infinityPoints.value.plus(1).pow(0.2), 2)
           : formatX(DC.D1, 2)} (based on current IP)`;
       case "time":
