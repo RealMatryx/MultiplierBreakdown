@@ -10,6 +10,7 @@ import { DimBoostAutobuyerState } from "./dimboost-autobuyer";
 import { EndgameAutobuyerState } from "./endgame-autobuyer";
 import { EternityAutobuyerState } from "./eternity-autobuyer";
 import { GalaxyAutobuyerState } from "./galaxy-autobuyer";
+import { GalaxyGeneratorAutobuyerState } from "./galaxy-generator-autobuyer";
 import { ImaginaryUpgradeAutobuyerState } from "./imaginary-upgrade-autobuyer";
 import { InfinityDimensionAutobuyerState } from "./infinity-dimension-autobuyer";
 import { EPMultAutobuyerState, IPMultAutobuyerState } from "./prestige-currency-multiplier-autobuyer";
@@ -38,6 +39,7 @@ export const Autobuyer = {
   endgame: new EndgameAutobuyerState(),
   eternity: new EternityAutobuyerState(),
   galaxy: new GalaxyAutobuyerState(),
+  galaxyGenerator: new GalaxyGeneratorAutobuyerState(),
   imaginaryUpgrade: ImaginaryUpgradeAutobuyerState.createAccessor(),
   infinityDimension: InfinityDimensionAutobuyerState.createAccessor(),
   ipMult: new IPMultAutobuyerState(),
@@ -96,6 +98,7 @@ export const Autobuyers = (function() {
     Autobuyer.blackHolePower.zeroIndexed,
     Autobuyer.realityUpgrade.zeroIndexed,
     Autobuyer.imaginaryUpgrade.zeroIndexed,
+    Autobuyer.galaxyGenerator.zeroIndexed,
   ];
   const all = dimensions.concat(prestige, singleComplex, arrays);
   const multiple = [
@@ -108,6 +111,7 @@ export const Autobuyers = (function() {
     Autobuyer.blackHolePower,
     Autobuyer.realityUpgrade,
     Autobuyer.imaginaryUpgrade,
+    Autobuyer.galaxyGenerator,
   ];
 
   return {
