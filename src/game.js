@@ -638,9 +638,8 @@ export function gameLoop(passedDiff, options = {}) {
   // behavior of eternity farming.
   preProductionGenerateIP(diff);
 
-  if (!Pelle.isDoomed) {
-    passivePrestigeGen();
-  }
+  passivePrestigeGen();
+
   globalPassivePrestigeGen();
 
 
@@ -923,7 +922,7 @@ function globalPassivePrestigeGen(realDiff) {
 
 function passivePrestigeGen(realDiff) {
   let eternitiedGain = DC.D0;
-  if (RealityUpgrade(14).isBought) {
+  if (RealityUpgrade(14).isBought && !Pelle.isDoomed) {
     eternitiedGain = DC.D1.timesEffectsOf(
       Achievement(113),
       RealityUpgrade(3),
@@ -937,7 +936,7 @@ function passivePrestigeGen(realDiff) {
     player.reality.partEternitied = player.reality.partEternitied.sub(player.reality.partEternitied.floor());
   }
 
-  if (!EternityChallenge(4).isRunning) {
+  if (!EternityChallenge(4).isRunning && !Pelle.isDoomed) {
     let infGen = DC.D0;
     if (BreakInfinityUpgrade.infinitiedGen.isBought) {
       // Multipliers are done this way to explicitly exclude ach87 and TS32
