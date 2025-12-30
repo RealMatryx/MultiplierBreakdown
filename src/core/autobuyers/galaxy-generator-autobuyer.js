@@ -30,9 +30,9 @@ export class GalaxyGeneratorAutobuyerState extends IntervaledAutobuyerState {
   tick() {
     if (Pelle.hasGalaxyGenerator) {
       super.tick();
+      const upgradeName = this._upgradeName;
+      GalaxyGeneratorUpgrades[upgradeName].purchase(this.bulk);
     }
-    const upgradeName = this._upgradeName;
-    GalaxyGeneratorUpgrades[upgradeName].purchase(this.bulk);
   }
 
   static get entryCount() { return 6; }
