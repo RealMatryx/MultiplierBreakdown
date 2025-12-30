@@ -1455,7 +1455,7 @@ export const normalAchievements = [
     name: "Hard Reset",
     description: "Disable all Pelle Nerfs.",
     checkRequirement: () => PelleAchievementUpgrade.all.filter(u => u.isBought).length >= 33 &&
-      PelleDestructionUpgrade.all.filter(u => u.isBought).length >= 51 &&
+      PelleDestructionUpgrade.all.filter(u => u.isBought).length >= 50 &&
       PelleRealityUpgrade.all.filter(u => u.isBought).length >= 20 &&
       PelleImaginaryUpgrade.all.filter(u => u.isBought).length >= 19 &&
       PelleCelestialUpgrade.all.filter(u => u.isBought).length >= 21 &&
