@@ -268,6 +268,7 @@ export default {
       </div>
       <div class="l-rm-container l-teresa-mechanic-container">
         <button
+          v-if="chargeUnlocked"
           :class="autoClassObject"
           @click="toggleAuto"
         >
