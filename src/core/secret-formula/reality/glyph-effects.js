@@ -75,7 +75,7 @@ export const glyphEffects = {
     combine: GlyphCombiner.multiply,
     alteredColor: () => GlyphAlteration.getBoostColor("time"),
     alterationType: ALTERATION_TYPE.BOOST,
-    enabledInDoomed: () => PelleDestructionUpgrade.disabledGlyphEffects.isBought
+    enabledInDoomed: () => PelleDestructionUpgrade.destroyedGlyphEffects.isBought
   },
   timeEP: {
     id: "timeEP",
@@ -101,7 +101,7 @@ export const glyphEffects = {
     formatSecondaryEffect: x => format(x, 4, 4),
     alteredColor: () => GlyphAlteration.getAdditionColor("time"),
     alterationType: ALTERATION_TYPE.ADDITION,
-    enabledInDoomed: () => PelleDestructionUpgrade.disabledGlyphEffects.isBought
+    enabledInDoomed: () => PelleDestructionUpgrade.destroyedGlyphEffects.isBought
   },
   dilationDT: {
     id: "dilationDT",
@@ -118,7 +118,7 @@ export const glyphEffects = {
     combine: GlyphCombiner.multiplyDecimal,
     alteredColor: () => GlyphAlteration.getEmpowermentColor("dilation"),
     alterationType: ALTERATION_TYPE.EMPOWER,
-    enabledInDoomed: () => PelleDestructionUpgrade.disabledGlyphEffects.isBought
+    enabledInDoomed: () => PelleDestructionUpgrade.destroyedGlyphEffects.isBought
   },
   dilationgalaxyThreshold: {
     id: "dilationgalaxyThreshold",
@@ -167,7 +167,7 @@ export const glyphEffects = {
     formatSecondaryEffect: x => format(x, 2, 2),
     alteredColor: () => GlyphAlteration.getAdditionColor("dilation"),
     alterationType: ALTERATION_TYPE.ADDITION,
-    enabledInDoomed: () => PelleDestructionUpgrade.disabledGlyphEffects.isBought
+    enabledInDoomed: () => PelleDestructionUpgrade.destroyedGlyphEffects.isBought
   },
   dilationpow: {
     id: "dilationpow",
@@ -200,7 +200,7 @@ export const glyphEffects = {
     combine: GlyphCombiner.multiplyDecimal,
     alteredColor: () => GlyphAlteration.getEmpowermentColor("replication"),
     alterationType: ALTERATION_TYPE.EMPOWER,
-    enabledInDoomed: () => PelleDestructionUpgrade.disabledGlyphEffects.isBought
+    enabledInDoomed: () => PelleDestructionUpgrade.destroyedGlyphEffects.isBought
   },
   replicationpow: {
     id: "replicationpow",
@@ -252,7 +252,7 @@ export const glyphEffects = {
     formatSingleSecondaryEffect: x => format(x, 5, 5),
     alteredColor: () => GlyphAlteration.getAdditionColor("replication"),
     alterationType: ALTERATION_TYPE.ADDITION,
-    enabledInDoomed: () => PelleDestructionUpgrade.disabledGlyphEffects.isBought,
+    enabledInDoomed: () => PelleDestructionUpgrade.destroyedGlyphEffects.isBought
   },
   replicationglyphlevel: {
     id: "replicationglyphlevel",
@@ -335,7 +335,7 @@ export const glyphEffects = {
     formatSecondaryEffect: x => format(x, 4, 4),
     alteredColor: () => GlyphAlteration.getAdditionColor("infinity"),
     alterationType: ALTERATION_TYPE.ADDITION,
-    enabledInDoomed: () => PelleDestructionUpgrade.disabledGlyphEffects.isBought
+    enabledInDoomed: () => PelleDestructionUpgrade.destroyedGlyphEffects.isBought
   },
   infinityinfmult: {
     id: "infinityinfmult",
@@ -353,7 +353,7 @@ export const glyphEffects = {
     combine: GlyphCombiner.multiplyDecimal,
     alteredColor: () => GlyphAlteration.getEmpowermentColor("infinity"),
     alterationType: ALTERATION_TYPE.EMPOWER,
-    enabledInDoomed: () => PelleDestructionUpgrade.disabledGlyphEffects.isBought
+    enabledInDoomed: () => PelleDestructionUpgrade.destroyedGlyphEffects.isBought
   },
   powerpow: {
     id: "powerpow",
