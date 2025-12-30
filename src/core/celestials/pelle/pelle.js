@@ -320,7 +320,9 @@ export const Pelle = {
       case undefined:
         return "No Glyph equipped!";
       default:
-        return "You cannot equip this Glyph while Doomed!";
+        return PelleDestructionUpgrade.specialGlyphEffects.isBought
+          ? "This Glyph has no Pelle-exclusive effect! That sucks."
+          : "You cannot equip this Glyph while Doomed!";
     }
   },
 
