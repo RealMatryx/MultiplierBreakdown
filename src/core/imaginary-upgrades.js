@@ -126,7 +126,7 @@ class RebuyableImaginaryUpgradeState extends RebuyableMechanicState {
   }
 
   get pelleDisabled() {
-    return Pelle.isDoomed;
+    return Pelle.isDoomed && this.config.isDisabledInDoomed;
   }
 
   set boughtAmount(value) {
