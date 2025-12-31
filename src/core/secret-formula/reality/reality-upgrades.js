@@ -18,7 +18,7 @@ const rebuyable = props => {
   props.description = () => props.textTemplate.replace("{value}",
     ImaginaryUpgrade(props.id).effectValue === 0
       ? formatInt(effect)
-      : format(effect + ImaginaryUpgrade(props.id).effectValue, 2, 2));
+      : format(effect + ImaginaryUpgrade(props.id).effectOrDefault(0), 2, 2));
   props.formatEffect = value => formatX(value, 2, 0);
   props.formatCost = value => format(value, 2, 0);
   return props;
