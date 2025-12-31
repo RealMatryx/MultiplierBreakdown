@@ -77,7 +77,7 @@ class ImaginaryUpgradeState extends BitPurchasableMechanicState {
   }
 
   get pelleDisabled() {
-    return Pelle.isDoomed && this.config.isDisabledInDoomed;
+    return Pelle.isDoomed && this.config.isDisabledInDoomed();
   }
 
   tryUnlock() {
@@ -126,7 +126,7 @@ class RebuyableImaginaryUpgradeState extends RebuyableMechanicState {
   }
 
   get pelleDisabled() {
-    return Pelle.isDoomed && this.config.isDisabledInDoomed;
+    return Pelle.isDoomed && this.config.isDisabledInDoomed();
   }
 
   set boughtAmount(value) {
