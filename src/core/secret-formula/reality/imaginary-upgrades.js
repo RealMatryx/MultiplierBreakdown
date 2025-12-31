@@ -19,7 +19,7 @@ export const imaginaryUpgrades = [
     description: () => `Increase Temporal Amplifier multiplier by +${format(0.15, 2, 2)}`,
     effect: 0.15,
     scaleStart: 9,
-    isDisabledInDoomed: () => !PelleImaginaryUpgrade.temporalInstensifier.isBought
+    isDisabledInDoomed: () => !PelleImaginaryUpgrade.temporalIntensifier.isBought
   }),
   rebuyable({
     name: "Replicative Intensifier",
@@ -29,7 +29,7 @@ export const imaginaryUpgrades = [
     description: () => `Increase Replicative Amplifier multiplier by +${format(0.15, 2, 2)}`,
     effect: 0.15,
     scaleStart: 9,
-    isDisabledInDoomed: () => !PelleImaginaryUpgrade.replicativeInstensifier.isBought
+    isDisabledInDoomed: () => !PelleImaginaryUpgrade.replicativeIntensifier.isBought
   }),
   rebuyable({
     name: "Eternal Intensifier",
@@ -39,7 +39,7 @@ export const imaginaryUpgrades = [
     description: () => `Increase Eternal Amplifier multiplier by +${format(0.4, 2, 2)}`,
     effect: 0.4,
     scaleStart: 10,
-    isDisabledInDoomed: () => !PelleImaginaryUpgrade.eternalInstensifier.isBought
+    isDisabledInDoomed: () => !PelleImaginaryUpgrade.eternalIntensifier.isBought
   }),
   rebuyable({
     name: "Superluminal Intensifier",
@@ -49,7 +49,7 @@ export const imaginaryUpgrades = [
     description: () => `Increase Superluminal Amplifier multiplier by +${format(0.15, 2, 2)}`,
     effect: 0.15,
     scaleStart: 8,
-    isDisabledInDoomed: () => !PelleImaginaryUpgrade.superluminalInstensifier.isBought
+    isDisabledInDoomed: () => !PelleImaginaryUpgrade.superluminalIntensifier.isBought
   }),
   rebuyable({
     name: "Boundless Intensifier",
@@ -59,7 +59,7 @@ export const imaginaryUpgrades = [
     description: () => `Increase Boundless Amplifier multiplier by +${format(0.6, 2, 2)}`,
     effect: 0.6,
     scaleStart: 11,
-    isDisabledInDoomed: () => !PelleImaginaryUpgrade.boundlessInstensifier.isBought
+    isDisabledInDoomed: () => !PelleImaginaryUpgrade.boundlessIntensifier.isBought
   }),
   rebuyable({
     name: "Elliptic Materiality",
