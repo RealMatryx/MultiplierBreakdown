@@ -20,9 +20,6 @@ export default {
     },
     strikes() {
       return PelleStrikes.all;
-    },
-    sickVisualStrikeText() {
-      return Pelle.sickVisualStrikeText;
     }
   },
   methods: {
@@ -33,6 +30,9 @@ export default {
     toggleCollapse() {
       player.celestials.pelle.collapsed.rifts = !this.isCollapsed;
     },
+    sickVisualStrikeText() {
+      return Pelle.sickVisualStrikeText;
+    }
   }
 };
 </script>
