@@ -195,7 +195,11 @@ class TeresaUnlockState extends BitUpgradeState {
   }
 
   get pelleDisabled() {
-    return Pelle.isDoomed && this.config.isDisabledInDoomed;
+    return Pelle.isDoomed && this.isDisabledInDoomed;
+  }
+
+  get isDisabledInDoomed() {
+    return this.config.isDisabledInDoomed ? this.config.isDisabledInDoomed() : false;
   }
 
   get isEffectActive() {
