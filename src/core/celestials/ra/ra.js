@@ -10,7 +10,11 @@ class RaUnlockState extends GameMechanicState {
   }
 
   get disabledByPelle() {
-    return Pelle.isDoomed && this.config.disabledByPelle;
+    return Pelle.isDoomed && this.isDisabledByPelle;
+  }
+
+  get isDisabledByPelle() {
+    return this.config.disabledByPelle ? this.config.disabledByPelle() : false;
   }
 
   get isEffectActive() {
