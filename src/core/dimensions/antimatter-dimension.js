@@ -187,7 +187,7 @@ function applyNDPowers(mult, tier) {
 
   if (Pelle.isDoomed && PelleCelestialUpgrade.vMilestones1.isBought) multiplier = multiplier.pow(VUnlocks.adPow.effectValue);
 
-  if (PelleStrikes.infinity.hasStrike) {
+  if (PelleStrikes.infinity.hasStrike && !PelleStrikes.infinity.isDestroyed) {
     multiplier = multiplier.pow(0.5);
   }
 
