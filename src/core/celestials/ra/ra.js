@@ -416,7 +416,7 @@ export const GlyphAlteration = {
     return new Decimal(1e60);
   },
   getSacrificePower(type) {
-    if (Pelle.isDisabled("alteration")) return new Decimal(0);
+    if (Pelle.isDisabled("alteration") && !PelleCelestialUpgrade.raTeresa3.isBought) return new Decimal(0);
     const sacPower = player.reality.glyphs.sac[type];
     if (sacPower === undefined) {
       throw new Error("Unknown sacrifice type");
@@ -424,7 +424,7 @@ export const GlyphAlteration = {
     return sacPower;
   },
   get isUnlocked() {
-    if (Pelle.isDisabled("alteration")) return false;
+    if (Pelle.isDisabled("alteration") && !PelleCelestialUpgrade.raTeresa3.isBought) return false;
     return Ra.unlocks.alteredGlyphs.canBeApplied;
   },
   isAdded(type) {
