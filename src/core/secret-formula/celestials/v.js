@@ -222,7 +222,8 @@ export const v = {
       id: 1,
       reward: `You can spend Perk Points to reduce the goal requirement of all tiers of each V-Achievement.`,
       description: () => `Have ${formatInt(2)} V-Achievements`,
-      requirement: () => V.spaceTheorems >= 2
+      requirement: () => V.spaceTheorems >= 2,
+      pelleDisabled: () => !PelleCelestialUpgrade.vMilestones1.isBought
     },
     adPow: {
       id: 2,
@@ -230,7 +231,8 @@ export const v = {
       description: () => `Have ${formatInt(5)} V-Achievements`,
       effect: () => 1 + Math.sqrt(V.spaceTheorems) / 80,
       format: x => formatPow(x, 3, 3),
-      requirement: () => V.spaceTheorems >= 5
+      requirement: () => V.spaceTheorems >= 5,
+      pelleDisabled: () => !PelleCelestialUpgrade.vMilestones1.isBought
     },
     fastAutoEC: {
       id: 3,
@@ -241,13 +243,15 @@ export const v = {
       format: x => (Ra.unlocks.instantECAndRealityUpgradeAutobuyers.canBeApplied || EndgameMastery(53).isBought
         ? "Instant (Ra upgrade)"
         : `${TimeSpan.fromMinutes(new Decimal(60 * 20 / x)).toStringShort()} for full completion`),
-      requirement: () => V.spaceTheorems >= 10
+      requirement: () => V.spaceTheorems >= 10,
+      pelleDisabled: () => !PelleCelestialUpgrade.vMilestones2.isBought
     },
     autoAutoClean: {
       id: 4,
       reward: "Unlock the ability to Automatically Purge Glyphs on Reality.",
       description: () => `Have ${formatInt(16)} V-Achievements`,
-      requirement: () => V.spaceTheorems >= 16
+      requirement: () => V.spaceTheorems >= 16,
+      pelleDisabled: () => !PelleCelestialUpgrade.vMilestones2.isBought
     },
     achievementBH: {
       id: 5,
@@ -255,7 +259,8 @@ export const v = {
       description: () => `Have ${formatInt(30)} V-Achievements`,
       effect: () => Achievements.power,
       format: x => formatX(x, 2, 0),
-      requirement: () => V.spaceTheorems >= 30
+      requirement: () => V.spaceTheorems >= 30,
+      pelleDisabled: () => !PelleCelestialUpgrade.vMilestones3.isBought
     },
     raUnlock: {
       id: 6,
@@ -265,7 +270,8 @@ export const v = {
       },
       description: () => `Have ${formatInt(36)} V-Achievements`,
       effect: 2,
-      requirement: () => V.spaceTheorems >= 36
+      requirement: () => V.spaceTheorems >= 36,
+      pelleDisabled: () => !PelleCelestialUpgrade.vMilestones3.isBought
     }
   }
 };
