@@ -57,5 +57,22 @@ export const enslavedQuotes = {
       "Maybe... Destroyer... can fix this...",
       "Why... is everyone... mad at us..."
     ]
+  },
+  enslavedPack: {
+    id: 7,
+    lines: [
+      "We... grant you... control... of time...",
+      "Use it...",
+      "Consider it... thanks... for freedom..."
+    ]
+  },
+  highGameSpeed: {
+    id: 8,
+    lines: [
+      "Mastery... of time... you have obtained...",
+      "Done things... we have only wished... we could do...",
+      "You have... more power... than we... took you for...",
+      "Use it... for good..."
+    ]
   }
 };
