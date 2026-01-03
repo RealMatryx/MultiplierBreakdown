@@ -68,7 +68,7 @@ export function getDimensionFinalMultiplierUncached(tier) {
   multiplier = applyNDPowers(multiplier, tier);
 
   const glyphDilationPowMultiplier = getAdjustedGlyphEffect("dilationpow");
-  if (player.dilation.active || (PelleStrikes.dilation.hasStrike && !PelleStrikes.dilation.isDestroyed)) {
+  if (player.dilation.active || (PelleStrikes.dilation.hasStrike && !PelleStrikes.dilation.isDestroyed())) {
     multiplier = dilatedValueOf(multiplier.pow(glyphDilationPowMultiplier));
   } else if (Enslaved.isRunning) {
     multiplier = dilatedValueOf(multiplier);
@@ -187,7 +187,7 @@ function applyNDPowers(mult, tier) {
 
   if (Pelle.isDoomed && PelleCelestialUpgrade.vMilestones1.isBought) multiplier = multiplier.pow(VUnlocks.adPow.effectValue);
 
-  if (PelleStrikes.infinity.hasStrike && !PelleStrikes.infinity.isDestroyed) {
+  if (PelleStrikes.infinity.hasStrike && !PelleStrikes.infinity.isDestroyed()) {
     multiplier = multiplier.pow(0.5);
   }
 
