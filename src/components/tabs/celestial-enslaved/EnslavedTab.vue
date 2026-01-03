@@ -90,7 +90,7 @@ export default {
         "o-enslaved-mechanic-button--clickable": this.canModifyGameTimeStorage,
         "o-enslaved-mechanic-button--storing-time": this.isStoringBlackHole,
         "l-fixed-setting": !this.canModifyGameTimeStorage,
-        "o-pelle-disabled": this.isDoomed && !PelleStrikes.dilation.isDestroyed
+        "o-pelle-disabled": this.isDoomed && !PelleStrikes.dilation.isDestroyed()
       };
     },
     storeRealTimeClass() {
