@@ -134,4 +134,19 @@ export const laitelaQuotes = {
       "The end...",
     ]
   },
+  expansionPacks: {
+    id: 10,
+    lines: [
+      "See Pelle?",
+      "I told you Ra was the one who tried to usurp me.",
+      "Can I smite him now?",
+      "PLEEEEEASE???",
+      "Wait, why is the Destroyer here?",
+      "I thought you defeated him, Pelle.",
+      "Have you just been giving him time?",
+      "That's nice of you, but people like him don't really deserve that kind of mercy.",
+      "Alright, I'll smite Ra, then I'll smite the Destroyer.",
+      "Does that sound good, Pelle?"
+    ]
+  }
 };
