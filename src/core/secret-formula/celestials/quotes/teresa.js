@@ -43,6 +43,7 @@ export const teresaQuotes = {
   },
   teresaPack: {
     id: 5,
+    requirement: () => ExpansionPack.teresaPack.isBought,
     lines: [
       "Oh, hi Destroyer.",
       "Looks like you found my secret shop.",
@@ -60,6 +61,7 @@ export const teresaQuotes = {
   },
   fullCharge: {
     id: 6,
+    requirement: () => Teresa.totalCharges >= 5,
     lines: [
       "Well, that's the last of them.",
       "I suppose progression will be easier now that you don't have to decide which upgrades to charge.",
