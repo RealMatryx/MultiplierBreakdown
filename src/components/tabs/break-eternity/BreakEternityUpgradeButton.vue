@@ -73,6 +73,7 @@ export default {
     <button
       v-else
       :class="classObject"
+      class="l-break-eternity-upgrade-btn"
     >
       <HintText
         type="breakEternityUpgrades"
