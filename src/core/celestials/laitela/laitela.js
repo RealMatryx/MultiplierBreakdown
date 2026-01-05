@@ -33,6 +33,7 @@ export const Laitela = {
     return Laitela.maxAllowedDimension === 0;
   },
   get continuumUnlocked() {
+    if (EndgameMilestone.celestialEarlyUnlock.isReached) return true;
     return ImaginaryUpgrade(15).isBought;
   },
   get continuumActive() {
