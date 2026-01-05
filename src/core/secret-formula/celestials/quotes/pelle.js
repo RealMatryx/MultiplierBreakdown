@@ -735,7 +735,7 @@ export const pelleQuotes = {
       "Wait.",
       "I think I remember you...",
       "...",
-      { text: "%name?" }
+      "%name?"
     ]
   }
 };
