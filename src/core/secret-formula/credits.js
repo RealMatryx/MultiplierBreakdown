@@ -258,8 +258,14 @@ export const credits = {
       name: "glitchy",
       roles: 18
     }, {
+      name: "Matthew the Kingus",
+      roles: 18
+    }, {
       name: "MidnightLight",
       name2: "Midnight",
+      roles: 18
+    }, {
+      name: "misc",
       roles: 18
     }, {
       name: "Qwerty",
