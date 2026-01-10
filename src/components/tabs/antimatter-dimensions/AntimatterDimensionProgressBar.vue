@@ -64,7 +64,7 @@ export default {
         }
       } else if (Pelle.isDoomed) {
         if (ExpansionPacks.areUnlocked && ExpansionPacks.nextPackUnlockAM === undefined) {
-          setProgress(gainedCelestialPoints(), Decimal.NUMBER_MAX_VALUE, "Percentage to Celestial Point Cap");
+          setProgress(gainedCelestialPoints(), DC.NUMMAX, "Percentage to Celestial Point Cap");
         } else if (ExpansionPacks.areUnlocked) {
           setProgress(new Decimal(Currency.antimatter.value.exponent), new Decimal(Decimal.log10(ExpansionPacks.nextPackUnlockAM)),
             "Percentage to next Expansion Pack");
@@ -87,14 +87,14 @@ export default {
           if (player.break) {
             setProgress(Currency.infinityPoints.value, 5e11, "Percentage to second Strike");
           } else {
-            setProgress(Currency.antimatter.value, Decimal.NUMBER_MAX_VALUE, "Percentage to Infinity");
+            setProgress(Currency.antimatter.value, DC.NUMMAX, "Percentage to Infinity");
           }
         } else {
-          setProgress(Currency.antimatter.value, Decimal.NUMBER_MAX_VALUE, "Percentage to first Strike");
+          setProgress(Currency.antimatter.value, DC.NUMMAX, "Percentage to first Strike");
         }
       } else if (GalacticPower.isUnlocked && GalacticPower.nextPowerUnlockGP === undefined) {
         // Show all other goals from the top down, starting at features in the highest prestige layer
-        setProgress(Currency.imaginaryMachines.value, Decimal.NUMBER_MAX_VALUE, "Percentage to Alpha");
+        setProgress(Currency.imaginaryMachines.value, DC.NUMMAX, "Percentage to Alpha");
       } else if (GalacticPower.isUnlocked) {
         setProgress(Currency.galacticPower.value, GalacticPower.nextPowerUnlockGP, "Percentage to the next Galactic Power");
       } else if (Currency.antimatter.value.gte(DC.E9E15)) {
@@ -116,7 +116,7 @@ export default {
           setProgress(player.infinityPoints, nextID.ipRequirement, text);
         }
       } else {
-        setProgress(Currency.antimatter.value, Decimal.NUMBER_MAX_VALUE, "Percentage to Infinity");
+        setProgress(Currency.antimatter.value, DC.NUMMAX, "Percentage to Infinity");
       }
     }
   }
