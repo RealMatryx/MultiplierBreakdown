@@ -144,9 +144,9 @@ export default {
       this.hasTDMult = DilationUpgrade.tdMultReplicanti.isBought;
       this.multTD.copyFrom(DilationUpgrade.tdMultReplicanti.effectValue);
       this.hasDTMult = getAdjustedGlyphEffect("replicationdtgain") !== 0 && !Pelle.isDoomed;
-      this.multDT = Math.clampMin(
-        Decimal.log10(Replicanti.amount) *
-          getAdjustedGlyphEffect("replicationdtgain"),
+      this.multDT = Decimal.clampMin(
+        Decimal.log10(Replicanti.amount).times(
+          getAdjustedGlyphEffect("replicationdtgain")),
         1
       );
       this.hasIPMult = AlchemyResource.exponential.amount > 0 && !this.isDoomed;
