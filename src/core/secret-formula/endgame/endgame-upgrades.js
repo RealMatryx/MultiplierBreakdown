@@ -69,9 +69,9 @@ export const endgameUpgrades = [
     name: "Resourceful Rebirth",
     id: 6,
     cost: new Decimal(1e45),
-    requirement: () => `Have ${format(Decimal.NUMBER_MAX_VALUE)} Reality Shards without purchasing the 6th Galaxy Generator Upgrade`,
+    requirement: () => `Have ${format(DC.NUMMAX)} Reality Shards without purchasing the 6th Galaxy Generator Upgrade`,
     hasFailed: () => GalaxyGeneratorUpgrades.RSMult.boughtAmount > 0,
-    checkRequirement: () => GalaxyGeneratorUpgrades.RSMult.boughtAmount === 0 && Currency.realityShards.gte(Decimal.NUMBER_MAX_VALUE) && 
+    checkRequirement: () => GalaxyGeneratorUpgrades.RSMult.boughtAmount === 0 && Currency.realityShards.gte(DC.NUMMAX) && 
       player.endgames >= 20,
     checkEvent: GAME_EVENT.GAME_TICK_AFTER,
     canLock: true,
