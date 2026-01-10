@@ -396,7 +396,7 @@ export const imaginaryUpgrades = [
   {
     name: "Inception Initiation",
     id: 30,
-    cost: Decimal.NUMBER_MAX_VALUE,
+    cost: DC.NUMMAX,
     requirement: () => `Disable all Nerfs and Strikes in Pelle`,
     hasFailed: () => !PelleStrikeUpgrade.pelleStrike1.isAvailableForPurchase,
     checkRequirement: () => PelleStrikeUpgrade.all.filter(u => u.isBought).length >= 5,
