@@ -126,7 +126,7 @@ export const imaginaryUpgrades = [
     checkRequirement: () => player.celestials.effarig.relicShards.gte(1e90),
     checkEvent: GAME_EVENT.REALITY_RESET_AFTER,
     description: "Time Dimension power based on total antimatter",
-    effect: () => 1 + Math.log10(player.records.totalEndgameAntimatter.log10()) / 100,
+    effect: () => 1 + Decimal.log10(player.records.totalEndgameAntimatter.log10()).div(100).toNumber(),
     formatEffect: value => `${formatPow(value, 0, 4)}`,
     isDisabledInDoomed: () => !PelleImaginaryUpgrade.suspicionOfInterference.isBought
   },
@@ -262,12 +262,12 @@ export const imaginaryUpgrades = [
     requirement: () => `Reach ${format("1e7400000000000")} antimatter with Continuum disabled for the entire Reality`,
     hasFailed: () => !player.requirementChecks.reality.noContinuum,
     checkRequirement: () => player.requirementChecks.reality.noContinuum &&
-      Currency.antimatter.value.log10() >= 7.4e12,
+      Currency.antimatter.value.log10().gte(7.4e12),
     checkEvent: GAME_EVENT.GAME_TICK_AFTER,
     canLock: true,
     lockEvent: "enable Continuum",
     description: "Annihilation multiplier gain is improved based on Imaginary Machines",
-    effect: () => Math.clampMin(Math.pow(Decimal.log10(Currency.imaginaryMachines.value) - 10, 3), 1),
+    effect: () => Decimal.clampMin(Decimal.pow(Decimal.log10(Currency.imaginaryMachines.value).sub(10), 3), 1).toNumber(),
     formatEffect: value => `${formatX(value, 2, 1)}`,
     isDisabledInDoomed: () => !PelleImaginaryUpgrade.existentialElimination.isBought
   },
