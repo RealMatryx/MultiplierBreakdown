@@ -461,6 +461,7 @@ export const Endgame = {
     player.celestials.ra.momentumTime = 0;
     if (!ExpansionPack.raPack.isBought) {
       player.celestials.ra.unlockBits = 0;
+      player.celestials.ra.unlocks = [];
     }
     player.celestials.ra.run = false;
     player.celestials.ra.charged = new Set();
