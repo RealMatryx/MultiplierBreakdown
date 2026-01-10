@@ -192,7 +192,7 @@ export function gainedEternityPoints() {
 }
 
 export function requiredIPForEP(epAmount) {
-  return Decimal.pow10(308 * (Decimal.log(Decimal.divide(epAmount, totalEPMult()), 5) + 0.7))
+  return Decimal.pow10((Decimal.log(Decimal.divide(epAmount, totalEPMult()), 5).add(0.7)).times(308))
     .clampMin(Number.MAX_VALUE);
 }
 
@@ -829,8 +829,8 @@ export function gameLoop(passedDiff, options = {}) {
     Currency.galacticPower.add(getGalacticPowerGainPerSecond().times(realDiff).div(1000));
   }
   
-  player.records.bestAntimatterExponentOutsideDoom = Math.max(Decimal.log10(
-    player.records.totalAntimatterOutsideDoom), player.records.bestAntimatterExponentOutsideDoom);
+  player.records.bestAntimatterExponentOutsideDoom = Decimal.max(Decimal.log10(
+    player.records.totalAntimatterOutsideDoom), player.records.bestAntimatterExponentOutsideDoom).toNumber();
 
   player.records.bestEndgame.galaxies = Decimal.max(player.records.bestEndgame.galaxies, Replicanti.galaxies.total.add(
     player.galaxies).add(player.dilation.totalTachyonGalaxies).add(GalaxyGenerator.galaxies));
@@ -1094,7 +1094,7 @@ function updateTachyonGalaxies() {
   const tachyonGalaxyThreshold = 1000;
   const thresholdMult = getTachyonGalaxyMult();
   player.dilation.baseTachyonGalaxies = Decimal.max(player.dilation.baseTachyonGalaxies,
-    1 + Math.floor(Decimal.log(Currency.dilatedTime.value.dividedBy(1000), thresholdMult)));
+    Decimal.floor(Decimal.log(Currency.dilatedTime.value.dividedBy(1000), thresholdMult)).add(1));
   player.dilation.nextThreshold = DC.E3.times(new Decimal(thresholdMult)
     .pow(player.dilation.baseTachyonGalaxies));
   player.dilation.totalTachyonGalaxies =
