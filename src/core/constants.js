@@ -217,6 +217,12 @@ export const DC = deepFreeze({
   E9E115:               Decimal.pow(10, 9e115),
   E1E300:               Decimal.pow(10, 1e300),
   ENUMMAX:              Decimal.pow(10, Number.MAX_VALUE),
+
+  // Special case values
+  NUMSAFE:              new Decimal(Number.MAX_SAFE_INTEGER),
+  NUMMAX:               new Decimal(Number.MAX_VALUE),
+  BIMAX:                new Decimal("e9e15"),
+  BEMAX:                new Decimal("10^^9000000000000000")
 });
 
 window.AUTOBUYER_MODE = {
