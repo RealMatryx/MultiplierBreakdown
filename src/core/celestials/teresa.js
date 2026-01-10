@@ -35,7 +35,7 @@ export const Teresa = {
     player.celestials.teresa.run = true;
   },
   rewardMultiplier(antimatter) {
-    return Decimal.max(Decimal.pow(antimatter.plus(1).log10() / 1.5e8, 12), 1);
+    return Decimal.max(Decimal.pow(antimatter.plus(1).log10().div(1.5e8), 12), 1);
   },
   get pouredAmount() {
     return player.celestials.teresa.pouredAmount;
@@ -44,10 +44,10 @@ export const Teresa = {
     player.celestials.teresa.pouredAmount = amount;
   },
   get fill() {
-    return Math.min(Decimal.log10(this.pouredAmount) / 24, 1);
+    return Decimal.min(Decimal.log10(this.pouredAmount).div(24), 1).toNumber();
   },
   get possibleFill() {
-    return Math.min(Currency.realityMachines.value.plus(this.pouredAmount).log10() / 24, 1);
+    return Decimal.min(Currency.realityMachines.value.plus(this.pouredAmount).log10().div(24), 1).toNumber();
   },
   get rmMultiplier() {
     return Decimal.max(new Decimal(250).times(Decimal.pow(this.pouredAmount.div(1e24), 0.1)), 1);
