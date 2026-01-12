@@ -1,7 +1,7 @@
 import wordShift from "../../word-shift";
 
 export function emphasizeEnd(fraction) {
-  return Math.pow(fraction, 10);
+  return Decimal.pow(fraction, 10);
 }
 
 export function vUnlockProgress(index) {
