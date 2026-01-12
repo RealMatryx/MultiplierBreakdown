@@ -1,6 +1,6 @@
 // This is supposed to be in ./navigation.js but importing doesn't work for some stupid reason
 function emphasizeEnd(fraction) {
-  return Math.pow(fraction, 10);
+  return Decimal.pow(fraction, 10);
 }
 
 function rebuyableCost(initialCost, increment, id) {
