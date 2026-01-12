@@ -13,7 +13,7 @@ export const normalAchievements = [
     description: "Buy a 2nd Antimatter Dimension.",
     checkEvent: GAME_EVENT.ACHIEVEMENT_EVENT_OTHER,
     get reward() { return `Multiply the 2nd Antimatter Dimension by the Antimatter Exponent.`; },
-    effect: () => Currency.antimatter.log10()
+    effect: () => Currency.antimatter.value.log10()
   },
   {
     id: 13,
@@ -99,7 +99,7 @@ export const normalAchievements = [
     id: 24,
     name: "Antimatter Apocalypse",
     get description() { return `Get over ${format(DC.E80)} antimatter.`; },
-    checkRequirement: () => Currency.antimatter.log10().gte(80),
+    checkRequirement: () => Currency.antimatter.value.log10().gte(80),
     checkEvent: GAME_EVENT.GAME_TICK_AFTER
   },
   {
@@ -234,7 +234,7 @@ export const normalAchievements = [
       return `Have antimatter per second exceed your current antimatter above ${format(DC.E63)}.`;
     },
     checkRequirement: () =>
-      Currency.antimatter.log10().gte(63) &&
+      Currency.antimatter.value.log10().gte(63) &&
       Currency.antimatter.productionPerSecond.gt(Currency.antimatter.value),
     checkEvent: GAME_EVENT.GAME_TICK_AFTER
   },
@@ -533,12 +533,12 @@ export const normalAchievements = [
     id: 77,
     name: "1 Million is a lot",
     get description() { return `Reach ${format(1e6)} Infinity Power.`; },
-    checkRequirement: () => Currency.infinityPower.log10().gte(6),
+    checkRequirement: () => Currency.infinityPower.value.log10().gte(6),
     checkEvent: GAME_EVENT.GAME_TICK_AFTER,
     get reward() {
       return `All Infinity Dimensions are stronger based on Infinity Points.`;
     },
-    effect: () => Currency.infinityPoints.log10()
+    effect: () => Currency.infinityPoints.value.log10()
   },
   {
     id: 78,
@@ -583,7 +583,7 @@ export const normalAchievements = [
     id: 84,
     name: "I got a few to spare",
     get description() { return `Reach ${formatPostBreak("1e35000")} antimatter.`; },
-    checkRequirement: () => Currency.antimatter.log10().gte(35000),
+    checkRequirement: () => Currency.antimatter.value.log10().gte(35000),
     checkEvent: GAME_EVENT.GAME_TICK_AFTER,
     reward: "Antimatter Dimensions are stronger the more unspent antimatter you have.",
     effect: () => Currency.antimatter.value.pow(0.00002).plus(1).clampMax(Decimal.pow(10, 1e30)).pow(
@@ -681,7 +681,7 @@ export const normalAchievements = [
     id: 94,
     name: "4.3333 minutes of Infinity",
     get description() { return `Reach ${format(DC.E260)} Infinity Power.`; },
-    checkRequirement: () => Currency.infinityPower.log10().gte(260),
+    checkRequirement: () => Currency.infinityPower.value.log10().gte(260),
     checkEvent: GAME_EVENT.GAME_TICK_AFTER,
     reward: "Double Infinity Power gain.",
     effect: 2
@@ -737,7 +737,7 @@ export const normalAchievements = [
     id: 103,
     name: "Tätä saavutusta ei ole olemassa II",
     get description() { return `Reach ${formatPostBreak(DC.D9_99999E999, 5, 0)} Infinity Points.`; },
-    checkRequirement: () => Currency.infinityPoints.log10().gte(1000),
+    checkRequirement: () => Currency.infinityPoints.value.log10().gte(1000),
     checkEvent: GAME_EVENT.GAME_TICK_AFTER,
     get reward() {
       return `Make the Infinity Point formula better. log(x)/${formatInt(308)} ➜ log(x)/${formatFloat(307.8, 1)}`;
@@ -874,7 +874,7 @@ export const normalAchievements = [
     id: 121,
     name: "Can you get infinite IP?",
     get description() { return `Reach ${formatPostBreak("1e30008")} Infinity Points.`; },
-    checkRequirement: () => Currency.infinityPoints.log10().gte(30008),
+    checkRequirement: () => Currency.infinityPoints.value.log10().gte(30008),
     checkEvent: GAME_EVENT.GAME_TICK_AFTER
   },
   {
@@ -913,7 +913,7 @@ export const normalAchievements = [
       return `Reach ${format(DC.E90)} Infinity Points without having any Infinities
       or any 1st Antimatter Dimensions in your current Eternity.`;
     },
-    checkRequirement: () => Currency.infinityPoints.log10().gte(90) &&
+    checkRequirement: () => Currency.infinityPoints.value.log10().gte(90) &&
       player.requirementChecks.eternity.noAD1 && Currency.infinities.eq(0),
     checkEvent: GAME_EVENT.GAME_TICK_AFTER,
     reward: "Infinity Point multiplier based on time spent this Infinity.",
@@ -946,7 +946,7 @@ export const normalAchievements = [
     id: 128,
     name: "What do I have to do to get rid of you",
     get description() { return `Reach ${formatPostBreak("1e22000")} Infinity Points without any Time Studies.`; },
-    checkRequirement: () => Currency.infinityPoints.log10().gte(22000) && player.timestudy.studies.length === 0,
+    checkRequirement: () => Currency.infinityPoints.value.log10().gte(22000) && player.timestudy.studies.length === 0,
     checkEvent: GAME_EVENT.GAME_TICK_AFTER,
     reward: "Time Dimensions are multiplied by the number of Time Studies you have.",
     effect: () => Math.max(player.timestudy.studies.length, 1),
@@ -991,7 +991,7 @@ export const normalAchievements = [
     checkRequirement: () =>
       Array.dimensionTiers.map(InfinityDimension).every(dim => dim.baseAmount === 0) &&
       player.IPMultPurchases === 0 &&
-      Currency.infinityPoints.log10().gte(200000),
+      Currency.infinityPoints.value.log10().gte(200000),
     checkEvent: GAME_EVENT.GAME_TICK_AFTER,
     reward: "You start Eternities with all Infinity Challenges unlocked and completed."
   },
@@ -1026,7 +1026,7 @@ export const normalAchievements = [
       in ${formatInt(1)} minute or less while Dilated.`;
     },
     checkRequirement: () =>
-      Currency.antimatter.log10().gte(260000) &&
+      Currency.antimatter.value.log10().gte(260000) &&
       Time.thisEternity.totalMinutes.lte(1) &&
       player.dilation.active,
     checkEvent: GAME_EVENT.GAME_TICK_AFTER,
@@ -1042,7 +1042,7 @@ export const normalAchievements = [
     checkRequirement: () =>
       player.timestudy.studies.length === 0 &&
       player.dilation.active &&
-      Currency.infinityPoints.log10().gte(26000),
+      Currency.infinityPoints.value.log10().gte(26000),
     checkEvent: GAME_EVENT.GAME_TICK_AFTER,
     reward: "Removes the downsides from Time Study 131 and 133 in the Active and Idle Time Study paths."
   },
@@ -1210,7 +1210,7 @@ export const normalAchievements = [
     id: 161,
     name: "that's where you're wrong kiddo",
     get description() { return `Get ${formatPostBreak(DC.E1E8)} antimatter while Dilated.`; },
-    checkRequirement: () => Currency.antimatter.log10().gte(100000000) && player.dilation.active,
+    checkRequirement: () => Currency.antimatter.value.log10().gte(100000000) && player.dilation.active,
     checkEvent: GAME_EVENT.GAME_TICK_AFTER
   },
   {
@@ -1410,7 +1410,7 @@ export const normalAchievements = [
     id: 188,
     name: "The End...",
     description: "Escape the Doomed Reality.",
-    checkRequirement: () => Currency.antimatter.log10().gte(9e15) && Pelle.isDoomed,
+    checkRequirement: () => Currency.antimatter.value.log10().gte(9e15) && Pelle.isDoomed,
     checkEvent: GAME_EVENT.GAME_TICK_AFTER
   },
   {
@@ -1431,7 +1431,7 @@ export const normalAchievements = [
     id: 193,
     name: "Unstoppable",
     description: "Beat Doom in Run 2.",
-    checkRequirement: () => PlayerProgress.endgameUnlocked() && Currency.antimatter.log10().gte(9e15) && Pelle.isDoomed,
+    checkRequirement: () => PlayerProgress.endgameUnlocked() && Currency.antimatter.value.log10().gte(9e15) && Pelle.isDoomed,
     checkEvent: GAME_EVENT.GAME_TICK_AFTER,
     get reward() {
       return `Galaxies are ${formatPercents(0.1)} stronger.`;
