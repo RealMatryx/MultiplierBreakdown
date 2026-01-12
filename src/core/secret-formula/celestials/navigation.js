@@ -1429,9 +1429,9 @@ export const celestialNavigation = {
       if (DarkMatterDimension(1).unlockUpgrade.canBeBought || Laitela.isUnlocked) return 1;
       if (MachineHandler.isIMUnlocked) {
         if (player.requirementChecks.reality.maxID1.neq(0)) return 0.5;
-        return 0.5 + 0.5 * Math.clampMax(0.999, player.antimatter.exponent / 1.5e12);
+        return 0.5 + 0.5 * Math.clampMax(0.999, player.antimatter.log10().toNumber() / 1.5e12);
       }
-      return Decimal.clampMax(0.5, Currency.realityMachines.value.pLog10().div(MachineHandler.baseRMCap.exponent)).toNumber();
+      return Decimal.clampMax(0.5, Currency.realityMachines.value.pLog10().div(MachineHandler.baseRMCap.log10())).toNumber();
     },
     drawOrder: -1,
     node: {
@@ -1920,7 +1920,7 @@ export const celestialNavigation = {
       if (MachineHandler.isIMUnlocked) {
         return 0.25 + (0.25 * Math.clampMax(0.249, imCost)) + (0.25 * nerfsLeft) + (0.25 * strikesLeft);
       }
-      return Decimal.clampMax(0.25, Currency.realityMachines.value.pLog10().div(MachineHandler.baseRMCap.exponent)).toNumber();
+      return Decimal.clampMax(0.25, Currency.realityMachines.value.pLog10().div(MachineHandler.baseRMCap.log10())).toNumber();
     },
     node: {
       clickAction: () => Tab.endgame.show(true),
