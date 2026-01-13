@@ -60,7 +60,7 @@ export const normalTimeStudies = [
     formatEffect: value => {
       const oldVal = Decimal.pow(Decimal.log2(Replicanti.amount.clampMin(1)), 2);
       const newVal = oldVal.plus(value);
-      return formatX(newVal.div(oldVal).clampMin(1), 2, 2);
+      return formatX(newVal.div(oldVal.clampMin(1)), 2, 2);
     }
   },
   {
