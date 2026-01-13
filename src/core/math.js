@@ -439,8 +439,8 @@ window.ExponentialCostScaling = class ExponentialCostScaling {
   }
 
   updateCostScale() {
-    this._precalcDiscriminant = Math.pow((2 * this._logBaseIncrease + this._logCostScale), 2) -
-      8 * this._logCostScale * (this._purchasesBeforeScaling * this._logBaseIncrease + this._logBaseCost);
+    this._precalcDiscriminant = Decimal.pow((2 * this._logBaseIncrease + this._logCostScale), 2).sub(
+      DC.D8.times(this._logCostScale).times(new Decimal(this._purchasesBeforeScaling).times(this._logBaseIncrease).add(this._logBaseCost))).toNumber();
     this._precalcCenter = -this._logBaseIncrease / this._logCostScale + this._purchasesBeforeScaling + 0.5;
   }
 
@@ -453,8 +453,8 @@ window.ExponentialCostScaling = class ExponentialCostScaling {
     const logBase = this._logBaseCost;
     const excess = currentPurchases - this._purchasesBeforeScaling;
     const logCost = excess > 0
-      ? currentPurchases * logMult + logBase + 0.5 * excess * (excess + 1) * this._logCostScale
-      : currentPurchases * logMult + logBase;
+      ? new Decimal(currentPurchases).times(logMult).add(logBase).add(0.5 * excess * (excess + 1) * this._logCostScale)
+      : new Decimal(currentPurchases).times(logMult).add(logBase);
     return DC.E1.pow(logCost);
   }
 
@@ -501,7 +501,7 @@ window.ExponentialCostScaling = class ExponentialCostScaling {
     const logMult = this._logBaseIncrease;
     const logBase = this._logBaseCost;
     // The 1 + is because the multiplier isn't applied to the first purchase
-    let newPurchases = Math.floor(1 + (logMoney - logBase) / logMult);
+    let newPurchases = Decimal.floor((new Decimal(logMoney).sub(logBase)).div(logMult).add(1)).toNumber();
     // We can use the linear method up to one purchase past the threshold, because the first purchase
     // past the threshold doesn't have cost scaling in it yet.
     if (newPurchases > this._purchasesBeforeScaling) {
@@ -517,10 +517,10 @@ window.ExponentialCostScaling = class ExponentialCostScaling {
     // case:
     let logPrice;
     if (newPurchases <= this._purchasesBeforeScaling + 1) {
-      logPrice = (newPurchases - 1) * logMult + logBase;
+      logPrice = new Decimal(newPurchases - 1).times(logMult).add(logBase).toNumber();
     } else {
       const pExcess = newPurchases - this._purchasesBeforeScaling;
-      logPrice = (newPurchases - 1) * logMult + logBase + 0.5 * pExcess * (pExcess - 1) * this._logCostScale;
+      logPrice = new Decimal(newPurchases - 1).times(logMult).add(logBase).add(0.5 * pExcess * (pExcess - 1) * this._logCostScale).toNumber();
     }
     return { quantity: newPurchases - currentPurchases, logPrice: logPrice + Math.log10(numberPerSet) };
   }
@@ -598,7 +598,7 @@ window.ExponentialCostScaling = class ExponentialCostScaling {
     const logMult = this._logBaseIncrease;
     const logBase = this._logBaseCost;
     // The 1 + is because the multiplier isn't applied to the first purchase
-    let contValue = 1 + (logMoney - logBase) / logMult;
+    let contValue = new Decimal(logMoney).sub(logBase).div(logMult).add(1).toNumber();
     // We can use the linear method up to one purchase past the threshold, because the first purchase
     // past the threshold doesn't have cost scaling in it yet.
     if (contValue > this._purchasesBeforeScaling) {
