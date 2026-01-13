@@ -406,7 +406,7 @@ window.ExponentialCostScaling = class ExponentialCostScaling {
     if (typeof this._baseIncrease !== "number") throw new Error("baseIncrease must be a number");
     this._costScale = param.costScale;
     if (typeof this._costScale !== "number") throw new Error("costScale must be a number");
-    this._logBaseCost = ExponentialCostScaling.log10(param.baseCost);
+    this._logBaseCost = new Decimal(ExponentialCostScaling.log10(param.baseCost));
     this._logBaseIncrease = ExponentialCostScaling.log10(param.baseIncrease);
     this._logCostScale = ExponentialCostScaling.log10(param.costScale);
     if (param.purchasesBeforeScaling !== undefined) {
