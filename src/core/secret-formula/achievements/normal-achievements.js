@@ -13,7 +13,7 @@ export const normalAchievements = [
     description: "Buy a 2nd Antimatter Dimension.",
     checkEvent: GAME_EVENT.ACHIEVEMENT_EVENT_OTHER,
     get reward() { return `Multiply the 2nd Antimatter Dimension by the Antimatter Exponent.`; },
-    effect: () => Currency.antimatter.value.log10()
+    effect: () => Currency.antimatter.value.add(1).log10()
   },
   {
     id: 13,
@@ -538,7 +538,7 @@ export const normalAchievements = [
     get reward() {
       return `All Infinity Dimensions are stronger based on Infinity Points.`;
     },
-    effect: () => Currency.infinityPoints.value.log10()
+    effect: () => Currency.infinityPoints.value.add(1).log10()
   },
   {
     id: 78,
