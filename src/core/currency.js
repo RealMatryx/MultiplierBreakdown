@@ -122,6 +122,7 @@ export class Currency {
   }
 
   subtract(amount) {
+    if (new Decimal(amount).gte(DC.E9E15)) return;
     this.value = this.operations.max(this.operations.subtract(this.value, amount), 0);
   }
 
