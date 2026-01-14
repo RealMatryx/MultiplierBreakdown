@@ -1,5 +1,7 @@
 import { sha512_256 } from "js-sha512";
 
+import { Player } from "./player";
+
 import FullScreenAnimationHandler from "./full-screen-animation-handler";
 
 /* eslint-disable no-console */
@@ -526,4 +528,37 @@ dev.forceCloudSave = async function() {
 // TODO Figure out if we want to remove this before release
 dev.unlockAllCosmeticSets = function() {
   player.reality.glyphs.cosmetics.unlockedFromNG = Object.keys(GameDatabase.reality.glyphCosmeticSets);
+};
+
+function nanFuckIteration(value, value2) {
+  for (const item in value) {
+    console.log(value[item]);
+    console.log(value2[item]);
+    if (value[item] instanceof Decimal && value2[item] !== undefined) {
+      if (value2[item].neq(0)) {
+        if (value[item].lt(0) || value[item].layer > 8e15)
+          value[item] = value2[item];
+      } else if (value[item].layer > 8e15)
+        value[item] = value2[item];
+    }
+    if (value[item] instanceof Number && value2[item] !== undefined) {
+      if (value2[item] === 0) {
+        if (value[item] > 1e300) {
+          value[item] = value2[item];
+        }
+      } else if (value[item] > 1e300 || value[item] < 0);
+      value[item] = value2[item];
+    }
+    if ((value[item] instanceof Object || value[item] instanceof Array) &&
+      !(value[item] instanceof Decimal) && value2[item] !== undefined)
+      value[item] = dev.beTests.nanFuckIteration(value[item], value2[item]);
+    if (value[item] === undefined && value2[item] !== undefined)
+      value[item] = value2[item];
+  }
+  return value;
+};
+
+dev.nanFuck = function() {
+  player = nanFuckIteration(player, Player.defaultStart);
+  GameStorage.save();
 };
