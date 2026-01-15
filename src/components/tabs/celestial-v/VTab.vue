@@ -134,7 +134,7 @@ export default {
         : format(Decimal.pow10(hex.reduction));
     },
     showRecord(hex) {
-      return this.runRecords[hex.id] > 0 || hex.completions > 0;
+      return this.runRecords[hex.id].gt(0) || hex.completions > 0;
     },
     reduceGoals(hex) {
       if (!Currency.perkPoints.purchase(hex.reductionCost)) return;
