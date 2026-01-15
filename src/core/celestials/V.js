@@ -236,7 +236,7 @@ export const V = {
       goalReductionSteps: [0, 0, 0, 0, 0, 0, 0, 0, 0],
       STSpent: 0,
       runGlyphs: [[], [], [], [], [], [], [], [], []],
-      runRecords: [-10, 0, 0, 0, 0, 0, 0, 0, 0],
+      runRecords: [DC.E1.neg(), DC.D0, DC.D0, DC.D0, DC.D0, DC.D0, DC.D0, DC.D0, DC.D0],
     };
     this.spaceTheorems = 0;
   },
