@@ -110,7 +110,7 @@ get increaseWithMult() {
   }
 
   tick() {
-    if (this.willEndgame) Endgame.newEndgame();
+    if (this.willEndgame && isEndgameAvailable()) Endgame.newEndgame();
   }
 
   reset() {
