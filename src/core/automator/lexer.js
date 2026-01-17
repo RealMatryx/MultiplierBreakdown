@@ -264,9 +264,14 @@ createInCategory(PrestigeEvent, "Reality", /reality/i, {
     player.reality.respec = true;
   },
 });
+createInCategory(PrestigeEvent, "Doom", /doom/i, {
+  $prestigeAvailable: () => Pelle.isUnlocked,
+  $prestigeLevel: 4,
+  $prestige: () => Pelle.initializeRun(),
+});
 createInCategory(PrestigeEvent, "Armageddon", /armageddon/i, {
   $prestigeAvailable: () => Pelle.canArmageddon,
-  $prestigeLevel: 4,
+  $prestigeLevel: 5,
   $prestigeCurrency: "RS",
   $prestige: () => Pelle.armageddon(true),
 });
