@@ -1107,25 +1107,25 @@ function updateTachyonGalaxies() {
 
 export function getTTPerSecond() {
   // All TT multipliers (note that this is equal to 1 pre-Ra)
-  let ttMult = Effects.product(
+  let ttMult = new Decimal(Effects.product(
     Ra.unlocks.continuousTTBoost.effects.ttGen,
-    Ra.unlocks.achievementTTMult,
     Achievement(137),
     Achievement(156),
-  );
-  if (GlyphAlteration.isAdded("dilation")) ttMult *= getSecondaryGlyphEffect("dilationTTgen");
+  ));
+  ttMult = ttMult.timesEffectOf(Ra.unlocks.achievementTTMult);
+  if (GlyphAlteration.isAdded("dilation")) ttMult = ttMult.times(getSecondaryGlyphEffect("dilationTTgen"));
 
-  let pelleTTMult = 1;
-  if (PelleCelestialUpgrade.raV3.isBought) pelleTTMult *= Effects.product(Ra.unlocks.continuousTTBoost.effects.ttGen);
-  if (PelleCelestialUpgrade.raV4.isBought) pelleTTMult *= Effects.product(Ra.unlocks.achievementTTMult);
-  if (PelleAchievementUpgrade.achievement137.isBought) pelleTTMult *= Effects.product(Achievement(137));
-  if (PelleAchievementUpgrade.achievement156.isBought) pelleTTMult *= Effects.product(Achievement(156));
-  if (PelleCelestialUpgrade.raTeresa3.isBought) pelleTTMult *= getSecondaryGlyphEffect("dilationTTgen");
+  let pelleTTMult = DC.D1;
+  if (PelleCelestialUpgrade.raV3.isBought) pelleTTMult = pelleTTMult.times(Effects.product(Ra.unlocks.continuousTTBoost.effects.ttGen));
+  if (PelleCelestialUpgrade.raV4.isBought) pelleTTMult = pelleTTMult.timesEffectOf(Ra.unlocks.achievementTTMult);
+  if (PelleAchievementUpgrade.achievement137.isBought) pelleTTMult = pelleTTMult.times(Effects.product(Achievement(137)));
+  if (PelleAchievementUpgrade.achievement156.isBought) pelleTTMult = pelleTTMult.times(Effects.product(Achievement(156)));
+  if (PelleCelestialUpgrade.raTeresa3.isBought) pelleTTMult = pelleTTMult.times(getSecondaryGlyphEffect("dilationTTgen"));
 
   // Glyph TT generation
   const glyphTT = Teresa.isRunning || Enslaved.isRunning || (Pelle.isDoomed && !PelleDestructionUpgrade.destroyedGlyphEffects.isBought)
-    ? 0
-    : getAdjustedGlyphEffect("dilationTTgen") * (Pelle.isDoomed ? pelleTTMult : ttMult);
+    ? DC.D0
+    : new Decimal(getAdjustedGlyphEffect("dilationTTgen")).times(Pelle.isDoomed ? pelleTTMult : ttMult);
 
   // Dilation TT generation
   const dilationTT = DilationUpgrade.ttGenerator.isBought
