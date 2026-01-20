@@ -829,6 +829,10 @@ export function gameLoop(passedDiff, options = {}) {
   if (GalacticPower.isUnlocked) {
     Currency.galacticPower.add(getGalacticPowerGainPerSecond().times(realDiff).div(1000));
   }
+
+  if (Ethereal.isUnlocked) {
+    Currency.etherealPower.add(getEtherealPowerGainPerSecond().times(realDiff).div(1000));
+  }
   
   player.records.bestAntimatterExponentOutsideDoom = Decimal.max(Decimal.log10(
     Decimal.max(player.records.totalAntimatterOutsideDoom, 1)), player.records.bestAntimatterExponentOutsideDoom).toNumber();
@@ -851,6 +855,7 @@ export function gameLoop(passedDiff, options = {}) {
   Pelle.gameLoop(realDiff);
   GalaxyGenerator.loop(realDiff);
   GameEnd.gameLoop(realDiff);
+  tryAdvanceSector();
 
   if (!Enslaved.canAmplify) {
     Enslaved.boostReality = false;

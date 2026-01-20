@@ -1490,6 +1490,11 @@ export const normalAchievements = [
     name: "...But Not Forgotten",
     get description() { return `Reach ${format(DC.NUMMAX, 1, 0)} Imaginary Machines.` },
     checkRequirement: () => Currency.imaginaryMachines.value.gte(DC.NUMMAX),
-    checkEvent: GAME_EVENT.GAME_TICK_AFTER
+    checkEvent: GAME_EVENT.GAME_TICK_AFTER,
+    get reward() {
+      return `Gain a small multiplier to the Celestial Matter Conversion Exponent based on unnerfed Celestial Matter.`;
+    },
+    effect: () => Decimal.pow(Decimal.log10(Currency.unnerfedCelestialMatter.value.add(1).log10().add(1)).add(1), 0.1).toNumber(),
+    formatEffect: value => `${formatX(value, 2, 3)}`
   },
 ];

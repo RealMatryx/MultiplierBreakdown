@@ -3,7 +3,7 @@ import { DimensionState } from "./dimension";
 export function celestialDimensionCommonMultiplier() {
   let mult = DC.D1;
   mult = mult.timesEffectsOf(EndgameUpgrade(11));
-  
+  mult = mult.times(Ethereal.sectorBoost);
   return mult;
 }
 
@@ -206,7 +206,7 @@ export const CelestialDimensions = {
   all: CelestialDimension.index.compact(),
   HARDCAP_PURCHASES: DC.C2P1024,
   get SOFTCAP() {
-    return DC.E100.timesEffectsOf(EndgameMastery(94), EndgameUpgrade(5));
+    return DC.E100.timesEffectsOf(EndgameMastery(94), EndgameUpgrade(5)).times(Ethereal.sectorBoost);
   },
 
   get softcapPow() {
@@ -277,6 +277,7 @@ export const CelestialDimensions = {
     if (Pelle.isDoomed) base /= 10;
     let exponent = 1;
     if (base > 1) exponent *= Effects.product(EndgameMastery(104), Ra.unlocks.celestialDimensionConversionPower);
+    base *= Effects.product(Achievement(198));
     return Math.pow(base, exponent);
   }
 };

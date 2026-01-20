@@ -902,6 +902,10 @@ window.player = {
       areUnlocked: false,
       boughtPacks: new Set()
     },
+    ethereal: {
+      power: DC.D0,
+      sector: 1
+    },
   },
   endgameMasteries: {
     skills: DC.D0,
